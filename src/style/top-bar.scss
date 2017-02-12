@@ -1,0 +1,247 @@
+@import "variables";
+
+
+
+.top-bar {
+	width: 100%;
+	height: 70px;
+	overflow: hidden;
+
+	position: fixed;
+	top: 0;
+	
+	box-shadow: none;
+	
+	transition: all $time2;
+	
+	@media (max-width: $breakpointMobile) {
+		height: 0;
+	}
+	
+	@media (max-width: $breakpointSmall) {
+		font-size: 0.9em;
+	}
+	
+	&--in {
+		box-shadow: 0 0 15px color(black a(35%));
+		
+		& .top-bar__tab {
+			color: $blue2;
+			text-shadow: none;
+		}
+		
+		& .top-bar__bg {
+			background: $whiteE;
+		}
+		
+		& .top-bar__logo, & .top-bar__line {
+			opacity: 1;
+		}
+	}
+	
+	&--in2 {
+		& .top-bar__bg {
+			transition: unset;
+		}
+	}
+	
+	&--open {
+		height: 430px;
+	}
+
+	&__menu {
+		max-width: $breakpointBig;
+		margin: 0 auto;
+		padding: 0;
+
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		
+		@media (max-width: $breakpointMobile) {
+			flex-flow: column nowrap;
+		}
+	}
+
+	&__tab-container {
+		list-style: none;
+		
+		transition: all 0.5s ease-out;
+		
+		opacity: 0;
+		transform: translate3d(0, -50px, 0);
+		
+		@media (max-width: $breakpointMobile) {
+			width: 100%;
+		}
+		
+		&--in {
+			opacity: 1;
+			transform: translate3d(0, 0, 0);
+		}
+		
+		&--in1 {
+			transition-delay: 0s;
+		}
+		
+		&--in2 {
+			transition-delay: 0.2s;
+		}
+		
+		&--in3 {
+			transition-delay: 0.4s;
+		}
+		
+		&--in4 {
+			transition-delay: 0.6s;
+		}
+		
+		&--in5 {
+			transition-delay: 0.8s;
+		}
+		
+		&--in6 {
+			transition-delay: 1s;
+		}
+	}
+
+	&__tab {
+		height: 70px;
+		padding: 0 1.4vw;
+
+		display: flex;
+		justify-content: center;
+		align-items: center;
+
+		color: white;
+		font-family: Roboto Slab, serif;
+		font-weight: 700;
+		text-align: center;
+		text-transform: uppercase;
+		
+		transition: all 0.5s;
+		
+		@media (max-width: $breakpointMobile) {
+			width: 100%;
+			height: 60px;
+			color: $blue2;
+		}
+		
+		&:hover {
+			text-shadow: 0 0 1.5em $color6;
+		}
+	
+		&--m {
+			@media (max-width: $breakpointMobile) {
+				height: 70px;
+			}
+		}
+	}
+
+	&__logo {
+		height: 40px;
+		margin-top: 4px;
+		
+		filter: drop-shadow(0 0 8px white);
+		
+		transition: all $time2;
+		
+		opacity: 0;
+		
+		@media (max-width: $breakpointMobile) {
+			opacity: 1;
+		}
+	}
+
+	&__bg {
+		width: 100%;
+		height: 100%;
+
+		position: absolute;
+		top: 0;
+		
+		opacity: 1;
+		
+		transition: all $time2;
+		
+		@media (max-width: $breakpointMobile) {
+			background-color: white;
+		}
+	}
+
+	&__three-bars {
+		width: 40px;
+		height: @width;
+		margin: 16px;
+		
+		position: fixed;
+		top: 0;
+		right: 0;
+		
+		@media (min-width: $breakpointMobile) {
+			display: none;
+		}
+		
+		&:active {
+			filter: drop-shadow(0 0 1vw $color4);
+		}
+	}
+
+	&__three-bars-close {
+		width: 100%;
+		height: @width;
+		
+		display: none;
+		position: fixed;
+		top: 0;
+		right: 0;
+	
+		&--in {
+			display: block;
+		}
+	}
+
+	&__line {
+		width: 50px;
+		height: 5px;
+
+		position: absolute;
+		top: 65px;
+		
+		background: $blue2;
+		opacity: 0;
+		
+		transition: all $time2;
+		
+		@media (max-width: $breakpointMobile) {
+			display: none;
+		}
+		
+		&::before {
+			content: "";
+			
+			width: 100%;
+			height: 70px;
+			margin: 0 auto;
+			
+			display: block;
+			
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			
+			background:
+				radial-gradient(
+					ellipse farthest-corner at 50% 100%,
+					color($color5 a(15%)) 0%,
+					transparent 60%
+				) center 0 / 100% 100% no-repeat;
+		}
+	}
+}

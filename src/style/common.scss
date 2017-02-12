@@ -1,0 +1,345 @@
+@import "variables";
+
+
+
+* {
+	box-sizing: border-box;
+	
+	/* Chrome adds its own blue outline on buttons when focus */
+	&:focus {
+		outline: none;
+	}
+}
+
+html {
+	width: 100%;
+	height: 100%;
+	overflow-y: scroll;
+	overflow-x: hidden;
+	
+	/* http://stackoverflow.com/questions/14270084/overflow-xhidden-doesnt-prevent-content-from-overflowing-in-mobile-browsers */
+	/* position: fixed; */
+	
+	background: black;
+	
+	color: white;
+	font-family: Open Sans, sans-serif;
+}
+
+body {
+	height: 100%;
+	margin: 0;
+}
+
+p {
+	margin: 0;
+}
+
+a {
+	color: $color6;
+	font-weight: 800;
+	text-decoration: none;
+	
+	&:hover {
+		text-shadow: 0 0 0.5vw $color6;
+	}
+}
+
+button {
+	padding: 0;
+	border: inherit;
+	cursor: pointer;
+	font-family: inherit;
+	text-align: center;
+}
+
+
+
+
+
+.b {
+	font-weight: 800;
+}
+
+.dropcap::first-letter {
+	float: left;
+	margin: 0.2em 0.2em 0 0;
+	font-size: 3.6em;
+}
+
+
+
+
+
+.text1 {
+	font-family: Open Sans, serif;
+	font-weight: 300;
+	font-size: 1.1vw;
+	line-height: 1.7em;
+	
+	@media (max-width: $breakpointMobile) {
+		font-size: 4vw;
+	}
+	
+	@media (min-width: $breakpointBig) {
+		font-size: 1.38em;
+	}
+}
+
+.text2 {
+	padding: 0 6% 0 3.5%;
+	position: relative;
+	
+	color: $color4;
+	font-family: Open Sans, sans-serif;
+	font-size: 1.7vw;
+	font-weight: 900;
+	line-height: 1.2em;
+	
+	text-shadow: 0 0 1.5vw $color4;
+	
+	@media (max-width: $breakpointMobile) {
+		font-size: 6vw;
+		padding: 4vw 0 2vw;
+	}
+	
+	@media (min-width: $breakpointBig) {
+		font-size: 1.6em;
+	}
+	
+	&::before {
+		content: "‒";
+		
+		position: absolute;
+		top: 0;
+		left: 0;
+		
+		color: white;
+		
+		@media (max-width: $breakpointMobile) {
+			content: none;
+		}
+	}
+}
+
+.text3 {
+	color: $color4;
+	font-family: Open Sans, sans-serif;
+	font-size: 1.7vw;
+	font-weight: 900;
+	line-height: 1.2em;
+	
+	@media (max-width: $breakpointMobile) {
+		font-size: 6vw;
+	}
+	
+	@media (min-width: $breakpointBig) {
+		font-size: 1.6em;
+	}
+}
+
+.text4 {
+	padding-bottom: 1vw;
+	
+	border-bottom: $color4 dashed 0.15vw;
+	
+	color: $color4b;
+	font-family: Open Sans, sans-serif;
+	font-size: 3.3vw;
+	font-weight: 900;
+	line-height: 1.2em;
+	
+	text-shadow: 0 0 2.5vw $color4;
+	
+	@media (max-width: $breakpointMobile) {
+		margin-bottom: 5vw;
+		padding-bottom: 5vw;
+		font-size: 11vw;
+	}
+	
+	@media (min-width: $breakpointBig) {
+		font-size: 3em;
+	}
+}
+
+
+
+
+
+.title {
+	width: 40%;
+	margin: auto;
+	padding: 9% 0 4%;
+	
+	font-family: Roboto Slab, serif;
+	text-align: center;
+	
+	@media (max-width: $breakpointMedium) {
+		padding-top: 11%;
+	}
+	
+	@media (max-width: $breakpointMobile) {
+		width: auto;
+		margin: auto 10vw;
+		padding-top: 18vw;
+	}
+
+	&__main {
+		margin: 0;
+
+		font-weight: 700;
+		font-size: 4vw;
+		text-transform: uppercase;
+		line-height: 1em;
+		
+		cursor: default;
+		
+		@media (max-width: $breakpointMobile) {
+			margin: 0 0 5vw;
+			font-size: 10vw;
+		}
+		
+		@media (min-width: $breakpointBig) {
+			font-size: 5em;
+		}
+	}
+
+	&__explanation {
+		margin: 4.5% 0;
+		padding-top: 4.5%;
+		
+		border-top: 4px solid $color4;
+		
+		font-size: 1.2vw;
+		font-weight: 300;
+		
+		@media (max-width: $breakpointMobile) {
+			font-size: 4.5vw;
+		}
+		
+		@media (min-width: $breakpointBig) {
+			font-size: 1.5em;
+		}
+		
+		&--the-board {
+			margin: 10% 0;
+			padding-top: 10%;
+		}
+	}
+}
+
+
+
+
+
+.skrollr-deck {
+	width: 100%;
+	max-width: $breakpointBig;
+	margin: 0 auto;
+	
+	left: 0;
+	right: 0;
+	
+	overflow: hidden;
+	
+	position: fixed;
+	top: 0;
+	
+	box-shadow: 0 0 3vw black;
+}
+
+.darkener {
+	width: 100%;
+	height: 100vh;
+	
+	position: fixed;
+	top: 0;
+	
+	background-color: color(black a(95%));
+	
+	pointer-events: none;
+}
+
+.darkener-main {
+	width: 100%;
+	height: 100%;
+	
+	position: fixed;
+	top: 0;
+	
+	background-color: black;
+	
+	pointer-events: none;
+	
+	transition: all 0.5s;
+	
+	opacity: 1;
+}
+
+
+
+
+
+.columns {
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-start;
+
+	&__w66 {
+		flex: 0 0 66%;
+	}
+	
+	@media (max-width: $breakpointMobile) {
+		flex-flow: column nowrap;
+	}
+}
+
+
+
+
+
+.bg1 {
+	background:
+		url('img/header.png') 0 65px / 100% 600px no-repeat,
+		radial-gradient(
+			ellipse farthest-corner at 50% 0,
+			$color1 10%,
+			$color2 60%
+		) center 60px / 400% 100% no-repeat;
+	box-shadow: 0 0 15px color(black a(50%));
+	
+	@media (max-width: $breakpointMobile) {
+		background:
+			url('img/header.png') center top / 100% 600px no-repeat,
+			radial-gradient(
+				ellipse farthest-corner at 50% 0,
+				$color1 10%,
+				$color2 60%
+			) center top / 400% 100% no-repeat;
+	}
+}
+
+
+
+
+
+.body {	
+	&--in {
+		& .darkener-main {
+			opacity: 0;
+		}
+		
+		& .intro__logo {
+			opacity: 1;
+			transform: scale3d(1, 1, 1);
+		}
+		
+		& .intro__text {
+			opacity: 1;
+		}
+		
+		& .intro__arrow-down {
+			opacity: 1;
+		}
+	}
+}
