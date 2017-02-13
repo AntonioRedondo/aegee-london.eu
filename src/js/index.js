@@ -222,8 +222,19 @@ function init() {
 		});
 	} else {
 		// loads the intro video if on desktop
-		o.gc("intro__video").src = "http://www.youtube.com/embed/7x8BCbo45qA?controls=0&enablejsapi=1&showinfo=0&rel=0&iv_load_policy=3&disablekb=1&origin=http://localhost:3000";
+		o.gc("intro__video").src = "//www.youtube.com/embed/7x8BCbo45qA?controls=0&enablejsapi=1&showinfo=0&rel=0&iv_load_policy=3&disablekb=1&origin=https://antonioredondo.github.io";
 	}
+	
+	
+	
+	// https://developers.google.com/analytics/devguides/collection/analyticsjs/sending-hits
+	o.qs("a.top-bar__tab[href='#intro']").addEventListener("click", function() { ga("send", "event", "Top bar link", "click", "intro"); });
+	o.qs("a.top-bar__tab[href='#who-we-are']").addEventListener("click", function() { ga("send", "event", "Top bar link", "click", "who-we-are"); });
+	o.qs("a.top-bar__tab[href='#activities']").addEventListener("click", function() { ga("send", "event", "Top bar link", "click", "activities"); });
+	o.qs("a.top-bar__tab[href='#the-board']").addEventListener("click", function() { ga("send", "event", "Top bar link", "click", "the-board"); });
+	o.qs("a.top-bar__tab[href='#join-us']").addEventListener("click", function() { ga("send", "event", "Top bar link", "click", "join-us"); });
+	o.qs("a.top-bar__tab[href='#faq']").addEventListener("click", function() { ga("send", "event", "Top bar link", "click", "faq"); });
+	o.qs("a.top-bar__tab[href='#contact']").addEventListener("click", function() { ga("send", "event", "Top bar link", "click", "contact"); });
 	
 	
 	
