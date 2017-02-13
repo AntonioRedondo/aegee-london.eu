@@ -171,7 +171,6 @@
 
 .who-we-are {
 	background:
-		url('img/europe.svg') right 60px / 50% no-repeat,
 		url('img/header.png') 0 60px / 100% 600px no-repeat,
 		radial-gradient(
 			ellipse farthest-corner at 50% 0,
@@ -183,13 +182,26 @@
 	
 	@media (max-width: $breakpointMobile) {
 		background:
-			url('img/europe.svg') right 0 / 90% no-repeat,
 			url('img/header.png') top / 100% 400px no-repeat,
 			radial-gradient(
 				ellipse farthest-corner at 50% 0,
 				$color1 10%,
 				$color2 60%
 			) center 0 / 400% 100% no-repeat;
+	}
+	
+	&__europe-img {
+		width: 50%;
+		height: 30%;
+		
+		position: absolute;
+		top: 60px;
+		right: 0;
+		
+		@media (max-width: $breakpointMobile) {
+			width: 90%;
+			top: 0;
+		}
 	}
 	
 	&__fb-iframe {
@@ -219,11 +231,11 @@
 	&__fb-iframe {
 		width: 500px;
 		height: 560px;
-		
 		margin: 3.5vw auto 3vw;
 		
 		display: block;
 		
+		background-color: $color7;
 		border: 0;
 		
 		@media (max-width: $breakpointMobile) {
@@ -239,7 +251,7 @@
 		
 		position: absolute;
 		top: 90px;
-		right: 1%;
+		right: 1.5%;
 		
 		text-align: right;
 		font-size: 0.85vw;
@@ -287,11 +299,15 @@
 	&__portrait-containter {
 		width: 25%;
 		height: 100%;
+		
 		overflow: hidden;
 		position: relative;
 		
+		background-color: black;
+		
 		@media (max-width: $breakpointMobile) {
 			width: 100%;
+			min-height: 400px;
 		}
 
 		&:hover .the-board__portrait {
