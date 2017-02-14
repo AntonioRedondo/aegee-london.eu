@@ -68,8 +68,14 @@
 .Mstart\(4vw\) {
   margin-left: 4vw;
 }
+.Mih\(500px\) {
+  min-height: 500px;
+}
 .Op\(1\) {
   opacity: 1;
+}
+.Ov\(h\) {
+  overflow: hidden;
 }
 .Py\(1vw\), .Pt\(1vw\) {
   padding-top: 1vw;
@@ -150,8 +156,8 @@
   .Or\(1\)--mo {
     order: 1;
   }
-  .H\(230vh\)--mo {
-    height: 230vh;
+  .H\(a\)--mo {
+    height: auto;
   }
   .M\(10\%\)--mo {
     margin: 10%;
