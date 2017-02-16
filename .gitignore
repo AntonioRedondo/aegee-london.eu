@@ -6,4 +6,5 @@ build
 other
 src/style.css
 src/app.js
+src/style/_atoms.scss
 .idea
