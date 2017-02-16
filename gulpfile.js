@@ -29,7 +29,7 @@ const cssMin = require("gulp-clean-css");
 
 
 const src = "src";
-const dest = "dist";
+const dest = "docs";
 
 
 
@@ -37,7 +37,6 @@ const dest = "dist";
 gulp.task("default", ["watch"]);
 gulp.task("lint", ["jsHint", "htmlLint", "cssLint"]);
 gulp.task("build", ["buildJs", /*"buildHtml", */"buildCss", "copyAssets"]);
-// gulp.task("min", ["build", "allMin"]); // This needs to be synchronous. Waiting for Gulp 4. Using "run-sequence" module in the meanwhile. Check "min" task at the bottom.
 
 
 
@@ -125,13 +124,6 @@ gulp.task("buildJs", () => {
 
 gulp.task("buildHtml", () => {
 	return gulp.src([`${src}/index.htm`])
-		.pipe(inline({
-			base: `${dest}`, // Doesn't work. Value ignored.
-			// js: () => jsMin({mangle: true}),
-			// css: cssMin,
-			disabledTypes: ["img", "js", "css"/*, "svg"*/],
-			// ignore: [""]
-		}))
 		.pipe(gulp.dest(`${dest}`))
 		.pipe(atomizer({
 			outfile: "_atoms.scss",
@@ -144,14 +136,14 @@ gulp.task("buildHtml", () => {
 				}
 			}
 		}))
-		.pipe(gulp.dest(`${src}/style`));
+		.pipe(gulp.dest(`temp`));
 });
 
 gulp.task("buildCss", function () {
     runSequence("buildHtml", () => { // runs sequentially because atomizer()
 		return gulp.src([
 				`${src}/style/*.scss`,
-				`${src}/style/_atoms.scss`
+				`temp/_atoms.scss`
 			])
 			.pipe(sourcemaps.init())
 			.pipe(concat("style.css"))
@@ -191,7 +183,7 @@ gulp.task("min", () => {
 				removeRedundantAttributes: true
 			}))
 			.pipe(inline({
-				base: `${dest}`, // Doesn't work. Value ignored. You'll have to copy generated 'app.js' and 'style.css' temporarily to 'src'.
+				base: `${dest}/`, // Doesn't work. Value ignored. You'll have to copy generated 'app.js' and 'style.css' temporarily to 'src'.
 				js: () => jsMin({mangle: true}),
 				css: cssMin,
 				svg: () => htmlMin({collapseWhitespace: true,
