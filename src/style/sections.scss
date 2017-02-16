@@ -142,21 +142,25 @@
 		}
 	}
 	
-	&__arrow-down {
-		width: 7%;
-		height: @width;
-		margin: auto;
+	&__arrow-down-a {
+		width: 5%;
 		
 		position: absolute;
-		bottom: 4vh;
-		left: 0;
-		right: 0;
+		bottom: 4%;
+		left: 47.5%;
 		
 		filter: drop-shadow(0 0 1vw $color4);
 		
 		transition: opacity 3s 2s;
 		
 		opacity: 0;
+	}
+	
+	&__arrow-down {
+		width: 100%;
+		height: @width;
+		
+		display: block;
 		
 		@media (max-width: $breakpointMobile) {
 			width: 12vw;
@@ -227,6 +231,7 @@
 
 .activities {
 	background: black url('img/activities.jpg') top / 100% no-repeat;
+	box-shadow: 0 0 10vw $gray2;
 
 	&__fb-iframe {
 		width: 500px;

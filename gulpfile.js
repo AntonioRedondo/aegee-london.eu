@@ -53,7 +53,7 @@ gulp.task("clean", () => {
 gulp.task("watch", ["build"], () => {
 	// http://stackoverflow.com/questions/21608480/gulp-js-watch-task-runs-twice-when-saving-files
 	// gulp.watch([`gulpfile.js`, `${src}/**`], { awaitWriteFinish: true }, ["lint", "build"]);
-	gulp.watch([`gulpfile.js`, `${src}/**`, `!${src}/style/_atomic.scss`], ["lint", "build"]);
+	gulp.watch([`gulpfile.js`, `${src}/**`], ["lint", "build"]);
 });
 
 
@@ -114,11 +114,9 @@ gulp.task("buildJs", () => {
 			`${src}/js/o.js`,
 			`${src}/js/index.js`,
 			`!${src}/js/*.spec.js`])
-		// Remember to comment out generation of sourcemaps when running "allMin"
 		.pipe(sourcemaps.init())
 		.pipe(concat("app.js"))
 		.pipe(sourcemaps.write())
-		// .pipe(gulp.dest(`${src}`)) // Because 'base' doesn't work for 'inline' module. This file is ignored on .gitignore
 		.pipe(gulp.dest(`${dest}`));
 });
 
@@ -136,14 +134,14 @@ gulp.task("buildHtml", () => {
 				}
 			}
 		}))
-		.pipe(gulp.dest(`temp`));
+		.pipe(gulp.dest(`${src}/style`));
 });
 
 gulp.task("buildCss", function () {
     runSequence("buildHtml", () => { // runs sequentially because atomizer()
-		return gulp.src([
+		return gulp.src([,
 				`${src}/style/*.scss`,
-				`temp/_atoms.scss`
+				`${src}/style/_atoms.scss`
 			])
 			.pipe(sourcemaps.init())
 			.pipe(concat("style.css"))
@@ -183,16 +181,16 @@ gulp.task("min", () => {
 				removeRedundantAttributes: true
 			}))
 			.pipe(inline({
-				base: `${dest}/`, // Doesn't work. Value ignored. You'll have to copy generated 'app.js' and 'style.css' temporarily to 'src'.
+				base: `${dest}/`,
 				js: () => jsMin({mangle: true}),
 				css: cssMin,
 				svg: () => htmlMin({collapseWhitespace: true,
-						minifyCSS: true,
-						removeAttributeQuotes: true,
-						removeComments: true,
-						removeRedundantAttributes: true}),
-				disabledTypes: ["img"/*, "svg", "js", "css"*/],
-				// ignore: [""]
+					minifyCSS: true,
+					removeAttributeQuotes: true,
+					removeComments: true,
+					removeRedundantAttributes: true}),
+					disabledTypes: ["img"/*, "svg", "js", "css"*/],
+					// ignore: [""]
 			}))
 			.pipe(gulp.dest(`${dest}`));
 	});
