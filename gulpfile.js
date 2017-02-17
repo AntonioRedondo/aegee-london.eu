@@ -171,7 +171,7 @@ gulp.task("copyAssets", () => {
 
 gulp.task("min", () => {
 	runSequence("build", () => {
-		return gulp.src([`${src}/index.htm`])
+		return gulp.src([`${dest}/index.htm`])
 			.pipe(replace(/(<!-- buildDev:start -->)[\s\S]+(<!-- buildDev:end -->)/, "")) // Removes Dev code on Production
 			.pipe(htmlMin({
 				collapseWhitespace: true,
@@ -181,7 +181,7 @@ gulp.task("min", () => {
 				removeRedundantAttributes: true
 			}))
 			.pipe(inline({
-				base: `${dest}/`,
+				// base: `${dest}`,
 				js: () => jsMin({mangle: true}),
 				css: cssMin,
 				svg: () => htmlMin({collapseWhitespace: true,
