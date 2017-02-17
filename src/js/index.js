@@ -167,8 +167,8 @@ function init() {
 	
 	
 	
-	// loads the intro video if on desktop
-	if (window.innerWidth < breakpointMobile) {
+	// Loads the intro video if on desktop
+	if (window.innerWidth > breakpointMobile) {
 		o.gc("intro__video").src = "//www.youtube.com/embed/7x8BCbo45qA?controls=0&enablejsapi=1&showinfo=0&rel=0&iv_load_policy=3&disablekb=1&origin=http://aegee-london.eu";
 	}
 	
