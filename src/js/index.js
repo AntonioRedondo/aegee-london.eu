@@ -249,6 +249,7 @@ function init() {
 
 o.notifyWhenLoaded(".intro__header");
 o.notifyWhenLoaded(".top-bar__logo");
+o.notifyWhenLoaded(".intro__logo");
 
 WebFont.load({
 	google: {
