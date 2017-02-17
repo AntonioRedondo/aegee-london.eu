@@ -1,10 +1,8 @@
+.idea
 assets
+build
 dev
 node_modules
 npm-debug.log
-build
 other
-src/style.css
-src/app.js
 src/style/_atoms.scss
-.idea

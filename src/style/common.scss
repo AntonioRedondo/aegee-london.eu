@@ -246,6 +246,10 @@ button {
 	right: 0;
 	
 	box-shadow: 0 0 3vw black;
+	
+	@media (max-width: $breakpointMobile) {
+		filter: none !important;
+	}
 }
 
 .darkener-main {
@@ -290,12 +294,12 @@ button {
 
 .bg1 {
 	background:
-		url('img/header.png') 0 65px / 100% 600px no-repeat,
+		url('img/header.png') 0 $marginTop / 100% 600px no-repeat,
 		radial-gradient(
 			ellipse farthest-corner at 50% 0,
 			$color1 10%,
 			$color2 60%
-		) center 60px / 400% 100% no-repeat;
+		) center $marginTop / 400% 100% no-repeat;
 	box-shadow: 0 0 15px color(black a(50%));
 	
 	@media (max-width: $breakpointMobile) {

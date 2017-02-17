@@ -167,6 +167,13 @@ function init() {
 	
 	
 	
+	// loads the intro video if on desktop
+	if (window.innerWidth < breakpointMobile) {
+		o.gc("intro__video").src = "//www.youtube.com/embed/7x8BCbo45qA?controls=0&enablejsapi=1&showinfo=0&rel=0&iv_load_policy=3&disablekb=1&origin=http://aegee-london.eu";
+	}
+	
+	
+	
 	// Adds logic for 'scroll' and 'resize' events
 	var scrolled = false,
 		distance = offsetFunctions.d0/3.5,
@@ -204,26 +211,21 @@ function init() {
 	
 	
 	
-	if (window.innerWidth < breakpointMobile) {
-		// Adapts the navigation top bar for mobile screens
-		o.gca("top-bar__tab").forEach(function(i) {
-			i.addEventListener("click", function(e) {
-				o.gc("top-bar").classList.remove("top-bar--open");
-				o.gc("top-bar__three-bars-close").classList.remove("top-bar__three-bars-close--in");
-			});
-		});
-		o.gc("top-bar__three-bars").addEventListener("click", function(e) {
-			o.gc("top-bar").classList.toggle("top-bar--open");
-			o.gc("top-bar__three-bars-close").classList.add("top-bar__three-bars-close--in");
-		});
-		o.gc("top-bar__three-bars-close").addEventListener("click", function(e) {
+	// Adapts the navigation top bar for mobile screens
+	o.gca("top-bar__tab").forEach(function(i) {
+		i.addEventListener("click", function(e) {
 			o.gc("top-bar").classList.remove("top-bar--open");
 			o.gc("top-bar__three-bars-close").classList.remove("top-bar__three-bars-close--in");
 		});
-	} else {
-		// loads the intro video if on desktop
-		o.gc("intro__video").src = "//www.youtube.com/embed/7x8BCbo45qA?controls=0&enablejsapi=1&showinfo=0&rel=0&iv_load_policy=3&disablekb=1&origin=http://aegee-london.eu";
-	}
+	});
+	o.gc("top-bar__three-bars").addEventListener("click", function(e) {
+		o.gc("top-bar").classList.toggle("top-bar--open");
+		o.gc("top-bar__three-bars-close").classList.add("top-bar__three-bars-close--in");
+	});
+	o.gc("top-bar__three-bars-close").addEventListener("click", function(e) {
+		o.gc("top-bar").classList.remove("top-bar--open");
+		o.gc("top-bar__three-bars-close").classList.remove("top-bar__three-bars-close--in");
+	});
 	
 	
 	
