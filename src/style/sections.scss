@@ -533,7 +533,7 @@
 		}
 		
 		&::before {
-			content: url("img/permalink.svg");
+			content: inline("img/permalink.svg");
 			
 			width: 30px;
 			height: @width;
