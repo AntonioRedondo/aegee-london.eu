@@ -256,7 +256,7 @@
 		margin: 0;
 		
 		position: absolute;
-		top: 90px;
+		top: calc($topBarHeight + 20px);
 		right: 1.5%;
 		
 		text-align: right;

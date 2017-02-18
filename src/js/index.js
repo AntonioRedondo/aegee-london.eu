@@ -74,7 +74,7 @@ function moveLine(position) {
 
 
 function init() {
-	o.to(function() { showTopBarEntries(); }, 3000);
+	o.to(function() { showTopBarEntries(); }, 2500);
 	setBodyHeight(o.calcTotalHeight("section.skrollr-deck"));
 	moveLine();
 	
@@ -248,7 +248,6 @@ function init() {
 
 
 o.notifyWhenLoaded(".intro__header");
-o.notifyWhenLoaded(".top-bar__logo");
 o.notifyWhenLoaded(".intro__logo");
 
 WebFont.load({
