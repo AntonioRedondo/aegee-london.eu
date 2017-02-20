@@ -67,6 +67,12 @@ button {
 	font-size: 3.6em;
 }
 
+.sup {
+	vertical-align: super;
+	font-size: smaller;
+	line-height: normal;
+}
+
 
 
 
@@ -169,13 +175,13 @@ button {
 .title {
 	width: 40%;
 	margin: auto;
-	padding: 9% 0 4%;
+	padding: 8% 0 4%;
 	
 	font-family: Roboto Slab, serif;
 	text-align: center;
 	
 	@media (max-width: $breakpointMedium) {
-		padding-top: 11%;
+		padding-top: 10%;
 	}
 	
 	@media (max-width: $breakpointMobile) {
