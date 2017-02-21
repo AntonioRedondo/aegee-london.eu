@@ -266,7 +266,7 @@ WebFont.load({
 		families: ["Roboto Slab:300,700", "Open Sans:300,800"]
 	},
 	active: function() {
-		o.to(function() { o.runWhenAllLoaded(init); }, 2000);
+		o.runWhenAllLoaded(init);
 	},
 	inactive: function() {
 		window.location.reload();
