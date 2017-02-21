@@ -53,12 +53,12 @@
 	
 	
 	
-	o.calcTotalHeight = function(selector) {
+	o.calcTotalClientHeight = function(selector) {
 		var total = 0,
 			elements = [].slice.call(o.qsa(selector));
 			
 		elements.forEach(function(e) {
-			total += e.scrollHeight;
+			total += e.clientHeight;
 		});
 		
 		// console.log(total);

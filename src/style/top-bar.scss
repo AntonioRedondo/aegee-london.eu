@@ -6,6 +6,7 @@
 	width: 100%;
 	height: $topBarHeight;
 	overflow: hidden;
+	z-index: 15;
 
 	position: fixed;
 	top: 0;
@@ -180,6 +181,7 @@
 		height: @width;
 		margin: 18px;
 		
+		z-index: 15;
 		position: fixed;
 		top: 0;
 		right: 0;
@@ -197,6 +199,7 @@
 		width: 100%;
 		height: @width;
 		
+		z-index: 15;
 		display: none;
 		position: fixed;
 		top: 0;

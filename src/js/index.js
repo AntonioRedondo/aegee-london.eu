@@ -74,48 +74,54 @@ function moveLine(position) {
 
 
 function init() {
+	var breakpointMobile = 810;
+	var margin = 300;
+	var gap = -300;
+	
 	o.to(function() { showTopBarEntries(); }, 2500);
-	setBodyHeight(o.calcTotalHeight("section.skrollr-deck"));
+	setBodyHeight(o.calcTotalClientHeight("section.skrollr-deck") + margin*6);
 	moveLine();
 	
-	var breakpointMobile = 810;
 	
 	
 	
 	// Sets up Skroller
-	var gap = 300;
 	var offsetFunctions = {
-			get d0() { return o.gi("intro").scrollHeight; },
+			get d0() { return o.gi("intro").clientHeight + margin; },
 			get d0g() { return gap + this.d0; },
-			get d1() { return o.gi("who-we-are").scrollHeight + this.d0; },
+			get d1() { return o.gi("who-we-are").clientHeight + margin + this.d0; },
 			get d1g() { return gap + this.d1; },
-			get d2() { return o.gi("activities").scrollHeight + this.d1; },
+			get d2() { return o.gi("activities").clientHeight + margin + this.d1; },
 			get d2g() { return gap + this.d2; },
-			get d3() { return o.gi("the-board").scrollHeight + this.d2; },
+			get d3() { return o.gi("the-board").clientHeight + margin + this.d2; },
 			get d3g() { return gap + this.d3; },
-			get d4() { return o.gi("join-us").scrollHeight + this.d3; },
+			get d4() { return o.gi("join-us").clientHeight + margin + this.d3; },
 			get d4g() { return gap + this.d4; },
-			get d5() { return o.gi("faq").scrollHeight + this.d4; },
+			get d5() { return o.gi("faq").clientHeight + margin + this.d4; },
 			get d5g() { return gap + this.d5; },
-			get d6() { return o.gi("contact").scrollHeight + this.d5; }
+			get d6() { return o.gi("contact").clientHeight + margin + this.d5; }
 		};
 		
 	var skrollrInstance = skrollr.init({
 		smoothScrolling: false,
 		forceHeight: false,
 		constants: offsetFunctions,
+		mobileCheck: function() { return false; },
 		keyframe: function(element, name, direction) {
+			console.log("keyframe:");
+			console.log(name);
+			// console.log(name.slice(6));
 			//if (!this.isAnimatingTo()) {
 				var extra = 0;
 				if (direction === "up")
 					--extra;
 				switch (name.slice(6)) {
-					case "0": moveLine(1 + extra); break;
-					case "1": moveLine(2 + extra); break;
-					case "2": moveLine(3 + extra); break;
-					case "3": moveLine(4 + extra); break;
-					case "4": moveLine(5 + extra); break;
-					case "5": moveLine(6 + extra);
+					case "0g": moveLine(1 + extra); break;
+					case "1g": moveLine(2 + extra); break;
+					case "2g": moveLine(3 + extra); break;
+					case "3g": moveLine(4 + extra); break;
+					case "4g": moveLine(5 + extra); break;
+					case "5g": moveLine(6 + extra);
 				}
 			//}
 		}
@@ -140,8 +146,13 @@ function init() {
 			}
 			
 			var linkPosition = o.calcAbsolutePosition("#faq", "#" + linkText);
+			var offset = 600;
+			
+			if (window.innerWidth < breakpointMobile)
+				offset = 350;
+				
 			if (linkPosition)
-				return offsetFunctions.d4 + linkPosition.top - 650;
+				return offsetFunctions.d4 + linkPosition.top - offset;
 			
 			return 0;
 		}
@@ -190,8 +201,8 @@ function init() {
 	});
 	
 	o.ae("resize", function() {
-		setBodyHeight(o.calcTotalHeight("section.skrollr-deck"));
-		moveLine();
+		setBodyHeight(o.calcTotalClientHeight("section.skrollr-deck") + margin*6);
+		o.to(function() { moveLine(); }, 500);
 	});
 	
 	
@@ -255,7 +266,7 @@ WebFont.load({
 		families: ["Roboto Slab:300,700", "Open Sans:300,800"]
 	},
 	active: function() {
-		o.runWhenAllLoaded(init);
+		o.to(function() { o.runWhenAllLoaded(init); }, 2000);
 	},
 	inactive: function() {
 		window.location.reload();

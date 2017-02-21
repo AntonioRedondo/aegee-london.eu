@@ -12,8 +12,6 @@
 }
 
 html {
-	width: 100%;
-	height: 100%;
 	overflow-y: scroll;
 	overflow-x: hidden;
 	
@@ -27,7 +25,6 @@ html {
 }
 
 body {
-	height: 100%;
 	margin: 0;
 }
 
@@ -242,7 +239,7 @@ button {
 .skrollr-deck {
 	width: 100%;
 	max-width: $breakpointBig;
-	margin: 0 auto;
+	margin: 0 auto $gap;
 	
 	overflow: hidden;
 	
@@ -262,7 +259,7 @@ button {
 	width: 100%;
 	height: 100%;
 	
-	z-index: 1;
+	z-index: 20;
 	
 	position: fixed;
 	top: 0;
@@ -306,7 +303,6 @@ button {
 			$color1 10%,
 			$color2 60%
 		) center $marginTop / 400% 100% no-repeat;
-	box-shadow: 0 0 15px color(black a(50%));
 	
 	@media (max-width: $breakpointMobile) {
 		background:
@@ -323,7 +319,9 @@ button {
 
 
 
-.body {	
+.body {
+	position: relative;
+	
 	&--in {
 		& .darkener-main {
 			opacity: 0;
