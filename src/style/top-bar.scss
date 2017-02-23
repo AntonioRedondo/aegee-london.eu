@@ -27,7 +27,7 @@
 		box-shadow: 0 0 15px color(black a(35%));
 		
 		& .top-bar__tab {
-			color: $blue2;
+			color: $color2b;
 			text-shadow: none;
 		}
 		
@@ -130,7 +130,7 @@
 		@media (max-width: $breakpointMobile) {
 			width: 100%;
 			height: 60px;
-			color: $blue2;
+			color: $color2b;
 		}
 		
 		&:hover {
@@ -217,7 +217,7 @@
 		position: absolute;
 		top: calc($topBarHeight - @height);
 		
-		background: $blue2;
+		background: $color2b;
 		opacity: 0;
 		
 		transition: all $time2;

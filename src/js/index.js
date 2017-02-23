@@ -27,7 +27,15 @@ function onYouTubeIframeAPIReady() {
 					o.gc("intro__video").classList.add("intro__video--in");
 					
 					// The 'end' and 'loop' YouTube parameters didn't work
-					o.si(function() { player.seekTo(0); }, 20000);
+					var t = 0;
+					var id = o.si(function() {
+						player.seekTo(0);
+						if (t===2) {
+							player.stopVideo();
+							clearInterval(id);
+						}
+						++t;
+					}, 20000);
 				}
 			}
 		}
@@ -76,7 +84,7 @@ function moveLine(position) {
 function init() {
 	var breakpointMobile = 810;
 	var margin = 300;
-	var gap = -300;
+	var gap = -margin;
 	
 	o.to(function() { showTopBarEntries(); }, 2500);
 	setBodyHeight(o.calcTotalClientHeight("section.skrollr-deck") + margin*6);

@@ -253,6 +253,10 @@ button {
 	@media (max-width: $breakpointMobile) {
 		filter: none !important;
 	}
+	
+	@media (min-resolution: 180dpi) {
+		filter: none !important;
+	}
 }
 
 .darkener-main {
