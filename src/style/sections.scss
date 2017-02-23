@@ -335,6 +335,7 @@
 
 		&:hover .the-board__name {
 			color: white;
+			text-shadow: 0 0 1vw color(white a(90%));
 			transform: scale3d(1.3, 1.3, 1);
 		}
 
@@ -374,6 +375,7 @@
 		pointer-events: none;
 		
 		color: $color4;
+		text-shadow: 0 0 1vw color($color4 a(90%));
 		font-size: 3.5vw;
 		text-align: center;
 		text-transform: uppercase;
@@ -386,7 +388,6 @@
 			bottom: 46%;
 			color: $color4;
 			font-size: 12vw;
-			text-shadow: 0 0 2vw color($color4 a(90%));
 		}
 		
 		@media (min-width: $breakpointBig) {
