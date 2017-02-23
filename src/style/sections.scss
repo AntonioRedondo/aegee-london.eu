@@ -325,7 +325,8 @@
 		}
 
 		&:hover .the-board__portrait {
-			transform: translate3d(-50%, 0, 0) scale3d(1.2, 1.2, 1);
+			filter: saturate(1);
+			transform: translate3d(-50%, 10%, 0) scale3d(1.2, 1.2, 1);
 		}
 
 		&:hover .the-board__darkener {
@@ -333,8 +334,7 @@
 		}
 
 		&:hover .the-board__name {
-			color: $color4;
-			text-shadow: 0 0 2vw color($color4 a(90%));
+			color: white;
 			transform: scale3d(1.3, 1.3, 1);
 		}
 
@@ -351,8 +351,10 @@
 
 		position: absolute;
 		left: 50%;
+		
+		filter: saturate(0);
 		transform: translate3d(-50%, 0, 0);
-
+		
 		transition: $time2 ease-out all;
 		
 		@media (max-width: $breakpointMobile) {
@@ -362,21 +364,20 @@
 			transform: translate3d(-50%, -50%, 0);
 		}
 	}
-
+	
 	&__name {
 		width: 100%;
-
+		
 		position: absolute;
 		bottom: 38%;
-
+		
 		pointer-events: none;
-
-		color: white;
+		
+		color: $color4;
 		font-size: 3.5vw;
 		text-align: center;
 		text-transform: uppercase;
 		font-family: Roboto Slab, serif;
-		text-shadow: 0 0 2vw color(white a(90%));
 
 		transition: $time1 ease-out all;
 		transform-origin: center bottom;
@@ -392,7 +393,7 @@
 			font-size: 4.4em;
 		}
 	}
-
+	
 	&__position {
 		width: 50%;
 		margin: 0 auto 0.65vw;
