@@ -251,7 +251,9 @@ button {
 	box-shadow: 0 0 3vw black;
 	
 	@media (max-width: $breakpointMobile) {
+		margin: 0 auto $gapMobile;
 		filter: none !important;
+		transform: none !important;
 	}
 	
 	@media (min-resolution: 180dpi) {

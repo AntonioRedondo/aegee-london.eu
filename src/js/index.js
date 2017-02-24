@@ -31,7 +31,7 @@ function onYouTubeIframeAPIReady() {
 					var id = o.si(function() {
 						player.seekTo(0);
 						if (t===2) {
-							player.stopVideo();
+							player.pauseVideo();
 							clearInterval(id);
 						}
 						++t;
@@ -84,6 +84,8 @@ function moveLine(position) {
 function init() {
 	var breakpointMobile = 810;
 	var margin = 300;
+	if (window.innerWidth < breakpointMobile)
+		margin = 80;
 	var gap = -margin;
 	
 	o.to(function() { showTopBarEntries(); }, 2500);
