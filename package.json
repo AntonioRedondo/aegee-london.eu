@@ -1,15 +1,12 @@
 {
-	"name": "antonioRedondo.com",
+	"name": "AEGEE-London",
 	"author": "Antonio Redondo",
-	"homepage": "http://antonioredondo.com",
-	"description": "Antonio Redondo's window to the world",
+	"homepage": "http://aegee-london.eu",
+	"description": "AEGEE-London official websiste",
 	"version": "1.0.0",
-	"repository": "antonioredondo/antonioredondo.com-v3",
+	"repository": "antonioredondo/AEGEE-London",
 	"license": "CC-BY-NC-ND-4.0",
 	"main": "",
-	"scripts": {
-		"postinstall": ""
-	},
 	"dependencies": {
 		"webfontloader": "~1.6.26",
 		"skrollr": "~0.6.26",
