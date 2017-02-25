@@ -46,6 +46,17 @@ function onYouTubeIframeAPIReady() {
 
 
 
+function setMargin(breakpointMobile) {
+	var margin = 300;
+	if (window.innerWidth < breakpointMobile)
+		margin = 80;
+	return margin;
+}
+
+
+
+
+
 function setBodyHeight(height) {
 	document.body.style.height = height + "px";
 }
@@ -83,9 +94,7 @@ function moveLine(position) {
 
 function init() {
 	var breakpointMobile = 810;
-	var margin = 300;
-	if (window.innerWidth < breakpointMobile)
-		margin = 80;
+	var margin = setMargin(breakpointMobile);
 	var gap = -margin;
 	
 	o.to(function() { showTopBarEntries(); }, 2500);
@@ -211,6 +220,7 @@ function init() {
 	});
 	
 	o.ae("resize", function() {
+		margin = setMargin(breakpointMobile);
 		setBodyHeight(o.calcTotalClientHeight("section.skrollr-deck") + margin*6);
 		o.to(function() { moveLine(); }, 500);
 	});
