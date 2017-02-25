@@ -76,7 +76,6 @@ function moveLine(position) {
 			case "join-us":		position = 4; break;
 			case "faq":			position = 5; break;
 			case "contact":		position = 6; break;
-			default:			position = 5;
 		}
 	} else if (position === undefined) {
 		position = 0;
@@ -98,6 +97,7 @@ function init() {
 	var gap = -margin;
 	
 	o.to(function() { showTopBarEntries(); }, 2500);
+	o.to(function() { setBodyHeight(o.calcTotalClientHeight("section.skrollr-deck") + margin*6); }, 2500); // Firefox 51 needs some time to calculate the height
 	setBodyHeight(o.calcTotalClientHeight("section.skrollr-deck") + margin*6);
 	moveLine();
 	
