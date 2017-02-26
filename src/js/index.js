@@ -97,7 +97,7 @@ function init() {
 	var gap = -margin;
 	
 	o.to(function() { showTopBarEntries(); }, 2500);
-	o.to(function() { setBodyHeight(o.calcTotalClientHeight("section.skrollr-deck") + margin*6); }, 2500); // Firefox 51 needs some time to calculate the height
+	o.to(function() { setBodyHeight(o.calcTotalClientHeight("section.skrollr-deck") + margin*6); }, 2500); // Sometimes Firefox 51 needs some time to calculate the height
 	setBodyHeight(o.calcTotalClientHeight("section.skrollr-deck") + margin*6);
 	moveLine();
 	
