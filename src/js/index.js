@@ -126,8 +126,8 @@ function init() {
 		constants: offsetFunctions,
 		mobileCheck: function() { return false; },
 		keyframe: function(element, name, direction) {
-			console.log("keyframe:");
-			console.log(name);
+			// console.log("keyframe:");
+			// console.log(name);
 			// console.log(name.slice(6));
 			//if (!this.isAnimatingTo()) {
 				var extra = 0;
