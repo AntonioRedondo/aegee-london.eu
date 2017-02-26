@@ -327,6 +327,10 @@
 		&:hover .the-board__portrait {
 			filter: saturate(1);
 			transform: translate3d(-50%, 10%, 0) scale3d(1.2, 1.2, 1);
+			
+			@media (max-width: $breakpointMobile) {
+				transform: translate3d(-50%, -40%, 0) scale3d(1.2, 1.2, 1);
+			}
 		}
 
 		&:hover .the-board__darkener {
