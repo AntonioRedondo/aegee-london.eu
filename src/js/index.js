@@ -224,7 +224,7 @@ function init() {
 		o.to(function() { moveLine(); }, 500);
 	});
 	
-	o.ae("load", function() { // Sometimes Firefox 51 needs some time to calculate the height
+	o.ae("load", function() { // There are images that haven't height specified and it's only known once the image is loaded. They affect the height of the page.
 		margin = setMargin(breakpointMobile);
 		setBodyHeight(o.calcTotalClientHeight("section.skrollr-deck") + margin*6);
 		o.to(function() { moveLine(); }, 500);
