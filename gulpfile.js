@@ -36,7 +36,7 @@ const dest = "docs";
 
 gulp.task("default", ["watch"]);
 gulp.task("lint", ["jsHint", "htmlLint", "cssLint"]);
-gulp.task("build", ["buildJs", /*"buildHtml", */"buildCss", "copyAssets"]);
+gulp.task("build", ["buildJs", /*"buildHtml", */"buildCss", /*"copyAssets"*/]);
 
 
 
@@ -63,7 +63,7 @@ gulp.task("watch", ["build"], () => {
 // ---------- LINT ---------- //
 
 gulp.task("jsHint", () => {
-	return gulp.src([`${src}/js/*.js`, `!${src}/js/skrollr.decks.min.js`])
+	return gulp.src([`${src}/js/*.js`])
 		.pipe(jsHint({
 			lookup: false,
 
@@ -151,7 +151,6 @@ gulp.task("buildCss", function () {
 				assets({ loadPaths: [`${src}`] })
 			]))
 			.pipe(sourcemaps.write())
-			// .pipe(gulp.dest(`${src}`)) // Because 'base' doesn't work for 'inline' module. This file is ignored in .gitignore
 			.pipe(gulp.dest(`${dest}`));
 	});
 });
