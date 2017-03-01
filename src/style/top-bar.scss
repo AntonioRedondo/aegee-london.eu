@@ -144,7 +144,7 @@
 		}
 		
 		&--in {
-			animation: 1s 5s tada;
+			animation: 1s 6s tada;
 			
 			@at-root { @keyframes tada {
 					from {
@@ -246,7 +246,7 @@
 		position: absolute;
 		top: calc($topBarHeight - @height);
 		
-		background: $color2b;
+		background: $color2;
 		opacity: 0;
 		
 		transition: all $time2;
