@@ -50,7 +50,7 @@ gulp.task("clean", () => {
 
 
 
-gulp.task("watch", ["build"], () => {
+gulp.task("watch", ["lint", "build"], () => {
 	// http://stackoverflow.com/questions/21608480/gulp-js-watch-task-runs-twice-when-saving-files
 	// gulp.watch([`gulpfile.js`, `${src}/**`], { awaitWriteFinish: true }, ["lint", "build"]);
 	gulp.watch([`gulpfile.js`, `${src}/**`], ["lint", "build"]);
