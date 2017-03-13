@@ -112,6 +112,7 @@ gulp.task("buildJs", () => {
 			`node_modules/skrollr/dist/skrollr.min.js`,
 			`node_modules/skrollr-menu/dist/skrollr.menu.min.js`,
 			`${src}/js/o.js`,
+			`${src}/js/init.js`,
 			`${src}/js/index.js`,
 			`!${src}/js/*.spec.js`])
 		.pipe(sourcemaps.init())
