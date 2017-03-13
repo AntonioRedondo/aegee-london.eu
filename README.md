@@ -3,12 +3,12 @@
 
 This is the repository for the AEGEE-London website currently [online](http://aegee-london.eu).
 
-<img align="center" src="http://i.imgur.com/NRnmv7G.png" width="900px" height="459px" />
+<img align="center" src="https://github.com/AntonioRedondo/aegee-london.eu/raw/master/readmeImages/1.png" width="900px" height="459px" />
 
-<img align="center" src="http://i.imgur.com/tcvL4mQ.png" width="900px" height="459px" />
+<img align="center" src="https://github.com/AntonioRedondo/aegee-london.eu/raw/master/readmeImages/2.png" width="900px" height="459px" />
 
-<img align="center" src="http://i.imgur.com/DwxLGsy.png" width="900px" height="459px" />
+<img align="center" src="https://github.com/AntonioRedondo/aegee-london.eu/raw/master/readmeImages/3.png" width="900px" height="459px" />
 
-<img align="center" src="http://i.imgur.com/YeoOm6V.png" width="292px" />
-<img align="center" src="http://i.imgur.com/badnhix.png" width="292px" />
-<img align="center" src="http://i.imgur.com/0xEvuTA.png" width="292px" />
+<img align="center" src="https://github.com/AntonioRedondo/aegee-london.eu/raw/master/readmeImages/m1.png" width="292px" />
+<img align="center" src="https://github.com/AntonioRedondo/aegee-london.eu/raw/master/readmeImages/m2.png" width="292px" />
+<img align="center" src="https://github.com/AntonioRedondo/aegee-london.eu/raw/master/readmeImages/m3.png" width="292px" />
