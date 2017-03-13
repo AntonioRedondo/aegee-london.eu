@@ -197,7 +197,8 @@ function init() {
 	
 	
 	// Loads the intro video if on desktop
-	if (window.innerWidth > breakpointMobile) {
+	if (window.innerWidth > breakpointMobile &&
+			(o.getOS() === "Windows" || o.getOS() === "macOS" || o.getOS() === "Linux")) {
 		o.gc("intro__video").src = "//www.youtube.com/embed/7x8BCbo45qA?controls=0&enablejsapi=1&showinfo=0&rel=0&iv_load_policy=3&disablekb=1&origin=http://aegee-london.eu";
 	}
 	

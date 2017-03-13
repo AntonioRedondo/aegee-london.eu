@@ -180,6 +180,24 @@
 	
 	
 	
+	// http://stackoverflow.com/questions/11219582/how-to-detect-my-browser-version-and-operating-system-using-javascript
+	o.getOS = function() {
+		var os;
+		var ua = window.navigator.userAgent;
+		
+		if (ua.indexOf("Win") != -1)		os = "Windows";
+		if (ua.indexOf("Mac") != -1)		os = "macOS";
+		if (ua.indexOf("Linux") != -1)		os = "Linux";
+		if (ua.indexOf("Android") != -1)	os = "Android";
+		if (ua.indexOf("like Mac") != -1)	os = "iOS";
+
+		return os;
+	};
+	
+	
+	
+	
+	
 	o.getCookie = function(name) {
 		var nameEQ = name + "=",
 				ca = document.cookie.split(";");
