@@ -36,7 +36,7 @@ const dest = "docs";
 
 gulp.task("default", ["watch"]);
 gulp.task("lint", ["jsHint", "htmlLint", "cssLint"]);
-gulp.task("build", ["buildJs", /*"buildHtml", */"buildCss", /*"copyAssets"*/]);
+gulp.task("build", ["buildJs", /*"buildHtml", */"buildCss"/*, "copyAssets"*/]);
 
 
 
@@ -50,7 +50,7 @@ gulp.task("clean", () => {
 
 
 
-gulp.task("watch", ["lint", "build"], () => {
+gulp.task("watch", [/*"lint", */"build"], () => {
 	// http://stackoverflow.com/questions/21608480/gulp-js-watch-task-runs-twice-when-saving-files
 	// gulp.watch([`gulpfile.js`, `${src}/**`], { awaitWriteFinish: true }, ["lint", "build"]);
 	gulp.watch([`${src}/**`], ["lint", "build"]);
@@ -85,7 +85,7 @@ gulp.task("jsHint", () => {
 			node: true
 		}))
 		.pipe(jsHint.reporter("jshint-stylish"))
-		.pipe(jsHint.reporter("fail"));
+		// .pipe(jsHint.reporter("fail"));
 });
 
 gulp.task("htmlLint", () => {
@@ -95,9 +95,10 @@ gulp.task("htmlLint", () => {
 
 gulp.task("cssLint", () => {
 	return gulp.src([`${src}/style/*.scss`, `!${src}/style/_atoms.scss`])
-		.pipe(cssLint( // http://stylelint.io/user-guide/rules
-			{ reporters: [ {formatter: "string", console: true} ] }
-		));
+		.pipe(cssLint({ // http://stylelint.io/user-guide/rules
+				failAfterError: false,
+				reporters: [ {formatter: "string", console: true} ]
+		}));
 });
 
 
