@@ -76,6 +76,7 @@ function moveLine(position) {
 			case "join-us":		position = 4; break;
 			case "faq":			position = 5; break;
 			case "contact":		position = 6; break;
+			default:			position = 5; break;
 		}
 	} else if (position === undefined) {
 		position = 0;
