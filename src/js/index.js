@@ -3,7 +3,7 @@ o.notifyWhenLoaded(".intro__logo");
 
 WebFont.load({
 	google: {
-		families: ["Roboto Slab:300,700", "Open Sans:300,800"]
+		families: ["Roboto Slab:300,700", "Source Sans Pro:300,900"]
 	},
 	active: function() {
 		o.runWhenAllLoaded(init);

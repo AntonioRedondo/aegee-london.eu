@@ -21,7 +21,8 @@ html {
 	background: black;
 	
 	color: white;
-	font-family: Open Sans, sans-serif;
+	font-family: Source Sans Pro, sans-serif;
+	font-weight: 300;
 }
 
 body {
@@ -34,7 +35,7 @@ p {
 
 a {
 	color: $color6;
-	font-weight: 800;
+	font-weight: 900;
 	text-decoration: none;
 	
 	&:hover {
@@ -55,7 +56,7 @@ button {
 
 
 .b {
-	font-weight: 800;
+	font-weight: 900;
 }
 
 .dropcap::first-letter {
@@ -75,13 +76,11 @@ button {
 
 
 .text1 {
-	font-family: Open Sans, serif;
-	font-weight: 300;
-	font-size: 1.1vw;
-	line-height: 1.7em;
+	font-size: 1.3vw;
+	line-height: 1.5em;
 	
 	@media (max-width: $breakpointMobile) {
-		font-size: 4vw;
+		font-size: 4.5vw;
 	}
 	
 	@media (min-width: $breakpointBig) {
@@ -94,8 +93,7 @@ button {
 	position: relative;
 	
 	color: $color4;
-	font-family: Open Sans, sans-serif;
-	font-size: 1.7vw;
+	font-size: 1.8vw;
 	font-weight: 900;
 	line-height: 1.2em;
 	
@@ -127,7 +125,6 @@ button {
 
 .text3 {
 	color: $color4;
-	font-family: Open Sans, sans-serif;
 	font-size: 1.7vw;
 	font-weight: 900;
 	line-height: 1.2em;
@@ -147,7 +144,6 @@ button {
 	border-bottom: $color4 dashed 0.15vw;
 	
 	color: $color4b;
-	font-family: Open Sans, sans-serif;
 	font-size: 3.3vw;
 	font-weight: 900;
 	line-height: 1.2em;
@@ -215,7 +211,6 @@ button {
 		border-top: 4px solid $color4;
 		
 		font-size: 1.2vw;
-		font-weight: 300;
 		
 		@media (max-width: $breakpointMobile) {
 			font-size: 4.5vw;
