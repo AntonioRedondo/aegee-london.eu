@@ -629,11 +629,7 @@
 	background: #111;
 	box-shadow: 0 0 15px color(black a(55%));
 	
-	font-size: 1.5vw;
-	
-	@media (min-width: $breakpointBig) {
-		font-size: 1.5em;
-	}
+	font-size: 1.3em;
 	
 	@media (max-width: $breakpointMobile) {
 		height: auto;
