@@ -190,8 +190,8 @@ gulp.task("min", () => {
 					removeAttributeQuotes: true,
 					removeComments: true,
 					removeRedundantAttributes: true}),
-					disabledTypes: ["img"/*, "svg", "js", "css"*/],
-					// ignore: [""]
+				disabledTypes: ["img"/*, "svg", "js", "css"*/],
+				// ignore: [""]
 			}))
 			.pipe(gulp.dest(`${dest}`));
 	});
