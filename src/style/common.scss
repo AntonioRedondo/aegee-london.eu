@@ -14,7 +14,7 @@
 html {
 	overflow-y: scroll;
 	overflow-x: hidden;
-	
+
 	/* http://stackoverflow.com/questions/14270084/overflow-xhidden-doesnt-prevent-content-from-overflowing-in-mobile-browsers */
 	/* position: fixed; */
 	
@@ -282,7 +282,7 @@ button {
 	display: flex;
 	justify-content: space-between;
 	align-items: flex-start;
-
+	
 	&__w66 {
 		flex: 0 0 66%;
 	}

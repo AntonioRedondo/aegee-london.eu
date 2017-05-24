@@ -14,7 +14,7 @@ function showTopBarEntries() {
 // https://developers.google.com/youtube/player_parameters
 // http://stackoverflow.com/questions/8869372/how-do-i-automatically-play-a-youtube-video-iframe-api-muted
 // http://stackoverflow.com/questions/20501010/youtube-api-onplayerready-not-firing
-function onYouTubeIframeAPIReady() {
+function onYouTubeIframeAPIReady() { // eslint-disable-line no-unused-vars
 	var player = new YT.Player("intro__video", {
 		events: {
 			onReady: function() {
@@ -69,6 +69,7 @@ function moveLine(position) {
 	var hash = window.location.hash;
 	if (position === undefined && hash) {
 		switch (hash.slice(1)) {
+			/* eslint-disable indent */
 			case "intro":		position = 0; break;
 			case "who-we-are":	position = 1; break;
 			case "activities":	position = 2; break;
@@ -77,6 +78,7 @@ function moveLine(position) {
 			case "faq":			position = 5; break;
 			case "contact":		position = 6; break;
 			default:			position = 5; break;
+			/* eslint-enable indent */
 		}
 	} else if (position === undefined) {
 		position = 0;
@@ -92,7 +94,7 @@ function moveLine(position) {
 
 
 
-function init() {
+function init() { // eslint-disable-line no-unused-vars
 	var breakpointMobile = 810;
 	var margin = setMargin(breakpointMobile);
 	var gap = -margin;
@@ -106,20 +108,20 @@ function init() {
 	
 	// Sets up Skroller
 	var offsetFunctions = {
-			get d0() { return o.gi("intro").clientHeight + margin; },
-			get d0g() { return gap + this.d0; },
-			get d1() { return o.gi("who-we-are").clientHeight + margin + this.d0; },
-			get d1g() { return gap + this.d1; },
-			get d2() { return o.gi("activities").clientHeight + margin + this.d1; },
-			get d2g() { return gap + this.d2; },
-			get d3() { return o.gi("the-board").clientHeight + margin + this.d2; },
-			get d3g() { return gap + this.d3; },
-			get d4() { return o.gi("join-us").clientHeight + margin + this.d3; },
-			get d4g() { return gap + this.d4; },
-			get d5() { return o.gi("faq").clientHeight + margin + this.d4; },
-			get d5g() { return gap + this.d5; },
-			get d6() { return o.gi("contact").clientHeight + margin + this.d5; }
-		};
+		get d0() { return o.gi("intro").clientHeight + margin; },
+		get d0g() { return gap + this.d0; },
+		get d1() { return o.gi("who-we-are").clientHeight + margin + this.d0; },
+		get d1g() { return gap + this.d1; },
+		get d2() { return o.gi("activities").clientHeight + margin + this.d1; },
+		get d2g() { return gap + this.d2; },
+		get d3() { return o.gi("the-board").clientHeight + margin + this.d2; },
+		get d3g() { return gap + this.d3; },
+		get d4() { return o.gi("join-us").clientHeight + margin + this.d3; },
+		get d4g() { return gap + this.d4; },
+		get d5() { return o.gi("faq").clientHeight + margin + this.d4; },
+		get d5g() { return gap + this.d5; },
+		get d6() { return o.gi("contact").clientHeight + margin + this.d5; }
+	};
 		
 	var skrollrInstance = skrollr.init({
 		smoothScrolling: false,
@@ -130,19 +132,19 @@ function init() {
 			// console.log("keyframe:");
 			// console.log(name);
 			// console.log(name.slice(6));
-			//if (!this.isAnimatingTo()) {
-				var extra = 0;
-				if (direction === "up")
-					--extra;
-				switch (name.slice(6)) {
-					case "0g": moveLine(1 + extra); break;
-					case "1g": moveLine(2 + extra); break;
-					case "2g": moveLine(3 + extra); break;
-					case "3g": moveLine(4 + extra); break;
-					case "4g": moveLine(5 + extra); break;
-					case "5g": moveLine(6 + extra);
-				}
-			//}
+			var extra = 0;
+			if (direction === "up")
+				--extra;
+			switch (name.slice(6)) {
+				/* eslint-disable indent */
+				case "0g": moveLine(1 + extra); break;
+				case "1g": moveLine(2 + extra); break;
+				case "2g": moveLine(3 + extra); break;
+				case "3g": moveLine(4 + extra); break;
+				case "4g": moveLine(5 + extra); break;
+				case "5g": moveLine(6 + extra);
+				/* eslint-enable indent */
+			}
 		}
 	});
 	
@@ -155,6 +157,7 @@ function init() {
 			var extra = 1;
 			var linkText = link.href.split("#").pop();
 			switch (linkText) {
+				/* eslint-disable indent */
 				case "intro":		return 0;
 				case "who-we-are":	return offsetFunctions.d0 + extra;
 				case "activities":	return offsetFunctions.d1 + extra;
@@ -162,6 +165,7 @@ function init() {
 				case "join-us":		return offsetFunctions.d3 + extra;
 				case "faq":			return offsetFunctions.d4 + extra;
 				case "contact":		return offsetFunctions.d5 + extra;
+				/* eslint-enable indent */
 			}
 			
 			var linkPosition = o.calcAbsolutePosition("#faq", "#" + linkText);
@@ -234,10 +238,10 @@ function init() {
 	
 	
 	
-	// Adapts the UI to remove intro animations if the URL points to a section 
+	// Adapts the UI to remove intro animations if the URL points to a section
 	var hash = window.location.hash;
 	if ((hash && hash !== "#intro") ||
-			 window.innerWidth < breakpointMobile) {
+			window.innerWidth < breakpointMobile) {
 		o.gc("top-bar").classList.add("top-bar--in");
 		o.gc("top-bar").classList.add("top-bar--in2");
 		o.to(function() { o.gc("top-bar").classList.remove("top-bar--in2"); }, 1000);
@@ -251,16 +255,16 @@ function init() {
 	
 	// Adapts the navigation top bar for mobile screens
 	o.gca("top-bar__tab").forEach(function(i) {
-		i.addEventListener("click", function(e) {
+		i.addEventListener("click", function() {
 			o.gc("top-bar").classList.remove("top-bar--open");
 			o.gc("top-bar__three-bars-close").classList.remove("top-bar__three-bars-close--in");
 		});
 	});
-	o.gc("top-bar__three-bars").addEventListener("click", function(e) {
+	o.gc("top-bar__three-bars").addEventListener("click", function() {
 		o.gc("top-bar").classList.toggle("top-bar--open");
 		o.gc("top-bar__three-bars-close").classList.add("top-bar__three-bars-close--in");
 	});
-	o.gc("top-bar__three-bars-close").addEventListener("click", function(e) {
+	o.gc("top-bar__three-bars-close").addEventListener("click", function() {
 		o.gc("top-bar").classList.remove("top-bar--open");
 		o.gc("top-bar__three-bars-close").classList.remove("top-bar__three-bars-close--in");
 	});
