@@ -19,7 +19,7 @@
 		"gulp-sourcemaps": "2.6",
 		
 		"gulp-eslint": "3.0",
-		"gulp-htmllint": "0.0",
+		"gulp-htmlhint": "0.3",
 		"gulp-stylelint": "3.9.0",
 		"stylelint-config-standard": "16.0",
 		

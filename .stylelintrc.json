@@ -1,5 +1,6 @@
 {
 	"extends": "stylelint-config-standard",
+	"//": "http://stylelint.io/user-guide/rules",
 	"//": "http://stackoverflow.com/questions/38462937/cannot-set-block-no-empty-to-false-in-stylelint",
 	"rules": {
 		"at-rule-empty-line-before": "never",

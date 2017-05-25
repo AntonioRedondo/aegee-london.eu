@@ -6,8 +6,8 @@ const sourcemaps = require("gulp-sourcemaps");
 
 // Lint
 const esLint = require("gulp-eslint");
-const htmlLint = require("gulp-htmllint");
-const cssLint = require("gulp-stylelint");
+const htmlHint = require("gulp-htmlhint");
+const styleLint = require("gulp-stylelint");
 
 // Build
 const concat = require("gulp-concat");
@@ -31,16 +31,15 @@ const DEST = "docs";
 
 
 
-gulp.task("watch", ["esLint"/* , "htmlLint" */, "styleLint", "build"], () => {
-	gulp.watch([`${SRC}/js/*.js`], ["esLint", "buildJs"]);
-	gulp.watch([`${SRC}/index.htm`], [/* "htmlLint",  */"buildHtml"]);
-	gulp.watch([`${SRC}/style/*.scss`, `${SRC}/index.htm`, `!${SRC}/style/_atoms.scss`], ["styleLint", "buildCss"]);
+gulp.task("watch", ["lint", "build"], () => {
+	gulp.watch([`${SRC}/js/*.js`, ".eslintrc.json"], ["esLint", "buildJs"]);
+	gulp.watch([`${SRC}/index.htm`, ".htmlhintrc"], ["htmlHint", "buildHtml"]);
+	gulp.watch([`${SRC}/style/*.scss`, `${SRC}/index.htm`, `!${SRC}/style/_atoms.scss`, ".stylelintrc.json"], ["styleLint", "buildCss"]);
 	gulp.watch([`${SRC}/img/**`], ["copyAssets"]);
 });
-
-gulp.task("default", ["watch"]);
-
+gulp.task("lint", ["esLint", "htmlHint", "styleLint"]);
 gulp.task("build", ["buildJs", "buildHtml", "buildCss", "copyAssets"]);
+gulp.task("default", ["watch"]);
 
 gulp.task("clean", () => del(DEST));
 
@@ -57,14 +56,14 @@ gulp.task("esLint", () => {
 		.pipe(esLint.failAfterError());
 });
 
-gulp.task("htmlLint", () => {
+gulp.task("htmlHint", () => {
 	return gulp.src([`${SRC}/*.htm`])
-		.pipe(htmlLint()); // https://github.com/htmllint/htmllint/wiki/Options
+		.pipe(htmlHint());
 });
 
 gulp.task("styleLint", () => {
 	return gulp.src([`${SRC}/style/*.scss`, `!${SRC}/style/_atoms.scss`])
-		.pipe(cssLint({ // http://stylelint.io/user-guide/rules
+		.pipe(styleLint({
 			failAfterError: false,
 			reporters: [{ formatter: "string", console: true }]
 		}));
@@ -114,7 +113,7 @@ gulp.task("buildCssAtoms", () => {
 		.pipe(gulp.dest(`${SRC}/style`));
 });
 
-gulp.task("buildCss", ["buildCssAtoms"], function() {
+gulp.task("buildCss", ["buildCssAtoms"], () => {
 	return gulp.src(
 		[
 			`${SRC}/style/*.scss`,
