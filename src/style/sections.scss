@@ -334,7 +334,7 @@
 			transform: translate3d(-50%, 10%, 0) scale3d(1.2, 1.2, 1);
 			
 			@media (max-width: $breakpointMobile) {
-				transform: translate3d(-50%, -40%, 0) scale3d(1.2, 1.2, 1);
+				transform: translate3d(-50%, -35%, 0) scale3d(1.8, 1.8, 1);
 			}
 		}
 		
@@ -371,7 +371,7 @@
 			width: 100%;
 			height: auto;
 			top: 50%;
-			transform: translate3d(-50%, -50%, 0);
+			transform: translate3d(-50%, -40%, 0) scale3d(1.5, 1.5, 1);
 		}
 	}
 	
