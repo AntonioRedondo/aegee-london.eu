@@ -33,7 +33,7 @@ const DEST = "docs";
 
 gulp.task("watch", ["lint", "build"], () => {
 	gulp.watch([`${SRC}/js/*.js`, ".eslintrc.json"], ["esLint", "buildJs"]);
-	gulp.watch([`${SRC}/index.htm`, ".htmlhintrc"], ["htmlHint", "buildHtml"]);
+	gulp.watch([`${SRC}/*.htm`, ".htmlhintrc"], ["htmlHint", "buildHtml"]);
 	gulp.watch([`${SRC}/style/*.scss`, `${SRC}/index.htm`, `!${SRC}/style/_atoms.scss`, ".stylelintrc.json"], ["styleLint", "buildCss"]);
 	gulp.watch([`${SRC}/img/**`], ["copyAssets"]);
 });
@@ -50,7 +50,7 @@ gulp.task("clean", () => del(DEST));
 // ---------- LINT ---------- //
 
 gulp.task("esLint", () => {
-	return gulp.src([`${SRC}/js/*.js`])
+	return gulp.src([`${SRC}/js/*.js`, "gulpfile.js"])
 		.pipe(esLint())
 		.pipe(esLint.format())
 		.pipe(esLint.failAfterError());
@@ -58,13 +58,15 @@ gulp.task("esLint", () => {
 
 gulp.task("htmlHint", () => {
 	return gulp.src([`${SRC}/*.htm`])
-		.pipe(htmlHint());
+		.pipe(htmlHint())
+		// .pipe(htmlHint.reporter())
+		.pipe(htmlHint.failReporter());
 });
 
 gulp.task("styleLint", () => {
 	return gulp.src([`${SRC}/style/*.scss`, `!${SRC}/style/_atoms.scss`])
 		.pipe(styleLint({
-			failAfterError: false,
+			// failAfterError: false, // It defaults to true
 			reporters: [{ formatter: "string", console: true }]
 		}));
 });
