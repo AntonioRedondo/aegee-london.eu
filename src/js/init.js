@@ -84,7 +84,7 @@ function moveLine(position) {
 		position = 0;
 	}
 	
-	var topBarPositions = o.calcRelativePositions(".top-bar__tab");
+	var topBarPositions = o.calcPositionsToViewport(".top-bar__tab");
 	var line = o.gc("top-bar__line");
 	line.style.width = topBarPositions[position].width + "px";
 	line.style.transform = "translate3d(" + topBarPositions[position].left + "px, 0, 0)";
@@ -100,7 +100,7 @@ function init() { // eslint-disable-line no-unused-vars
 	var gap = -margin;
 	
 	o.to(function() { showTopBarEntries(); }, 2500);
-	setBodyHeight(o.calcTotalClientHeight("section.skrollr-deck") + margin*6);
+	setBodyHeight(o.calcClientHeightsSum("section.skrollr-deck") + margin*6);
 	moveLine();
 	
 	
@@ -226,13 +226,13 @@ function init() { // eslint-disable-line no-unused-vars
 	
 	o.ae("resize", function() {
 		margin = setMargin(breakpointMobile);
-		setBodyHeight(o.calcTotalClientHeight("section.skrollr-deck") + margin*6);
+		setBodyHeight(o.calcClientHeightsSum("section.skrollr-deck") + margin*6);
 		o.to(function() { moveLine(); }, 500);
 	});
 	
 	o.ae("load", function() { // There are images that haven't height specified and it's only known once the image is loaded. They affect the height of the page.
 		margin = setMargin(breakpointMobile);
-		setBodyHeight(o.calcTotalClientHeight("section.skrollr-deck") + margin*6);
+		setBodyHeight(o.calcClientHeightsSum("section.skrollr-deck") + margin*6);
 		o.to(function() { moveLine(); }, 500);
 	});
 	
