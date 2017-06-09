@@ -253,20 +253,12 @@ function init() { // eslint-disable-line no-unused-vars
 	
 	
 	
-	// Adapts the navigation top bar for mobile screens
-	o.gca("top-bar__tab").forEach(function(i) {
-		i.addEventListener("click", function() {
-			o.gc("top-bar").classList.remove("top-bar--open");
-			o.gc("top-bar__three-bars-close").classList.remove("top-bar__three-bars-close--in");
+	// Set ups the navigation top bar for mobile screens
+	o.qsa(".top-bar__tab, .top-bar__three-bars, .top-bar__three-bars-close").forEach(function(item) {
+		item.addEventListener("click", function() {
+			o.gc("top-bar").classList.toggle("top-bar--open");
+			o.gc("top-bar__three-bars-close").classList.toggle("top-bar__three-bars-close--in");
 		});
-	});
-	o.gc("top-bar__three-bars").addEventListener("click", function() {
-		o.gc("top-bar").classList.toggle("top-bar--open");
-		o.gc("top-bar__three-bars-close").classList.add("top-bar__three-bars-close--in");
-	});
-	o.gc("top-bar__three-bars-close").addEventListener("click", function() {
-		o.gc("top-bar").classList.remove("top-bar--open");
-		o.gc("top-bar__three-bars-close").classList.remove("top-bar__three-bars-close--in");
 	});
 	
 	
