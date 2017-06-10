@@ -168,7 +168,7 @@ function init() { // eslint-disable-line no-unused-vars
 				/* eslint-enable indent */
 			}
 			
-			var linkPosition = o.calcAbsolutePosition("#faq", "#" + linkText);
+			var linkPosition = o.calcRelativePosition("#faq", "#" + linkText);
 			var offset = 600;
 			
 			if (window.innerWidth < breakpointMobile)

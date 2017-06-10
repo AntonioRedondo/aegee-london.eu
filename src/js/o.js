@@ -122,7 +122,7 @@
 		if (typeof parent === "string")
 			parent = o.qs(parent);
 		if (typeof child === "string")
-			parent = o.qs(child);
+			child = o.qs(child);
 
 		if ((!parent || !child)
 				&& (!(parent instanceof HTMLElement) || !(child instanceof HTMLElement))) {
