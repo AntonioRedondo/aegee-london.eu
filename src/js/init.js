@@ -228,6 +228,8 @@ function init() { // eslint-disable-line no-unused-vars
 		margin = setMargin(breakpointMobile);
 		setBodyHeight(o.calcClientHeightsSum("section.skrollr-deck") + margin*6);
 		o.to(function() { moveLine(); }, 500);
+		o.gc("top-bar").classList.remove("top-bar--open");
+		o.gc("top-bar__three-bars-close").classList.remove("top-bar__three-bars-close--in");
 	});
 	
 	o.ae("load", function() { // There are images that haven't height specified and it's only known once the image is loaded. They affect the height of the page.
@@ -256,8 +258,10 @@ function init() { // eslint-disable-line no-unused-vars
 	// Set ups the navigation top bar for mobile screens
 	o.qsa(".top-bar__tab, .top-bar__three-bars, .top-bar__three-bars-close").forEach(function(item) {
 		item.addEventListener("click", function() {
-			o.gc("top-bar").classList.toggle("top-bar--open");
-			o.gc("top-bar__three-bars-close").classList.toggle("top-bar__three-bars-close--in");
+			if (window.innerWidth < breakpointMobile) {
+				o.gc("top-bar").classList.toggle("top-bar--open");
+				o.gc("top-bar__three-bars-close").classList.toggle("top-bar__three-bars-close--in");
+			}
 		});
 	});
 	
