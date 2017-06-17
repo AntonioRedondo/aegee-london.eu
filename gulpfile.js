@@ -84,7 +84,7 @@ gulp.task("buildJs", () => {
 			"node_modules/skrollr/dist/skrollr.min.js",
 			"node_modules/skrollr-menu/dist/skrollr.menu.min.js",
 			`${SRC}/js/o.js`,
-			`${SRC}/js/init.js`,
+			`${SRC}/js/aegeeLondon.js`,
 			`${SRC}/js/index.js`
 		])
 		.pipe(sourcemaps.init())
@@ -153,7 +153,7 @@ gulp.task("min", ["build"], () => {
 			// base: DEST,
 			disabledTypes: ["img"/*, "svg", "js", "css"*/]
 		}))
-		.pipe(replace(/(<!-- buildDev:start -->)[\s\S]+(<!-- buildDev:end -->)/, "")) // Removes Dev code on Production
+		.pipe(replace(/(<!-- buildDev:start -->)[\s\S]+(<!-- buildDev:end -->)/, ""))
 		.pipe(htmlMin({
 			collapseWhitespace: true,
 			minifyCSS: true,

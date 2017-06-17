@@ -69,7 +69,6 @@ function moveLine(position) {
 	var hash = window.location.hash;
 	if (position === undefined && hash) {
 		switch (hash.slice(1)) {
-			/* eslint-disable indent */
 			case "intro":		position = 0; break;
 			case "who-we-are":	position = 1; break;
 			case "activities":	position = 2; break;
@@ -78,7 +77,6 @@ function moveLine(position) {
 			case "faq":			position = 5; break;
 			case "contact":		position = 6; break;
 			default:			position = 5; break;
-			/* eslint-enable indent */
 		}
 	} else if (position === undefined) {
 		position = 0;
@@ -136,14 +134,12 @@ function init() { // eslint-disable-line no-unused-vars
 			if (direction === "up")
 				--extra;
 			switch (name.slice(6)) {
-				/* eslint-disable indent */
 				case "0g": moveLine(1 + extra); break;
 				case "1g": moveLine(2 + extra); break;
 				case "2g": moveLine(3 + extra); break;
 				case "3g": moveLine(4 + extra); break;
 				case "4g": moveLine(5 + extra); break;
 				case "5g": moveLine(6 + extra);
-				/* eslint-enable indent */
 			}
 		}
 	});
@@ -157,7 +153,6 @@ function init() { // eslint-disable-line no-unused-vars
 			var extra = 1;
 			var linkText = link.href.split("#").pop();
 			switch (linkText) {
-				/* eslint-disable indent */
 				case "intro":		return 0;
 				case "who-we-are":	return offsetFunctions.d0 + extra;
 				case "activities":	return offsetFunctions.d1 + extra;
@@ -165,7 +160,6 @@ function init() { // eslint-disable-line no-unused-vars
 				case "join-us":		return offsetFunctions.d3 + extra;
 				case "faq":			return offsetFunctions.d4 + extra;
 				case "contact":		return offsetFunctions.d5 + extra;
-				/* eslint-enable indent */
 			}
 			
 			var linkPosition = o.calcRelativePosition("#faq", "#" + linkText);
