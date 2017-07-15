@@ -11,6 +11,7 @@ const styleLint = require("gulp-stylelint");
 
 // Build
 const concat = require("gulp-concat");
+const include = require("gulp-file-include");
 const replace = require("gulp-replace");
 const inline = require("gulp-inline");
 const postCss = require("gulp-postcss");
@@ -33,12 +34,12 @@ const DEST = "docs";
 
 gulp.task("watch", ["lint", "build"], () => {
 	gulp.watch([`${SRC}/js/*.js`, ".eslintrc.json"], ["esLint", "buildJs"]);
-	gulp.watch([`${SRC}/*.htm`, ".htmlhintrc"], ["htmlHint", "buildHtml"]);
-	gulp.watch([`${SRC}/style/*.scss`, `${SRC}/index.htm`, `!${SRC}/style/_atoms.scss`, ".stylelintrc.json"], ["styleLint", "buildCss"]);
+	gulp.watch([`${SRC}/**/*.htm`, ".htmlhintrc"], ["htmlHint"/* , "buildHtml" */]);
+	gulp.watch([`${SRC}/style/*.scss`, `${SRC}/**/*.htm`, `!${SRC}/style/_atoms.scss`, ".stylelintrc.json"], ["styleLint", "buildCss"]);
 	gulp.watch([`${SRC}/img/**`], ["copyAssets"]);
 });
 gulp.task("lint", ["esLint", "htmlHint", "styleLint"]);
-gulp.task("build", ["buildJs", "buildHtml", "buildCss", "copyAssets"]);
+gulp.task("build", ["buildJs", /* "buildHtml",  */"buildCss", "copyAssets"]);
 gulp.task("default", ["watch"]);
 
 gulp.task("clean", () => del(DEST));
@@ -57,8 +58,8 @@ gulp.task("esLint", () => {
 });
 
 gulp.task("htmlHint", () => {
-	return gulp.src([`${SRC}/*.htm`])
-		.pipe(htmlHint())
+	return gulp.src([`${SRC}/**/*.htm`])
+		.pipe(htmlHint(".htmlhintrc"))
 		// .pipe(htmlHint.reporter())
 		.pipe(htmlHint.failReporter());
 });
@@ -95,12 +96,12 @@ gulp.task("buildJs", () => {
 
 gulp.task("buildHtml", () => {
 	return gulp.src([`${SRC}/index.htm`])
-		.pipe(newer(DEST))
+		.pipe(include())
 		.pipe(gulp.dest(DEST));
 });
 
-gulp.task("buildCssAtoms", () => {
-	return gulp.src([`${SRC}/index.htm`])
+gulp.task("buildCssAtoms", ["buildHtml"], () => {
+	return gulp.src([`${DEST}/index.htm`])
 		.pipe(atomizer({
 			outfile: "_atoms.scss",
 			acssConfig: {
