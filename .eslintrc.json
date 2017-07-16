@@ -15,7 +15,7 @@
 	"globals": {
 		"init": true,
 		"ga": true,
-		"o": true,
+		"d": true,
 		"skrollr": true,
 		"WebFont": true,
 		"YT": true
