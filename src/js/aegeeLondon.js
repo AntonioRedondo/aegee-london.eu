@@ -152,6 +152,15 @@ function init() { // eslint-disable-line no-unused-vars
 		handleLink: function(link) {
 			var extra = 1;
 			var linkText = link.href.split("#").pop();
+			
+			try { // To prevent SYNTAX_ERR exception
+				if (d.qs("#" + linkText) === null)
+					throw Error;
+			} catch(e) {
+				document.location.hash = "";
+				return 0;
+			}
+			
 			switch (linkText) {
 				case "intro":		return 0;
 				case "who-we-are":	return offsetFunctions.d0 + extra;
