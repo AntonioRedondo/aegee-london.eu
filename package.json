@@ -2,7 +2,7 @@
 	"name": "AEGEE-London",
 	"author": "Antonio Redondo",
 	"homepage": "http://aegee-london.eu",
-	"description": "AEGEE-London official websiste",
+	"description": "AEGEE-London official website",
 	"version": "1.0.0",
 	"repository": "antonioredondo/AEGEE-London",
 	"license": "CC-BY-NC-ND-4.0",
@@ -12,7 +12,7 @@
 		"lint": "gulp lint",
 		"build": "gulp build",
 		"build:watch": "gulp",
-		"build:min": "gulp min",
+		"build:prod": "gulp prod",
 		"prepush": "gulp lint"
 	},
 	"dependencies": {
@@ -20,6 +20,7 @@
 		"skrollr": "0.6",
 		"skrollr-menu": "1.0"
 	},
+	"//": "Grouped by concern: basics, lint, build, production, server",
 	"devDependencies": {
 		"del": "2.2",
 		"gulp": "3.9",
