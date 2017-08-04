@@ -20,7 +20,7 @@ const autoprefixer = require("autoprefixer");
 const atomizer = require("gulp-atomizer");
 const assets = require("postcss-assets");
 
-// Minify
+// Production
 const htmlMin = require("gulp-htmlmin");
 
 
@@ -146,9 +146,9 @@ gulp.task("copyAssets", () => {
 
 
 
-// ---------- MINIFY ---------- //
+// ---------- PRODUCTION ---------- //
 
-gulp.task("min", ["build"], () => {
+gulp.task("prod", ["build"], () => {
 	return gulp.src([`${DEST}/index.htm`])
 		.pipe(inline({
 			// base: DEST,
