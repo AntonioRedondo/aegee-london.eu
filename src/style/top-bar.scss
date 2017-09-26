@@ -170,10 +170,9 @@
 	}
 	
 	&__logo {
+		width: 110px;
 		height: 35px;
 		margin-top: 2px;
-		
-		filter: drop-shadow(0 0 8px white);
 		
 		transition: all $time2;
 		
