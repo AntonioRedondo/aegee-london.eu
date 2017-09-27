@@ -6,3 +6,6 @@ node_modules
 npm-debug.log
 other
 src/style/_atoms.scss
+docs/**/*.css
+docs/**/*.js
+docs/**/*.svg
