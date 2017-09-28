@@ -101,6 +101,8 @@ function init() { // eslint-disable-line no-unused-vars
 	setBodyHeight(d.calcClientHeightsSum("section.skrollr-deck") + margin*6);
 	moveLine();
 	
+	
+	
 	// Sets up Skroller
 	var offsetFunctions = {
 		get d0() { return d.gi("intro").clientHeight + margin; },
