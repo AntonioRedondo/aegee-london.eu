@@ -1,0 +1,51 @@
+.faq {
+	z-index: 5;
+	
+	&__question {
+		margin: 2% 0;
+		
+		display: block;
+		
+		color: $color3;
+		font-family: Roboto Slab, serif;
+		
+		@media (max-width: $breakpointMobile) {
+			margin: 4vw 0;
+		}
+		
+		&:hover {
+			text-shadow: 0 0 0.5vw $color3;
+		}
+		
+		&:hover::before {
+			opacity: 1;
+		}
+		
+		&:target {
+			animation: 10s question;
+			
+			/* stylelint-disable */
+			@at-root { @keyframes question {
+					0% { color: white; text-shadow: 0 0 20px white; }
+					50% { color: white; text-shadow: 0 0 20px white; }
+					100% { color: $color3; text-shadow: inherit; }
+			} }
+			/* stylelint-enable */
+		}
+		
+		&::before {
+			content: inline("img/permalink.svg");
+			
+			width: 2vw;
+			height: @width;
+			
+			display: block;
+			
+			position: relative;
+			top: 1.9vw;
+			left: -3vw;
+			
+			opacity: 0;
+		}
+	}
+}

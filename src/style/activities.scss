@@ -1,0 +1,68 @@
+.activities {
+	z-index: 8;
+	
+	background: black url('img/activities.jpg') top / 100% no-repeat;
+	box-shadow: 0 0 10vw $gray2;
+	
+	&__fb-iframe {
+		width: 500px;
+		height: 535px;
+		margin: 3.5vw auto 3vw;
+		
+		display: block;
+		
+		background-color: $color7;
+		border: 0;
+		
+		@media (max-width: $breakpointMobile) {
+			width: 320px;
+			height: 500px;
+			margin: 10vw auto 6vw;
+		}
+	}
+	
+	&__img-foottext {
+		width: 22%;
+		margin: 0;
+		
+		position: absolute;
+		top: calc($topBarHeight + 20px);
+		right: 1.5%;
+		
+		text-align: right;
+		font-size: 0.85vw;
+		font-family: Roboto Slab, serif;
+		
+		@media (min-width: $breakpointBig) {
+			font-size: 1em;
+		}
+		
+		@media (max-width: $breakpointMobile) {
+			display: none;
+		}
+	}
+	
+	&__logo {
+		width: 22%;
+		margin: 0 auto;
+		
+		align-self: center;
+		
+		@media (max-width: $breakpointMobile) {
+			height: auto !important;
+			width: 100%;
+			margin: 0;
+			padding: 12vw 0;
+			align-self: flex-end;
+		}
+	}
+	
+	&__img {
+		height: 16.2vw;
+		
+		@media (max-width: $breakpointMobile) {
+			width: 100vw;
+			height: auto;
+		}
+	}
+}

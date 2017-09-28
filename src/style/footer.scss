@@ -1,0 +1,77 @@
+.footer {
+	height: 80px;
+	
+	position: relative;
+	
+	background: #111;
+	box-shadow: 0 0 15px color(black a(55%));
+	
+	font-size: 1.3em;
+	
+	@media (max-width: $breakpointMobile) {
+		height: auto;
+		padding: 6vw 0;
+		display: block;
+		text-align: center;
+		font-size: 4.5vw;
+	}
+	
+	&__copyright {
+		height: 100%;
+		margin-left: 2%;
+		
+		display: flex;
+		align-items: center;
+		
+		flex: auto;
+		
+		font-family: Roboto Slab, serif;
+		
+		@media (max-width: $breakpointMobile) {
+			display: block;
+			margin-left: 0;
+		}
+	}
+	
+	&__designed-by {
+		height: 100%;
+		margin-right: 2%;
+		
+		display: flex;
+		align-items: center;
+		
+		flex: 0 0 auto;
+		
+		@media (max-width: $breakpointMobile) {
+			display: block;
+			margin-right: 0;
+		}
+	}
+	
+	&__image {
+		width: 80px;
+		height: @width;
+		
+		display: block;
+		
+		flex: auto;
+		
+		@media (max-width: $breakpointMobile) {
+			display: none;
+		}
+		
+		&:hover {
+			animation: 0.0625s infinite rumble;
+			
+			/* stylelint-disable */
+			@at-root { @keyframes rumble {
+					0% { transform: rotate(0); }
+					25% { transform: rotate(-2deg) translate(1px, 0); }
+					50% { transform: rotate(0) translate(0, -1px); }
+					75% { transform: rotate(2deg) translate(-1px, 0); }
+					100% { transform: rotate(0) translate(0, 1px); }
+			} }
+			/* stylelint-enable */
+		}
+	}
+}

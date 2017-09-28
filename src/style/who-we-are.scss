@@ -1,0 +1,53 @@
+.who-we-are {
+	z-index: 9;
+	
+	background:
+		url('img/header.png') 0 $marginTop / 100% 600px no-repeat,
+		radial-gradient(
+			ellipse farthest-corner at 50% 0,
+			$color1 10%,
+			$color2 60%
+		) center 0 / 400% 100% no-repeat;
+
+	color: white;
+	
+	@media (max-width: $breakpointMobile) {
+		background:
+			url('img/header.png') top / 100% 400px no-repeat,
+			radial-gradient(
+				ellipse farthest-corner at 50% 0,
+				$color1 10%,
+				$color2 60%
+			) center 0 / 400% 100% no-repeat;
+	}
+	
+	&__europe-img {
+		width: 50%;
+		height: 30%;
+		
+		position: absolute;
+		top: $marginTop;
+		right: 0;
+		
+		@media (max-width: $breakpointMobile) {
+			width: 90%;
+			top: 0;
+		}
+	}
+	
+	&__fb-iframe {
+		width: 800px;
+		height: 450px;
+		margin: 6% auto 1%;
+		
+		display: block;
+		
+		border: none;
+		
+		@media (max-width: $breakpointMobile) {
+			width: 100%;
+			height: calc(100vw * 0.6);
+			margin: 12vw auto 1vw;
+		}
+	}
+}

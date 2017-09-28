@@ -1,0 +1,26 @@
+.join-us {
+	z-index: 6;
+	
+	&__paypal-form {
+		height: 7vw;
+		
+		@media (min-width: $breakpointBig) {
+			height: 140px;
+		}
+		
+		@media (max-width: $breakpointMobile) {
+			min-height: 110px;
+		}
+	}
+
+	&__paypal-button {
+		width: 30%;
+		display: block;
+		margin: 0 auto;
+		
+		@media (max-width: $breakpointMobile) {
+			width: 60vw;
+			margin: 5vw auto;
+		}
+	}
+}

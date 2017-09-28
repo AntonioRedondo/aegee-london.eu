@@ -1,0 +1,25 @@
+.contact {
+	
+	&__fb-iframe {
+		width: 500px;
+		height: 500px;
+		margin: 0 auto 6%;
+		
+		display: block;
+		
+		border: none;
+		
+		@media (max-width: $breakpointMobile) {
+			width: 320px;
+			height: 400px;
+			margin: 15vw auto;
+		}
+	}
+	
+	&__fb-group {
+		width: 100%;
+		margin-top: 4%;
+		
+		display: block;
+	}
+}

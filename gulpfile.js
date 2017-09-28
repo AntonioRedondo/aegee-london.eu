@@ -119,7 +119,8 @@ gulp.task("buildCssAtoms", ["buildHtml"], () => {
 gulp.task("buildCss", ["buildCssAtoms"], () => {
 	return gulp.src(
 		[
-			`${SRC}/style/*.scss`,
+			`${SRC}/style/common.scss`,
+			`${SRC}/style/!(_atoms)*.scss`,
 			`${SRC}/style/_atoms.scss`
 		])
 		.pipe(sourcemaps.init())
