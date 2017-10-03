@@ -106,7 +106,7 @@ gulp.task("buildCssAtoms", ["buildHtml"], () => {
 			outfile: "_atoms.scss",
 			acssConfig: {
 				breakPoints: {
-					bi: "@media (max-width: 2000px)",
+					bi: "@media (min-width: 2000px)",
 					me: "@media (max-width: 1470px)",
 					sm: "@media (max-width: 1100px)",
 					mo: "@media (max-width: 810px)"
