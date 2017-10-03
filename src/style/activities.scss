@@ -64,5 +64,9 @@
 			width: 100vw;
 			height: auto;
 		}
+		
+		@media (min-width: $breakpointBig) {
+			height: 330px;
+		}
 	}
 }
