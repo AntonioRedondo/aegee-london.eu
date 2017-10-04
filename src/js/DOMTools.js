@@ -168,6 +168,8 @@
 	};
 	
 	d.notifyWhenLoaded = function(selector) {
+		// https://stackoverflow.com/questions/7043509/this-inside-object
+		// https://stackoverflow.com/questions/4616202/self-references-in-object-literal-declarations
 		var imageToLoad = {
 			selector: selector,
 			loaded: false,
