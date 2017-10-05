@@ -13,7 +13,7 @@
 	
 	box-shadow: none;
 	
-	transition: all $time2;
+	transition: all $time2 ease-in;
 	
 	@media (max-width: $breakpointMobile) {
 		height: 0;
@@ -48,6 +48,7 @@
 	
 	&--open {
 		height: 430px;
+		transition-timing-function: ease-out;
 	}
 	
 	&__menu {
