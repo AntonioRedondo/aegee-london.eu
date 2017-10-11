@@ -3,6 +3,7 @@ $whiteD: #ddd;
 $whiteE: #eee;
 $gray2: #222;
 $gray3: #333;
+$black060: rgba(0, 0, 0, 0.6);
 
 $color1: #1468b3;
 $color2: #204379;
@@ -18,6 +19,10 @@ $breakpointBig: 2000px;
 $breakpointMedium: 1470px;
 $breakpointSmall: 1100px;
 $breakpointMobile: 810px;
+
+
+$ease-in: cubic-bezier(0.75, 0, 1, 1);
+$ease-out: cubic-bezier(0, 0, 0.25, 1);
 
 
 $time1: 0.15s;
