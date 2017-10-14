@@ -46,6 +46,14 @@
 			left: -3vw;
 			
 			opacity: 0;
+			
+			@media (max-width: $breakpointMobile) {
+				width: 5vw;
+				height: @width;
+				
+				top: 4.4vw;
+				left: -7vw;
+			}
 		}
 	}
 }

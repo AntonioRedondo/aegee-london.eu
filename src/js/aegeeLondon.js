@@ -5,6 +5,8 @@ function showTopBarEntries() {
 		e.classList.add("top-bar__tab-container--in");
 		e.classList.add("top-bar__tab-container--in" + (i + 1));
 	});
+	
+	d.st(function() { moveLine(); }, 500);
 }
 
 
@@ -46,19 +48,27 @@ function onYouTubeIframeAPIReady() { // eslint-disable-line no-unused-vars
 
 
 
-function setMargin(breakpointMobile) {
-	var margin = 300;
-	if (window.innerWidth < breakpointMobile)
-		margin = 80;
-	return margin;
+function isMobile(width) {
+	return window.innerWidth < (width || 810);
 }
 
 
 
 
 
-function setBodyHeight(height) {
+function setMargin() {
+	return isMobile() ? 80 : 300;
+}
+
+
+
+
+
+function setBodyHeight(delayed) {
+	var height = d.calcClientHeightsSum("section.skrollr-deck") + setMargin()*6;
 	document.body.style.height = height + "px";
+	
+	delayed ? d.st(function() { moveLine(); }, 500) : moveLine();
 }
 
 
@@ -93,13 +103,13 @@ function moveLine(position) {
 
 
 function init() { // eslint-disable-line no-unused-vars
-	var breakpointMobile = 810;
-	var margin = setMargin(breakpointMobile);
-	var gap = -margin;
-	
 	d.st(function() { showTopBarEntries(); }, 2500);
-	setBodyHeight(d.calcClientHeightsSum("section.skrollr-deck") + margin*6);
-	moveLine();
+	setBodyHeight();
+	
+	
+	
+	var margin = setMargin();
+	var gap = -margin;
 	
 	
 	
@@ -171,13 +181,9 @@ function init() { // eslint-disable-line no-unused-vars
 			}
 			
 			var linkPosition = d.calcRelativePosition("#faq", "#" + linkText);
-			var offset = 600;
-			
-			if (window.innerWidth < breakpointMobile)
-				offset = 350;
 				
 			if (linkPosition)
-				return offsetFunctions.d4 + linkPosition.top - offset;
+				return offsetFunctions.d4 + linkPosition.top - 70;
 			
 			return 0;
 		}
@@ -186,17 +192,10 @@ function init() { // eslint-disable-line no-unused-vars
 	
 	
 	// Sets the size FB iframes depending on desktop or mobile
-	var width = 500,
-		height = 560,
-		width2 = 500,
-		height2 = 500;
-		
-	if (window.innerWidth < breakpointMobile) {
-		width = 320;
-		height = 500;
-		width2 = 320;
-		height2 = 400;
-	}
+	var width = isMobile() ? 320 : 500,
+		height = isMobile() ? 500 : 560,
+		width2 = isMobile() ? 320 : 500,
+		height2 = isMobile() ? 400 : 500;
 	
 	d.gc("activities__fb-iframe").src = "https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FAegeeLondon%2F&tabs=events&small_header=true&hide_cover=false&show_facepile=true&width=" + width + "&height=" + height;
 	d.gc("contact__fb-iframe").src = "https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FAegeeLondon%2F&tabs=messages&small_header=false&hide_cover=false&show_facepile=true&width=" + width2 + "&height=" + height2;
@@ -204,8 +203,7 @@ function init() { // eslint-disable-line no-unused-vars
 	
 	
 	// Loads the intro video if on desktop
-	if (window.innerWidth > breakpointMobile &&
-			(d.getOS() === "Windows" || d.getOS() === "macOS" || d.getOS() === "Linux")) {
+	if (!isMobile() && (d.getOS() === "Windows" || d.getOS() === "macOS" || d.getOS() === "Linux")) {
 		d.gc("intro__video").src = "//www.youtube.com/embed/7x8BCbo45qA?controls=0&enablejsapi=1&showinfo=0&rel=0&iv_load_policy=3&disablekb=1&origin=http://aegee-london.eu";
 	}
 	
@@ -227,32 +225,25 @@ function init() { // eslint-disable-line no-unused-vars
 	});
 	
 	d.ae("resize", function() {
-		margin = setMargin(breakpointMobile);
-		setBodyHeight(d.calcClientHeightsSum("section.skrollr-deck") + margin*6);
-		d.st(function() { moveLine(); }, 500);
+		setBodyHeight(true);
 		d.gc("top-bar").classList.remove("top-bar--open");
 		d.gc("top-bar__three-bars-close").classList.remove("top-bar__three-bars-close--in");
 	});
 	
-	d.ae("load", function() { // There are images that haven't height specified and it's only known once the image is loaded. They affect the height of the page.
-		margin = setMargin(breakpointMobile);
-		setBodyHeight(d.calcClientHeightsSum("section.skrollr-deck") + margin*6);
-		d.st(function() { moveLine(); }, 500);
+	d.ae("load", function() {
+		setBodyHeight();
 	});
 	
 	
 	
 	// Adapts the UI to remove intro animations if the URL points to a section
 	var hash = window.location.hash;
-	if ((hash && hash !== "#intro") ||
-			window.innerWidth < breakpointMobile) {
+	if ((hash && hash !== "#intro") || isMobile()) {
 		d.gc("top-bar").classList.add("top-bar--in");
-		d.gc("top-bar").classList.add("top-bar--in2");
-		d.st(function() { d.gc("top-bar").classList.remove("top-bar--in2"); }, 1000);
+		d.gc("top-bar").classList.add("top-bar--in-no-delay");
+		d.st(function() { d.gc("top-bar").classList.remove("top-bar--in-no-delay"); }, 1000);
 		
 		showTopBarEntries();
-		
-		d.st(function() { moveLine(); }, 500);
 	}
 	
 	
@@ -260,7 +251,7 @@ function init() { // eslint-disable-line no-unused-vars
 	// Set ups the navigation top bar for mobile screens
 	d.qsa(".top-bar__tab, .top-bar__three-bars, .top-bar__three-bars-close").forEach(function(item) {
 		item.addEventListener("click", function() {
-			if (window.innerWidth < breakpointMobile) {
+			if (isMobile()) {
 				d.gc("top-bar").classList.toggle("top-bar--open");
 				d.gc("top-bar__three-bars-close").classList.toggle("top-bar__three-bars-close--in");
 			}
