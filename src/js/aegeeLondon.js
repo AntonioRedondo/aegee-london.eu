@@ -227,7 +227,7 @@ function init() { // eslint-disable-line no-unused-vars
 	d.ae("resize", function() {
 		setBodyHeight(true);
 		d.gc("top-bar").classList.remove("top-bar--open");
-		d.gc("top-bar__three-bars-close").classList.remove("top-bar__three-bars-close--in");
+		d.gc("top-bar__three-bars-close-surface").classList.remove("top-bar__three-bars-close-surface--in");
 	});
 	
 	d.ae("load", function() {
@@ -249,11 +249,11 @@ function init() { // eslint-disable-line no-unused-vars
 	
 	
 	// Set ups the navigation top bar for mobile screens
-	d.qsa(".top-bar__tab, .top-bar__three-bars, .top-bar__three-bars-close").forEach(function(item) {
+	d.qsa(".top-bar__tab, .top-bar__three-bars, .top-bar__three-bars-close-surface").forEach(function(item) {
 		item.addEventListener("click", function() {
 			if (isMobile()) {
 				d.gc("top-bar").classList.toggle("top-bar--open");
-				d.gc("top-bar__three-bars-close").classList.toggle("top-bar__three-bars-close--in");
+				d.gc("top-bar__three-bars-close-surface").classList.toggle("top-bar__three-bars-close-surface--in");
 			}
 		});
 	});

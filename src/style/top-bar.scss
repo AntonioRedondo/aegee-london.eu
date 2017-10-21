@@ -215,6 +215,8 @@
 		top: 0;
 		right: 0;
 		
+		user-select: none;
+		
 		@media (min-width: $breakpointMobile) {
 			display: none;
 		}
@@ -224,7 +226,7 @@
 		}
 	}
 	
-	&__three-bars-close {
+	&__three-bars-close-surface {
 		width: 100%;
 		height: @width;
 		
