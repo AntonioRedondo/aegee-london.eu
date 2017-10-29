@@ -141,7 +141,7 @@
 		&:hover {
 			text-shadow: 0 0 1.5em $color6;
 		}
-	
+		
 		&--m {
 			@media (max-width: $breakpointMobile) {
 				height: 70px;
@@ -152,6 +152,7 @@
 			animation: 1s 6s tada;
 			
 			/* stylelint-disable block-opening-brace-newline-after */
+			
 			@at-root { @keyframes tada {
 					from {
 						transform: scale3d(1, 1, 1);

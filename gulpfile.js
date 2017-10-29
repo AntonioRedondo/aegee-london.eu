@@ -40,7 +40,7 @@ gulp.task("watch", ["lint", "build"], () => {
 });
 gulp.task("lint", ["esLint", "htmlHint", "styleLint"]);
 gulp.task("build", ["buildJs", /* "buildHtml",  */"buildCss", "copyAssets"]);
-gulp.task("default", ["watch"]);
+gulp.task("default", ["build"]);
 
 gulp.task("clean", () => del(DEST));
 
