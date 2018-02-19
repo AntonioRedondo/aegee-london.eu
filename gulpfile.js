@@ -33,8 +33,8 @@ const DEST = "docs";
 
 
 gulp.task("watch", ["lint", "build"], () => {
-	gulp.watch([`${SRC}/js/*.js`, ".eslintrc.json"], ["esLint", "buildJs"]);
-	gulp.watch([`${SRC}/**/*.htm`, ".htmlhintrc"], ["htmlHint"/* , "buildHtml" */]);
+	gulp.watch([`${SRC}/js/*.js`], ["esLint", "buildJs"]);
+	gulp.watch([`${SRC}/**/*.htm`], ["htmlHint"/* , "buildHtml" */]);
 	gulp.watch([`${SRC}/style/*.scss`, `${SRC}/**/*.htm`, `!${SRC}/style/_atoms.scss`, ".stylelintrc.json"], ["styleLint", "buildCss"]);
 	gulp.watch([`${SRC}/img/**`], ["copyAssets"]);
 });
@@ -65,11 +65,7 @@ gulp.task("htmlHint", () => {
 });
 
 gulp.task("styleLint", () => {
-	return gulp.src([`${SRC}/style/*.scss`, `!${SRC}/style/_atoms.scss`])
-		.pipe(styleLint({
-			// failAfterError: false, // It defaults to true
-			reporters: [{ formatter: "string", console: true }]
-		}));
+	return gulp.src([`${SRC}/style/*.scss`, `!${SRC}/style/_atoms.scss`]).pipe(styleLint());
 });
 
 
