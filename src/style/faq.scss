@@ -6,7 +6,7 @@
 		
 		display: block;
 		
-		color: $color3;
+		color: $color4;
 		font-family: Roboto Slab, serif;
 		
 		@media (max-width: $breakpointMobile) {
@@ -14,7 +14,7 @@
 		}
 		
 		&:hover {
-			text-shadow: 0 0 0.5vw $color3;
+			text-shadow: 0 0 0.5vw $color4;
 		}
 		
 		&:hover::before {
@@ -28,7 +28,7 @@
 			@at-root { @keyframes question {
 					0% { color: white; text-shadow: 0 0 20px white; }
 					50% { color: white; text-shadow: 0 0 20px white; }
-					100% { color: $color3; text-shadow: inherit; }
+					100% { color: $color4; text-shadow: inherit; }
 			} }
 			/* stylelint-enable */
 		}
