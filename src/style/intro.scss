@@ -14,25 +14,23 @@
 			$color1 20%,
 			$color2 60%
 		) center 0 / 400% 100% no-repeat;
-
-	/* &__background {
-		width: 100%;
-		height: 100%;
-		
-		display: none;
-		
-		position: absolute;
-		top: 0;
-		
-		object-fit: cover;
-	} */
 	
 	&__video-container {
 		width: 100%;
 		height: 100%;
 		
+		opacity: 0;
+		
+		pointer-events: none;
+		
+		transition: opacity 1s;
+		
 		@media (max-width: $breakpointMobile) {
 			display: none;
+		}
+		
+		&--in {
+			opacity: 1;
 		}
 	}
 	
@@ -45,23 +43,15 @@
 		
 		border: 0;
 		
-		transition: opacity 1s;
-		
-		opacity: 0;
-		
 		@media (min-aspect-ratio: 16/9) {
 			width: 100%;
 			height: 200%;
 			top: -50%;
 			left: 0;
 		}
-		
-		&--in {
-			opacity: 1;
-		}
 	}
 	
-	&__coloured-bg {
+	&__video-bg {
 		width: 100%;
 		height: 100%;
 		
@@ -75,6 +65,17 @@
 				color($color1 a(0%)) 15%,
 				$color2 72%
 			) center / 200% 100% no-repeat;
+	}
+
+	&__cover {
+		width: 100%;
+		height: 100%;
+		
+		object-fit: cover;
+		
+		@media (max-width: $breakpointMobile) {
+			object-position: 40% center;
+		}
 	}
 	
 	&__header {
@@ -107,7 +108,8 @@
 		
 		display: block;
 		
-		filter: drop-shadow(0 0 3vw white);
+		// filter: drop-shadow(0 0 3vw white);
+		filter: drop-shadow(0 0 1vw color(black a(30%)));
 		
 		transition: all 3s ease-out;
 		
@@ -115,7 +117,8 @@
 		transform: scale3d(0.8, 0.8, 1);
 		
 		@media (max-width: $breakpointMobile) {
-			filter: drop-shadow(0 0 15vw white);
+			// filter: drop-shadow(0 0 15vw white);
+			filter: drop-shadow(0 0 10vw color(black a(50%)));
 		}
 	}
 	
@@ -125,7 +128,8 @@
 		font-family: Roboto Slab, serif;
 		font-size: 2.4vh;
 		text-align: center;
-		text-shadow: 0 0 3vh white;
+		// text-shadow: 0 0 3vh white;
+		text-shadow: 0 0 1vw color(black a(100%));
 		
 		transition: all 3s 2s;
 		
@@ -139,7 +143,8 @@
 			width: 50vw;
 			margin: 7vh auto 0;
 			font-size: 3vh;
-			text-shadow: 0 0 5vw white;
+			// text-shadow: 0 0 5vw white;
+			text-shadow: 0 0 5vw color(black a(100%));
 		}
 	}
 	

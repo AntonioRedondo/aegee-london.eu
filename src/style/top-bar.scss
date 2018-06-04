@@ -73,7 +73,7 @@
 	&__tab-container {
 		list-style: none;
 		
-		transition: all 0.5s ease-out;
+		transition: all 0.5s $ease-out;
 		
 		opacity: 0;
 		transform: translate3d(0, -50px, 0);
@@ -125,6 +125,7 @@
 		font-weight: 700;
 		text-align: center;
 		text-transform: uppercase;
+		text-shadow: 0 0 1vw color(black a(50%));
 		
 		transition: all 0.5s;
 		
@@ -149,6 +150,7 @@
 		}
 		
 		&--in {
+			text-shadow: none;
 			animation: 1s 6s tada;
 			
 			/* stylelint-disable block-opening-brace-newline-after */

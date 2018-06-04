@@ -26,7 +26,7 @@ function onYouTubeIframeAPIReady() { // eslint-disable-line no-unused-vars
 			onStateChange: function(e) {
 				if (e.data === YT.PlayerState.PLAYING) {
 					showTopBarEntries();
-					d.gc("intro__video").classList.add("intro__video--in");
+					d.gc("intro__video-container").classList.add("intro__video-container--in");
 					
 					// The 'end' and 'loop' YouTube parameters didn't work
 					var t = 0;

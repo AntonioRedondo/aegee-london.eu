@@ -1,4 +1,5 @@
 d.notifyWhenLoaded(".intro__header");
+// d.notifyWhenLoaded(".intro__cover");
 
 WebFont.load({
 	google: {
