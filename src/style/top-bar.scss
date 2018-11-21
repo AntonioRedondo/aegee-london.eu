@@ -47,7 +47,7 @@
 	}
 	
 	&--open {
-		height: 430px;
+		height: 490px;
 		transition-timing-function: ease-out;
 	}
 	
@@ -109,6 +109,10 @@
 		
 		&--in6 {
 			transition-delay: 1s;
+		}
+		
+		&--in7 {
+			transition-delay: 1.2s;
 		}
 	}
 	
@@ -174,6 +178,20 @@
 				}
 			}
 			/* stylelint-enable */
+		}
+	}
+	
+	&__icon {
+		width: 35px;
+		height: 35px;
+		margin: 0 5px;
+		
+		border-radius: 100%;
+		
+		transition: all 0.5s;
+		
+		&:hover {
+			box-shadow: 0 0 1vw $color6;
 		}
 	}
 	
