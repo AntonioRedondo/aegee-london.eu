@@ -2,9 +2,9 @@
 
 Repository for the AEGEE-London [website](http://aegee-london.eu).
 
-The website is vanilla ES5 JavaScript, HTML and CSS bundled with Gulp and served statically from [GitHub Pages](https://pages.github.com), hosting service with no costs. We don't make use of any CMS. No WordPress, Wix or similar. If you're the IT responsible for your antenna, you like our webpage and you'd like to use it, feel free to checkout the repo, make the necessary changes and republish the website for your own antenna. It would be the best honour for [Tony](https://github.com/AntonioRedondo), the responsible for our site. We pay ~10€ a year for the `aegee-london.eu` domain on [GoDaddy](http://godaddy.com).
+The website is vanilla ES5 JavaScript, HTML and CSS bundled with Gulp and served statically from [GitHub Pages](https://pages.github.com), hosting service with no costs. We don't make use of any CMS. No WordPress, Wix or similar. If you're the IT responsible for your antenna, you like our webpage and you'd like to use it, feel free to fork the repo, make the necessary changes and republish the website for your own antenna. It would be the best honour for [Tony](https://github.com/AntonioRedondo), the responsible for our site. When reusing our code please remember to leave the footer with the link to the original repo and the link to Tony's GitHub. We pay ~10€ a year for the `aegee-london.eu` domain on [GoDaddy](http://godaddy.com).
 
-We're the local branch of AEGEE in London. We were born in 2013 and since then we've strove to run a local group of pro-European enthusiastic students and workers who enjoy spending time together.
+We're the local branch of AEGEE in London. We were born in 2013 and since then we've striven to run a local group of pro-European enthusiastic students and workers who enjoy spending time together.
 
 [AEGEE](https://en.wikipedia.org/wiki/AEGEE) stands for Association des États Généraux des Étudiants de l'Europe and it is known as European Students' Forum in English. It is the largest trans-national, interdisciplinary student organisation in Europe. Established in 1985, AEGEE currently has around 13,000 members and almost 200 local branches (antennae) in university cities across Europe, including Russia, Turkey and the Caucasus, with a European board and head office in Brussels.
 
