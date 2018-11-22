@@ -65,7 +65,9 @@ gulp.task("htmlHint", () => {
 });
 
 gulp.task("styleLint", () => {
-	return gulp.src([`${SRC}/style/*.scss`, `!${SRC}/style/_atoms.scss`]).pipe(styleLint());
+	return gulp.src([`${SRC}/style/*.scss`, `!${SRC}/style/_atoms.scss`]).pipe(styleLint({
+		reporters: [{ formatter: "string", console: true }]
+	}));
 });
 
 
