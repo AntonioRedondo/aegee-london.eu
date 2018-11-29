@@ -30,7 +30,7 @@
 		"gulp-eslint": "5.0",
 		"gulp-htmlhint": "2.2",
 		"gulp-stylelint": "8.0",
-		"stylelint": "9.8",
+		"stylelint": "9.9",
 		"stylelint-config-standard": "18.2",
 		"husky": "1.2",
 		
@@ -38,7 +38,7 @@
 		"gulp-file-include": "2.0",
 		"gulp-replace": "1.0",
 		"gulp-postcss": "8.0",
-		"precss": "3.1",
+		"precss": "4.0",
 		"autoprefixer": "9.3",
 		"gulp-atomizer": "3.0",
 		"gulp-inline": "0.1",
