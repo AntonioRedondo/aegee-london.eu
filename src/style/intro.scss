@@ -39,6 +39,7 @@
 		height: 100%;
 		
 		position: absolute;
+		top: 0;
 		left: -50%;
 		
 		border: 0;
@@ -62,7 +63,7 @@
 		background:
 			radial-gradient(
 				ellipse farthest-corner at 50% 0,
-				color($color1 a(0%)) 15%,
+				rgba(20, 104, 179, 0) 15%,
 				$color2 72%
 			) center / 200% 100% no-repeat;
 	}

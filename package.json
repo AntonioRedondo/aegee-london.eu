@@ -13,7 +13,7 @@
 		"build": "gulp",
 		"build:watch": "gulp watch",
 		"build:prod": "gulp prod",
-		"prepush": "gulp lint"
+		"precommit": "gulp lint"
 	},
 	"dependencies": {
 		"webfontloader": "1.6",
