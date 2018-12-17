@@ -25,50 +25,32 @@ const htmlMin = require("gulp-htmlmin");
 
 
 
-
 const SRC = "src";
 const DEST = "docs";
 
 
 
-
-gulp.task("watch", ["lint", "build"], () => {
-	gulp.watch([`${SRC}/js/*.js`], ["esLint", "buildJs"]);
-	gulp.watch([`${SRC}/**/*.htm`], ["htmlHint"/* , "buildHtml" */]);
-	gulp.watch([`${SRC}/style/*.scss`, `${SRC}/**/*.htm`, `!${SRC}/style/_atoms.scss`, ".stylelintrc.json"], ["styleLint", "buildCss"]);
-	gulp.watch([`${SRC}/img/**`], ["copyAssets"]);
-});
-gulp.task("lint", ["esLint", "htmlHint", "styleLint"]);
-gulp.task("build", ["buildJs", /* "buildHtml",  */"buildCss", "copyAssets"]);
-gulp.task("default", ["build"]);
-
-gulp.task("clean", () => del(DEST));
-
-
-
-
-
 // ---------- LINT ---------- //
 
-gulp.task("esLint", () => {
-	return gulp.src([`${SRC}/js/*.js`, "gulpfile.js"])
+const esLintTask = () => {
+	return gulp.src([`${SRC}/js/*.js`])
 		.pipe(esLint())
 		.pipe(esLint.format())
 		.pipe(esLint.failAfterError());
-});
+};
 
-gulp.task("htmlHint", () => {
+const htmlHintTask = () => {
 	return gulp.src([`${SRC}/**/*.htm`])
 		.pipe(htmlHint(".htmlhintrc"))
 		// .pipe(htmlHint.reporter())
 		.pipe(htmlHint.failReporter());
-});
+};
 
-gulp.task("styleLint", () => {
+const stylelintTask = () => {
 	return gulp.src([`${SRC}/style/*.scss`, `!${SRC}/style/_atoms.scss`]).pipe(styleLint({
 		reporters: [{ formatter: "string", console: true }]
 	}));
-});
+};
 
 
 
@@ -76,7 +58,7 @@ gulp.task("styleLint", () => {
 
 // ---------- BUILD ---------- //
 
-gulp.task("buildJs", () => {
+const buildJsTask = async () => {
 	return gulp.src(
 		[
 			"node_modules/webfontloader/webfontloader.js",
@@ -90,16 +72,16 @@ gulp.task("buildJs", () => {
 		.pipe(concat("app.js"))
 		.pipe(sourcemaps.write())
 		.pipe(gulp.dest(DEST));
-});
+};
 
-gulp.task("buildHtml", () => {
+const buildHtmlTask = () => {
 	return gulp.src([`${SRC}/index.htm`])
 		.pipe(include())
 		.pipe(gulp.dest(DEST));
-});
+};
 
-gulp.task("buildCssAtoms", ["buildHtml"], () => {
-	return gulp.src([`${DEST}/index.htm`])
+const buildCssAtomsTask = () => {
+	return gulp.src([`${SRC}/**/*.htm`])
 		.pipe(atomizer({
 			outfile: "_atoms.scss",
 			acssConfig: {
@@ -112,14 +94,14 @@ gulp.task("buildCssAtoms", ["buildHtml"], () => {
 			}
 		}))
 		.pipe(gulp.dest(`${SRC}/style`));
-});
+};
 
-gulp.task("buildCss", ["buildCssAtoms"], () => {
+const buildCssTask = () => {
 	return gulp.src(
 		[
 			`${SRC}/style/common.scss`,
-			`${SRC}/style/!(_atoms)*.scss`,
-			`${SRC}/style/_atoms.scss`
+			`${SRC}/style/_atoms.scss`,
+			`${SRC}/style/!(_atoms)*.scss`
 		])
 		.pipe(sourcemaps.init())
 		.pipe(concat("style.css"))
@@ -130,16 +112,16 @@ gulp.task("buildCss", ["buildCssAtoms"], () => {
 		]))
 		.pipe(sourcemaps.write())
 		.pipe(gulp.dest(DEST));
-});
+};
 
-gulp.task("copyAssets", () => {
+const copyAssetsTask = () => {
 	gulp.src([`${SRC}/favicon.ico`, `${SRC}/CNAME`])
 		.pipe(newer(DEST))
 		.pipe(gulp.dest(DEST));
 	return gulp.src([`${SRC}/img/*`])
 		.pipe(newer(`${DEST}/img`))
 		.pipe(gulp.dest(`${DEST}/img`));
-});
+};
 
 
 
@@ -147,7 +129,7 @@ gulp.task("copyAssets", () => {
 
 // ---------- PRODUCTION ---------- //
 
-gulp.task("prod", ["build"], () => {
+const prodTask = () => {
 	return gulp.src([`${DEST}/index.htm`])
 		.pipe(inline({
 			// base: DEST,
@@ -163,4 +145,19 @@ gulp.task("prod", ["build"], () => {
 			removeRedundantAttributes: true
 		}))
 		.pipe(gulp.dest(DEST));
+};
+
+
+
+const buildTask = gulp.parallel(buildJsTask, buildHtmlTask, gulp.series(buildCssAtomsTask, buildCssTask), copyAssetsTask);
+
+exports.lint = gulp.parallel(esLintTask, htmlHintTask, stylelintTask);
+exports.buildWatch = gulp.series(buildTask, function watchTask() {
+	gulp.watch([`${SRC}/js/*.js`], gulp.parallel(esLintTask, buildJsTask));
+	gulp.watch([`${SRC}/**/*.htm`], gulp.parallel(htmlHintTask, buildHtmlTask));
+	gulp.watch([`!${SRC}/style/_atoms.scss`, `${SRC}/style/*.scss`, `${SRC}/**/*.htm`], gulp.parallel(stylelintTask, gulp.series(buildCssAtomsTask, buildCssTask)));
+	gulp.watch([`${SRC}/img/**`], gulp.parallel(copyAssetsTask));
 });
+exports.buildProd = gulp.series(buildTask, prodTask);
+exports.clean = () => del(DEST);
+exports.default = exports.watch;

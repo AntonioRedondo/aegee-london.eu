@@ -8,11 +8,10 @@
 	"license": "CC-BY-NC-ND-4.0",
 	"main": "",
 	"scripts": {
-		"clean": "gulp clean",
 		"lint": "gulp lint",
-		"build": "gulp",
-		"build:watch": "gulp watch",
-		"build:prod": "gulp prod",
+		"build:watch": "gulp buildWatch",
+		"build:prod": "gulp buildProd",
+		"clean": "gulp clean",
 		"precommit": "gulp lint"
 	},
 	"dependencies": {
@@ -23,7 +22,7 @@
 	"//": "Grouped by concern: basics, lint, build, production, server",
 	"devDependencies": {
 		"del": "3.0",
-		"gulp": "3.9",
+		"gulp": "4.0",
 		"gulp-newer": "1.4",
 		"gulp-sourcemaps": "2.6",
 		
@@ -39,7 +38,7 @@
 		"gulp-replace": "1.0",
 		"gulp-postcss": "8.0",
 		"precss": "4.0",
-		"autoprefixer": "9.3",
+		"autoprefixer": "9.4",
 		"gulp-atomizer": "3.0",
 		"gulp-inline": "0.1",
 		"postcss-assets": "5.0",
@@ -49,5 +48,10 @@
 		"connect": "3.6",
 		"serve-static": "1.13",
 		"opn": "5.4"
+	},
+	"husky": {
+		"hooks": {
+			"pre-commit": "npm run lint"
+		}
 	}
 }
