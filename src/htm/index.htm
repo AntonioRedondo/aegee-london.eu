@@ -5,8 +5,9 @@
 		
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width" />
+		<meta name="description" content="We're the local branch of AEGEE in London. Join us and enjoy all the trips, exchanges, conferences and parties we organise!">
 		
-		<!--
+		<!-- htmlmin:ignore --><!--
 
 
                                      ,:7rLr.
@@ -53,57 +54,65 @@
                              for AEGEE-London
 
                   Check the source code of this website on
-                  http://github.com/AntonioRedondo/AEGEE-London
+                  https://github.com/AntonioRedondo/aegee-london.eu
 
 
 
-		-->
+		--><!-- htmlmin:ignore -->
 		
 		<title>AEGEE-London</title>
 		
-		
+		<!-- http://ogp.me -->
+		<!-- https://developers.facebook.com/docs/sharing/webmasters#markup -->
+		<!-- https://developers.facebook.com/tools/debug -->
 		<meta property="og:url" content="http://aegee-london.eu" />
 		<meta property="og:title" content="AEGEE-London" />
-		<meta property="og:description" content="We're the local branch of AEGEE in London. We were born in 2013 and since then we've strove to run a local group of pro-European enthusiastic students and workers who enjoy spending time toguether." />
+		<meta property="og:description" content="We're the local branch of AEGEE in London. We were born in 2013 and since then we've strove to run a local group of pro-European enthusiastic students and workers who enjoy spending time together." />
 		<meta property="og:site_name" content="AEGEE-London" />
 		<meta property="og:image" content="http://aegee-london.eu/img/preview.jpg" />
 		
-		
-		<link rel="icon" href="favicon.ico" type="image/x-icon" />
-		<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
-		
-		
-		<style type="text/css">
-			html {
-				background: #222;
-			}
-			
-			.announcement {
-				height: 706px;
-				margin: 10vh auto;
-				display: block;
-			}
-			
-			@media (max-width: 810px) {
-				.announcement {
-					width: 100%;
-					height: auto;
-				}
-			}
-		</style>
+		<!-- http://stackoverflow.com/questions/26960703/how-to-change-the-color-of-header-bar-and-address-bar-in-newest-android-chrome-v -->
+		<meta name="theme-color" content="#1468b3">
+		<meta name="msapplication-navbutton-color" content="#1468b3">
+		<meta name="apple-mobile-web-app-status-bar-style" content="#1468b3">
 		
 		
+		<link rel="icon" href="../favicon.ico" type="image/x-icon" />
+		<link rel="shortcut icon" href="../favicon.ico" type="image/x-icon" />
+		<link rel="stylesheet" href="style.css" />
+		
+		
+		<!-- https://developers.google.com/analytics/devguides/collection/analyticsjs -->
 		<script>
 			window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
 			ga("create", "UA-91858255-1", "auto");
-			ga("send", "pageview");
+			ga("send", "pageview", location.hash);
 		</script>
 		<script async src="https://www.google-analytics.com/analytics.js"></script>
 		
+		<!-- buildDev:start -->
+		<script type="text/javascript" src="http://livejs.com/live.js"></script>
+		<!-- buildDev:end -->
 	</head>
 	
 	<body class="body">
-		<img src="img/announcement.png" class="announcement" />
+	
+		<div class="darkener-main"></div>
+		
+		<main>
+			@@include('intro.htm')
+			@@include('who-we-are.htm')
+			@@include('activities.htm')
+			@@include('the-board.htm')
+			@@include('join-us.htm')
+			@@include('faq.htm')
+			@@include('contact.htm')
+		</main>
+		
+		@@include('top-bar.htm')
+		
+		<script src="app.js"></script>
+		<script src="//www.youtube.com/iframe_api"></script>
 	</body>
 
 </html>

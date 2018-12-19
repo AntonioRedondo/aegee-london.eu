@@ -8,6 +8,8 @@
 		
 		color: $color4;
 		font-family: Roboto Slab, serif;
+
+		transition: $time1;
 		
 		@media (max-width: $breakpointMobile) {
 			margin: 4vw 0;
@@ -22,12 +24,12 @@
 		}
 		
 		&:target {
-			animation: 10s question;
+			animation: 8s question;
 			
 			/* stylelint-disable */
 			@at-root { @keyframes question {
 					0% { color: white; text-shadow: 0 0 20px white; }
-					50% { color: white; text-shadow: 0 0 20px white; }
+					20% { color: white; text-shadow: 0 0 20px white; }
 					100% { color: $color4; text-shadow: inherit; }
 			} }
 			/* stylelint-enable */

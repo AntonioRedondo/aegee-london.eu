@@ -1,7 +1,3 @@
-@import "variables";
-
-
-
 .top-bar {
 	width: 100%;
 	height: $topBarHeight;
@@ -13,7 +9,7 @@
 	
 	box-shadow: none;
 	
-	transition: all $time2 ease-in;
+	transition: background-color $time2 $ease-in, height $time2 ease-in;
 	
 	@media (max-width: $breakpointMobile) {
 		height: 0;
@@ -48,7 +44,7 @@
 	
 	&--open {
 		height: 490px;
-		transition-timing-function: ease-out;
+		transition-timing-function: $ease-out;
 	}
 	
 	&__menu {
@@ -73,9 +69,8 @@
 	&__tab-container {
 		list-style: none;
 		
-		transition: all 0.5s $ease-out;
+		transition: transform 0.5s $ease-out;
 		
-		opacity: 0;
 		transform: translate3d(0, -50px, 0);
 		
 		@media (max-width: $breakpointMobile) {
@@ -83,7 +78,6 @@
 		}
 		
 		&--in {
-			opacity: 1;
 			transform: translate3d(0, 0, 0);
 		}
 		
@@ -131,7 +125,7 @@
 		text-transform: uppercase;
 		text-shadow: 0 0 1vw color(black a(50%));
 		
-		transition: all 0.5s;
+		transition: text-shadow $time2;
 		
 		@media (min-width: $breakpointBig) {
 			padding: 0 30px;
@@ -188,7 +182,7 @@
 		
 		border-radius: 100%;
 		
-		transition: all 0.5s;
+		transition: box-shadow $time2;
 		
 		&:hover {
 			box-shadow: 0 0 1vw $color6;
@@ -199,8 +193,6 @@
 		width: 110px;
 		height: 35px;
 		margin-top: 2px;
-		
-		transition: all $time2;
 		
 		opacity: 0;
 		
@@ -217,9 +209,7 @@
 		position: absolute;
 		top: 0;
 		
-		opacity: 1;
-		
-		transition: all $time2;
+		transition: background-color $time2;
 		
 		@media (max-width: $breakpointMobile) {
 			background-color: white;
@@ -272,7 +262,7 @@
 		background: $color2;
 		opacity: 0;
 		
-		transition: all $time2;
+		transition: 0.5s $ease-out;
 		
 		@media (max-width: $breakpointMobile) {
 			display: none;
