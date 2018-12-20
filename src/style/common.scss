@@ -310,7 +310,7 @@ button {
 
 .bg1 {
 	background:
-		url('img/header.png') 0 $marginTop / 100% 600px no-repeat,
+		url('img/header.png') 0 0 / 100% 600px no-repeat,
 		radial-gradient(
 			ellipse farthest-corner at 50% 0,
 			$color1 10%,
