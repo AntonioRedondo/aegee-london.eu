@@ -107,7 +107,7 @@ const buildCssTask = () => {
 		.pipe(sourcemaps.init())
 		.pipe(concat("style.css"))
 		.pipe(postCss([
-			preCss({ extension: "scss" }),
+			preCss({ features: { "color-mod-function": { unresolved: "warn" } } }),
 			autoprefixer({ browsers: ["safari 9", "ie 11"] }), // https://github.com/ai/browserslist
 			assets({ loadPaths: [SRC] })
 		]))

@@ -20,7 +20,7 @@
 	}
 	
 	&--in {
-		box-shadow: 0 0 15px color(black a(35%));
+		box-shadow: 0 0 15px color-mod(black a(35%));
 		
 		& .top-bar__tab {
 			color: $color2;
@@ -123,7 +123,7 @@
 		font-weight: 700;
 		text-align: center;
 		text-transform: uppercase;
-		text-shadow: 0 0 1vw color(black a(50%));
+		text-shadow: 0 0 1vw color-mod(black a(50%));
 		
 		transition: text-shadow $time2;
 		
@@ -285,7 +285,7 @@
 			background:
 				radial-gradient(
 					ellipse farthest-corner at 50% 100%,
-					color($color5 a(15%)) 0%,
+					color-mod($color5 a(15%)) 0%,
 					transparent 60%
 				) center 0 / 100% 100% no-repeat;
 		}

@@ -31,7 +31,7 @@
 		
 		&:hover .the-board__name {
 			color: white;
-			text-shadow: 0 0 1vw color(white a(90%));
+			text-shadow: 0 0 1vw color-mod(white a(90%));
 			transform: scale3d(1.3, 1.3, 1);
 		}
 		
@@ -81,7 +81,7 @@
 		pointer-events: none;
 		
 		color: $color4;
-		text-shadow: 0 0 1vw color($color4 a(90%));
+		text-shadow: 0 0 1vw color-mod($color4 a(90%));
 		font-size: 3.5vw;
 		text-align: center;
 		text-transform: uppercase;
@@ -131,7 +131,7 @@
 		
 		font-size: 1.2vw;
 		font-weight: 300;
-		text-shadow: 0.1vw 0.1vw 0.2vw color(black a(50%));
+		text-shadow: 0.1vw 0.1vw 0.2vw color-mod(black a(50%));
 		text-align: center;
 		
 		transition: $time1 ease-out all;
@@ -161,7 +161,7 @@
 		position: absolute;
 		bottom: 0;
 		
-		background: linear-gradient(0deg, color(black a(90%)), transparent);
+		background: linear-gradient(0deg, color-mod(black a(90%)), transparent);
 		pointer-events: none;
 		
 		transition: $time1 ease-out all;
