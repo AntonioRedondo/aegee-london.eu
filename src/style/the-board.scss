@@ -176,6 +176,10 @@
 		
 		display: block;
 		
+		@media (min-width: $breakpointBig) {
+			height: 180px;
+		}
+		
 		@media (max-width: $breakpointMobile) {
 			margin: 10vw auto 2vw;
 		}

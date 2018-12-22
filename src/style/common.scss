@@ -354,3 +354,58 @@ button {
 		}
 	}
 }
+
+
+
+
+.link {
+	position: relative;
+	
+	&:hover &__icon {
+		opacity: 1;
+	}
+	
+	&:target {
+		animation: 8s question;
+		
+		/* stylelint-disable */
+		@at-root { @keyframes question {
+					0% { color: white; text-shadow: 0 0 20px white; }
+					20% { color: white; text-shadow: 0 0 20px white; }
+				} }
+		/* stylelint-enable */
+	}
+	
+	&__icon {
+		
+		width: 4vw;
+		height: 4vw;
+		
+		display: block;
+		
+		position: absolute;
+		top: calc(50% - 2vw);
+		left: -4vw;
+		
+		background: inline("img/permalink.svg") no-repeat center;
+		background-size: 2vw;
+		
+		cursor: pointer;
+		
+		transition: $time1;
+		
+		opacity: 0;
+		
+		@media (max-width: $breakpointMobile) {
+			width: 5vw;
+			height: @width;
+			
+			top: 4.4vw;
+			left: -7vw;
+		}
+
+		&:hover {
+			filter: drop-shadow(0 0 1vw white);
+		}
+	}
+}

@@ -4,63 +4,6 @@
 	background: black url('img/activities.jpg') top / 100% no-repeat;
 	box-shadow: 0 0 10vw $gray2;
 	
-	&__link {
-		margin: 2% 0;
-		display: block;
-		
-		position: relative;
-		
-		transition: text-shadow $time1;
-		
-		&:hover {
-			text-shadow: 0 0 1vw $color4;
-		}
-		
-		&:hover::before {
-			opacity: 1;
-		}
-		
-		&:target {
-			animation: 8s question;
-			
-			/* stylelint-disable */
-			@at-root { @keyframes question {
-					0% { color: white; text-shadow: 0 0 20px white; }
-					20% { color: white; text-shadow: 0 0 20px white; }
-					100% { color: $color4; text-shadow: inherit; }
-			} }
-			/* stylelint-enable */
-		}
-		
-		&::before {
-			content: "";
-			
-			width: 3vw;
-			height: 2vw;
-			padding-right: 3vw;
-			
-			display: block;
-			
-			position: absolute;
-			top: calc(42% - 1vw);
-			left: -3vw;
-			
-			background: inline("img/permalink.svg") no-repeat;
-			
-			transition: opacity $time1;
-			
-			opacity: 0;
-			
-			@media (max-width: $breakpointMobile) {
-				width: 5vw;
-				height: @width;
-				
-				top: 4.4vw;
-				left: -7vw;
-			}
-		}
-	}
-	
 	&__fb-iframe {
 		width: 500px;
 		height: 535px;

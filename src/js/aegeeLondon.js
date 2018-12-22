@@ -83,24 +83,49 @@ function init() { // eslint-disable-line no-unused-vars
 		easing: "outCubic",
 		duration: 500,
 		handleLink: function(link) {
+			var extraSpace = -100;
 			var linkText = link.href.split("#").pop();
+			var linkPositionActivities = d.calcRelativePosition("#activities", "#" + linkText);
+			var linkPositionBoard = d.calcRelativePosition("#the-board", "#" + linkText);
+			var linkPositionFaq = d.calcRelativePosition("#faq", "#" + linkText);
 			
 			switch (linkText) {
-				case "intro":		moveLine(0); return 0;
-				case "who-we-are":	moveLine(1); return offsetFunctions.d0g;
-				case "activities":	moveLine(2); return offsetFunctions.d1g;
-				case "the-board":	moveLine(3); return offsetFunctions.d2g;
-				case "join-us":		moveLine(4); return offsetFunctions.d3g;
-				case "faq":			moveLine(5); return offsetFunctions.d4g;
-				case "contact":		moveLine(6); return offsetFunctions.d5g;
+				case "intro":						moveLine(0); return 0;
+				case "who-we-are":					moveLine(1); return offsetFunctions.d0g;
+				case "activities":					moveLine(2); return offsetFunctions.d1g;
+				case "activities-in-london":		moveLine(2); return offsetFunctions.d1g + linkPositionActivities.top + extraSpace;
+				case "activities-around-europe":	moveLine(2); return offsetFunctions.d1g + linkPositionActivities.top + extraSpace;
+				case "summer-universities":			moveLine(2); return offsetFunctions.d1g + linkPositionActivities.top + extraSpace;
+				case "agoras"			:			moveLine(2); return offsetFunctions.d1g + linkPositionActivities.top + extraSpace;
+				case "european-planning-meetings":	moveLine(2); return offsetFunctions.d1g + linkPositionActivities.top + extraSpace;
+				case "network-meetings":			moveLine(2); return offsetFunctions.d1g + linkPositionActivities.top + extraSpace;
+				case "training-courses":			moveLine(2); return offsetFunctions.d1g + linkPositionActivities.top + extraSpace;
+				case "many-other-events":			moveLine(2); return offsetFunctions.d1g + linkPositionActivities.top + extraSpace;
+				case "the-board":					moveLine(3); return offsetFunctions.d2g;
+				case "become-member-board":			moveLine(3); return offsetFunctions.d2g + linkPositionBoard.top + extraSpace;
+				case "former-boards":				moveLine(3); return offsetFunctions.d2g + linkPositionBoard.top + extraSpace;
+				case "antennas-birth":				moveLine(3); return offsetFunctions.d2g + linkPositionBoard.top + extraSpace;
+				case "previous-foundations":		moveLine(3); return offsetFunctions.d2g + linkPositionBoard.top + extraSpace;
+				case "join-us":						moveLine(4); return offsetFunctions.d3g;
+				case "faq":															moveLine(5); return offsetFunctions.d4g;
+				case "how-old-can-i-be":											moveLine(5); return offsetFunctions.d4g + linkPositionFaq.top + extraSpace;
+				case "do-i-need-to-be-university-student":							moveLine(5); return offsetFunctions.d4g + linkPositionFaq.top + extraSpace;
+				case "can-i-join-aegee-london-even-if-i-dont-live-in-london":		moveLine(5); return offsetFunctions.d4g + linkPositionFaq.top + extraSpace;
+				case "what-have-to-do-summer-universities-with-real-universities":	moveLine(5); return offsetFunctions.d4g + linkPositionFaq.top + extraSpace;
+				case "when-do-you-organise-the-next-event":							moveLine(5); return offsetFunctions.d4g + linkPositionFaq.top + extraSpace;
+				case "could-you-arrange-any-lodging-for-me":						moveLine(5); return offsetFunctions.d4g + linkPositionFaq.top + extraSpace;
+				case "would-you-like-to-meet":										moveLine(5); return offsetFunctions.d4g + linkPositionFaq.top + extraSpace;
+				case "which-social-networks-do-you-use":							moveLine(5); return offsetFunctions.d4g + linkPositionFaq.top + extraSpace;
+				case "is-aegee-london-an-ngo":										moveLine(5); return offsetFunctions.d4g + linkPositionFaq.top + extraSpace;
+				case "do-you-have-physical-offices":								moveLine(5); return offsetFunctions.d4g + linkPositionFaq.top + extraSpace;
+				case "are-you-present-at-some-london-university":					moveLine(5); return offsetFunctions.d4g + linkPositionFaq.top + extraSpace;
+				case "where-does-the-antenna-get-funds-from	":						moveLine(5); return offsetFunctions.d4g + linkPositionFaq.top + extraSpace;
+				case "what-are-the-funds-used-for":									moveLine(5); return offsetFunctions.d4g + linkPositionFaq.top + extraSpace;
+				case "how-is-this-website-made":									moveLine(5); return offsetFunctions.d4g + linkPositionFaq.top + extraSpace;
+				case "contact":						moveLine(6); return offsetFunctions.d5g;
 			}
 			
-			var linkPosition = d.calcRelativePosition("body", "#" + linkText);
-			
-			if (linkPosition)
-				return linkPosition.top - 70;
-			
-			history.replaceState(null, null, " "); // removes any invalid #hashstring
+			window.history.replaceState(null, null, " "); // https://stackoverflow.com/questions/1397329/how-to-remove-the-hash-from-window-location-url-with-javascript-without-page-r
 			return 0;
 		}
 	});
@@ -161,7 +186,6 @@ function init() { // eslint-disable-line no-unused-vars
 	if ((hash && hash !== "#intro") || isMobile()) {
 		d.gc("top-bar").classList.add("top-bar--in", "top-bar--in-no-delay");
 		d.st(function() { d.gc("top-bar").classList.remove("top-bar--in-no-delay"); }, 1000);
-		
 		showTopBarEntries();
 	}
 	

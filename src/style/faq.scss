@@ -2,60 +2,12 @@
 	z-index: 5;
 	
 	&__question {
-		margin: 2% 0;
+		margin: 5% 0 2%;
 		
-		display: block;
-		
-		color: $color4;
 		font-family: Roboto Slab, serif;
-
-		transition: $time1;
 		
 		@media (max-width: $breakpointMobile) {
-			margin: 4vw 0;
-		}
-		
-		&:hover {
-			text-shadow: 0 0 0.5vw $color4;
-		}
-		
-		&:hover::before {
-			opacity: 1;
-		}
-		
-		&:target {
-			animation: 8s question;
-			
-			/* stylelint-disable */
-			@at-root { @keyframes question {
-					0% { color: white; text-shadow: 0 0 20px white; }
-					20% { color: white; text-shadow: 0 0 20px white; }
-					100% { color: $color4; text-shadow: inherit; }
-			} }
-			/* stylelint-enable */
-		}
-		
-		&::before {
-			content: inline("img/permalink.svg");
-			
-			width: 2vw;
-			height: @width;
-			
-			display: block;
-			
-			position: relative;
-			top: 1.9vw;
-			left: -3vw;
-			
-			opacity: 0;
-			
-			@media (max-width: $breakpointMobile) {
-				width: 5vw;
-				height: @width;
-				
-				top: 4.4vw;
-				left: -7vw;
-			}
+			margin: 5vw 0 4vw;
 		}
 	}
 }
