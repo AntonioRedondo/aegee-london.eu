@@ -17,10 +17,12 @@
 	
 	@media (max-width: $breakpointSmall) {
 		font-size: 0.9em;
+		background: $whiteE;
 	}
 	
 	&--in {
 		box-shadow: 0 0 15px color-mod(black a(35%));
+		background: $whiteE;
 		
 		& .top-bar__tab {
 			color: $color2;
@@ -33,12 +35,6 @@
 		
 		& .top-bar__logo, & .top-bar__line {
 			opacity: 1;
-		}
-	}
-	
-	&--in-no-delay {
-		& .top-bar__bg {
-			transition: unset;
 		}
 	}
 	
@@ -135,6 +131,7 @@
 			width: 100%;
 			height: 60px;
 			color: $color2;
+			text-shadow: none;
 		}
 		
 		&:hover {
@@ -148,7 +145,6 @@
 		}
 		
 		&--in {
-			text-shadow: none;
 			animation: 1s 6s tada;
 			
 			/* stylelint-disable block-opening-brace-newline-after */
@@ -195,24 +191,16 @@
 		margin-top: 2px;
 		
 		opacity: 0;
+
+		transition: $time2 filter;
 		
 		@media (max-width: $breakpointMobile) {
 			height: 40px;
 			opacity: 1;
 		}
-	}
-	
-	&__bg {
-		width: 100%;
-		height: 100%;
-		
-		position: absolute;
-		top: 0;
-		
-		transition: background-color $time2;
-		
-		@media (max-width: $breakpointMobile) {
-			background-color: white;
+
+		&:hover {
+			filter: drop-shadow(0 0 1.5vw $color6);
 		}
 	}
 	

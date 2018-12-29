@@ -184,7 +184,7 @@ function init() { // eslint-disable-line no-unused-vars
 	// Adapts the UI to remove intro animations if the URL points to a section
 	var hash = window.location.hash;
 	if ((hash && hash !== "#intro") || isMobile()) {
-		d.gc("top-bar").classList.add("top-bar--in", "top-bar--in-no-delay");
+		d.gc("top-bar").classList.add("top-bar--in");
 		d.st(function() { d.gc("top-bar").classList.remove("top-bar--in-no-delay"); }, 1000);
 		showTopBarEntries();
 	}
