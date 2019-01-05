@@ -44,7 +44,7 @@
 		
 		@media (max-width: $breakpointMobile) {
 			display: block;
-			margin-right: 0;
+			margin-top: 6vw;
 		}
 	}
 	
@@ -57,7 +57,10 @@
 		flex: auto;
 		
 		@media (max-width: $breakpointMobile) {
-			display: none;
+			width: 30vw;
+			height: @width;
+			margin: 4vw auto 0;
+			border-radius: 100%;
 		}
 		
 		&:hover {
