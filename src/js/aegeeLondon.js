@@ -119,7 +119,7 @@ function init() { // eslint-disable-line no-unused-vars
 				case "is-aegee-london-an-ngo":										moveLine(5); return offsetFunctions.d4g + linkPositionFaq.top + extraSpace;
 				case "do-you-have-physical-offices":								moveLine(5); return offsetFunctions.d4g + linkPositionFaq.top + extraSpace;
 				case "are-you-present-at-some-london-university":					moveLine(5); return offsetFunctions.d4g + linkPositionFaq.top + extraSpace;
-				case "where-does-the-antenna-get-funds-from	":						moveLine(5); return offsetFunctions.d4g + linkPositionFaq.top + extraSpace;
+				case "where-does-the-antenna-get-funds-from":						moveLine(5); return offsetFunctions.d4g + linkPositionFaq.top + extraSpace;
 				case "what-are-the-funds-used-for":									moveLine(5); return offsetFunctions.d4g + linkPositionFaq.top + extraSpace;
 				case "how-is-this-website-made":									moveLine(5); return offsetFunctions.d4g + linkPositionFaq.top + extraSpace;
 				case "contact":						moveLine(6); return offsetFunctions.d5g;
