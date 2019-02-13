@@ -13,11 +13,11 @@
 	
 	@media (max-width: $breakpointMobile) {
 		height: 0;
+		background: $whiteE;
 	}
 	
 	@media (max-width: $breakpointSmall) {
 		font-size: 0.9em;
-		background: $whiteE;
 	}
 	
 	&--in {
