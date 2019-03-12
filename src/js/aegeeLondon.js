@@ -145,7 +145,7 @@ function init() { // eslint-disable-line no-unused-vars
 	
 	// Loads the intro video if on desktop
 	if (!isMobile() && (d.getOS() === "Windows" || d.getOS() === "macOS" || d.getOS() === "Linux")) {
-		d.gc("intro__video").src = "//www.youtube.com/embed/7x8BCbo45qA?controls=0&enablejsapi=1&showinfo=0&rel=0&iv_load_policy=3&disablekb=1&origin=https://aegee-london.eu";
+		// d.gc("intro__video").src = "http://www.youtube.com/embed/7x8BCbo45qA?&mute=1&controls=0&enablejsapi=1&showinfo=0&rel=0&iv_load_policy=3&disablekb=1&origin=http://localhost:3000";
 	}
 	
 	
