@@ -1,6 +1,6 @@
 # AEGEE-London website
 
-Repository for the AEGEE-London [website](http://aegee-london.eu).
+Repository for the AEGEE-London [website](https://aegee-london.eu).
 
 The website is vanilla JavaScript, HTML and CSS bundled with Gulp. It doesn't use any toolset or front-end framework like jQuery, Angular or React. It's served statically from [GitHub Pages](https://pages.github.com), hosting service with no costs. We don't make use of any CMS. No WordPress, Wix or similar. The [`docs`](https://github.com/AntonioRedondo/aegee-london.eu/tree/master/docs) folder is the final distributable page that is delivered when visiting [`aegee-london.eu`](https://github.com/AntonioRedondo). GitHub Pages allows to use your [own custom domain](https://github.com/AntonioRedondo). We pay ~10€ a year for the `aegee-london.eu` domain on [GoDaddy](http://godaddy.com).
 
