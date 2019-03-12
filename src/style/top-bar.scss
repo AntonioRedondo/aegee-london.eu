@@ -108,30 +108,32 @@
 	
 	&__tab {
 		height: $topBarHeight;
-		padding: 0 1.4vw;
+		padding: 0.1vw 1.4vw 0;
 		
 		display: flex;
 		justify-content: center;
 		align-items: center;
 		
 		color: white;
-		font-family: Roboto Slab, serif;
-		font-weight: 700;
+		font-family: bebas-neue, serif;
+		font-size: 1.5em;
+		font-weight: 500;
 		text-align: center;
 		text-transform: uppercase;
 		text-shadow: 0 0 1vw color-mod(black a(50%));
 		
 		transition: text-shadow $time2;
-		
-		@media (min-width: $breakpointBig) {
-			padding: 0 30px;
-		}
-		
+
 		@media (max-width: $breakpointMobile) {
 			width: 100%;
 			height: 60px;
+			font-size: 1.7em;
 			color: $color2;
 			text-shadow: none;
+		}
+		
+		@media (min-width: $breakpointBig) {
+			padding: 0 30px;
 		}
 		
 		&:hover {

@@ -2,12 +2,13 @@
 	z-index: 5;
 	
 	&__question {
-		margin: 5% 0 2%;
+		margin: 5% 0 1%;
 		
-		font-family: Roboto Slab, serif;
+		font-family: bebas-neue, sans-serif;
+		line-height: 1;
 		
 		@media (max-width: $breakpointMobile) {
-			margin: 5vw 0 4vw;
+			margin: 10vw 0 2vw;
 		}
 	}
 }

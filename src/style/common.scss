@@ -96,66 +96,30 @@ button {
 	}
 	
 	@media (min-width: $breakpointBig) {
-		font-size: 1.38em;
+		font-size: 1.5em;
 	}
 }
 
 .text2 {
-	padding: 0 6% 0 3.5%;
-	position: relative;
+	margin-bottom: 3%;
 	
 	color: $color4;
-	font-size: 1.8vw;
-	font-weight: 900;
-	line-height: 1.2em;
-	
-	text-shadow: 0 0 1.5vw $color4;
+	font-family: bebas-neue, sans-serif;
+	font-size: 200%;
+	font-weight: 500;
 	
 	@media (max-width: $breakpointMobile) {
-		font-size: 6vw;
-		padding: 4vw 0 2vw;
-	}
-	
-	@media (min-width: $breakpointBig) {
-		font-size: 1.6em;
-	}
-	
-	&::before {
-		content: "‒";
-		
-		position: absolute;
-		top: 0;
-		left: 0;
-		
-		color: white;
-		
-		@media (max-width: $breakpointMobile) {
-			content: none;
-		}
+		margin-bottom: 6%;
+		line-height: 1;
 	}
 }
 
 .text3 {
-	color: $color4;
-	font-size: 1.7vw;
-	font-weight: 900;
-	line-height: 1.2em;
-	
-	@media (max-width: $breakpointMobile) {
-		font-size: 6vw;
-	}
-	
-	@media (min-width: $breakpointBig) {
-		font-size: 1.6em;
-	}
-}
-
-.text4 {
 	padding-bottom: 1vw;
 	
 	border-bottom: $color4 dashed 0.15vw;
 	
-	color: $color4b;
+	color: color-mod($color4 s(60%));
 	font-size: 3.3vw;
 	font-weight: 900;
 	line-height: 1.2em;
@@ -180,47 +144,54 @@ button {
 .title {
 	width: 40%;
 	margin: auto;
-	padding: 8% 0 4%;
+	padding: 9% 0 4%;
 	
 	font-family: Roboto Slab, serif;
 	text-align: center;
-	
-	@media (max-width: $breakpointMedium) {
-		padding-top: 10%;
-	}
 	
 	@media (max-width: $breakpointMobile) {
 		width: auto;
 		margin: auto 10vw;
 		padding-top: 18vw;
 	}
-
+	
+	@media (min-width: $breakpointMedium) {
+		padding-top: 9%;
+	}
+	
 	&__main {
 		margin: 0;
-
-		font-weight: 700;
-		font-size: 4vw;
+		padding: 0.8vw 1vw 0.8vw;
+		
+		background: $color2;
+		box-shadow: 0.8vw 0.8vw 0 $color5;
+		
+		font-family: bebas-neue, sans-serif;
+		font-weight: 500;
+		font-size: 5.6vw;
 		text-transform: uppercase;
-		line-height: 1em;
-		text-shadow: 0 0 90px white;
+		line-height: 0.9;
 		
 		cursor: default;
 		
 		@media (max-width: $breakpointMobile) {
+			padding: 3vw 0 1.5vw;
 			margin: 0 0 5vw;
-			font-size: 10vw;
+			box-shadow: 1.5vw 1.5vw 0 #4ca0ff;
+			font-size: 15vw;
 		}
 		
 		@media (min-width: $breakpointBig) {
-			font-size: 5em;
+			padding: 25px 25px 15px;
+			box-shadow: 16px 16px 0 $color5;
+			font-size: 6.8em;
 		}
 	}
 
 	&__explanation {
 		margin: 4.5% 0;
-		padding-top: 4.5%;
+		padding-top: 5%;
 		
-		border-top: 4px solid $color4;
 		
 		font-size: 1.2vw;
 		
@@ -248,8 +219,6 @@ button {
 	max-width: $breakpointBig;
 	margin: 0 auto $gap;
 	
-	overflow: hidden;
-	
 	position: fixed;
 	top: 0;
 	left: 0;
@@ -265,6 +234,20 @@ button {
 	
 	@media (min-resolution: 180dpi) {
 		filter: none !important;
+	}
+	
+	&::after {
+		content: "";
+		
+		width: 100%;
+		height: 4px;
+		
+		position: absolute;
+		bottom: -4px;
+		left: 0;
+		
+		background: inline("img/line.svg");
+		background-size: 100%;
 	}
 }
 
@@ -294,6 +277,7 @@ button {
 	display: flex;
 	justify-content: space-between;
 	align-items: flex-start;
+	overflow: hidden;
 	
 	&__w66 {
 		flex: 0 0 66%;
@@ -310,7 +294,8 @@ button {
 
 .bg1 {
 	background:
-		url('img/header.png') 0 0 / 100% 600px no-repeat,
+		url('img/header.png') 0 0 / 100% no-repeat,
+		url('img/footer.png') 0 100% / 100% no-repeat,
 		radial-gradient(
 			ellipse farthest-corner at 50% 0,
 			$color1 10%,
@@ -319,12 +304,13 @@ button {
 	
 	@media (max-width: $breakpointMobile) {
 		background:
-			url('img/header.png') center top / 100% 600px no-repeat,
+			url('img/header.png') center 0 / 200% no-repeat,
+			url('img/footer.png') center 100% / 200% no-repeat,
 			radial-gradient(
 				ellipse farthest-corner at 50% 0,
 				$color1 10%,
 				$color2 60%
-			) center top / 400% 100% no-repeat;
+			) center 0 / 400% 100% no-repeat;
 	}
 }
 
@@ -377,15 +363,14 @@ button {
 	}
 	
 	&__icon {
-		
 		width: 4vw;
-		height: 4vw;
+		height: @width;
 		
 		display: block;
 		
 		position: absolute;
 		top: calc(50% - 2vw);
-		left: -4vw;
+		left: -@width;
 		
 		background: inline("img/permalink.svg") no-repeat center;
 		background-size: 2vw;
@@ -397,13 +382,25 @@ button {
 		opacity: 0;
 		
 		@media (max-width: $breakpointMobile) {
-			width: 5vw;
+			width: 7vw;
 			height: @width;
 			
-			top: 4.4vw;
+			top: 1vw;
 			left: -7vw;
+			
+			background-size: 4vw;
 		}
-
+		
+		@media (min-width: $breakpointBig) {
+			width: 80px;
+			height: @width;
+			
+			top: calc(50% - 40px);
+			left: -80px;
+			
+			background-size: 40px;
+		}
+		
 		&:hover {
 			filter: drop-shadow(0 0 1vw white);
 		}

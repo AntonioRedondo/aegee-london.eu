@@ -32,10 +32,9 @@
 		&:hover .the-board__name {
 			color: white;
 			text-shadow: 0 0 1vw color-mod(white a(90%));
-			transform: scale3d(1.3, 1.3, 1);
+			transform: scale(1.3);
 		}
 		
-		&:hover .the-board__position,
 		&:hover .the-board__description {
 			opacity: 1;
 			transform: translate3d(0, 0, 0);
@@ -72,20 +71,55 @@
 		}
 	}
 	
-	&__name {
+	&__text {
 		width: 100%;
+		padding: 8% 10%;
 		
 		position: absolute;
-		bottom: 38%;
+		top: 45%;
+		
+		pointer-events: none;
+		
+		font-size: 1.2vw;
+		font-weight: 300;
+		text-shadow: 0.1vw 0.1vw 0.2vw color-mod(black a(50%));
+		text-align: center;
+		
+		@media (max-width: $breakpointMobile) {
+			width: 90%;
+			margin: 0 5%;
+			padding: 8% 5%;
+			top: 35%;
+			opacity: 1;
+			font-size: 4vw;
+		}
+		
+		@media (min-width: $breakpointBig) {
+			font-size: 1.5em;
+		}
+	}
+	
+	&__description {
+		opacity: 0;
+		transform: translate3d(0, 1vw, 0);
+
+		transition: $time1 ease-out all;
+	}
+	
+	&__name {
+		width: 100%;
+		margin: 0;
 		
 		pointer-events: none;
 		
 		color: $color4;
 		text-shadow: 0 0 1vw color-mod($color4 a(90%));
-		font-size: 3.5vw;
+		font-size: 6vw;
 		text-align: center;
 		text-transform: uppercase;
-		font-family: Roboto Slab, serif;
+		font-family: bebas-neue, sans-serif;
+		font-weight: 500;
+		line-height: 90%;
 		
 		transition: $time1 ease-out all;
 		transform-origin: center bottom;
@@ -93,7 +127,7 @@
 		@media (max-width: $breakpointMobile) {
 			bottom: 46%;
 			color: $color4;
-			font-size: 12vw;
+			font-size: 20vw;
 		}
 		
 		@media (min-width: $breakpointBig) {
@@ -117,39 +151,6 @@
 			padding-bottom: 2vw;
 			border-bottom: $color4 dashed 0.6vw;
 			font-size: 5vw;
-		}
-	}
-
-	&__description {
-		width: 100%;
-		padding: 8% 10%;
-		
-		position: absolute;
-		top: 55%;
-		
-		pointer-events: none;
-		
-		font-size: 1.2vw;
-		font-weight: 300;
-		text-shadow: 0.1vw 0.1vw 0.2vw color-mod(black a(50%));
-		text-align: center;
-		
-		transition: $time1 ease-out all;
-		
-		opacity: 0;
-		transform: translate3d(0, 1vw, 0);
-		
-		@media (max-width: $breakpointMobile) {
-			width: 90%;
-			margin: 0 5%;
-			padding: 8% 5%;
-			top: 38%;
-			opacity: 1;
-			font-size: 4vw;
-		}
-		
-		@media (min-width: $breakpointBig) {
-			font-size: 1.5em;
 		}
 	}
 	

@@ -32,4 +32,53 @@
 			margin: 12vw auto 1vw;
 		}
 	}
+	
+	&__mean {
+		width: 33%;
+		height: 30vw;
+		padding: 0 1% 0 2%;
+		
+		display: inline-block;
+		overflow: hidden;
+		
+		text-align: left;
+		
+		transition: $time1;
+
+		@media (max-width: $breakpointMobile) {
+			width: auto;
+			height: auto;
+			padding: 0 0 10%;
+		}
+
+		@media (min-width: $breakpointBig) {
+			height: 600px;
+		}
+	}
+	
+	&__icon {
+		width: 30%;
+		height: @width;
+		margin: 5% auto;
+		display: block;
+	}
+
+	&__title {
+		margin-bottom: 3%;
+		position: relative;
+
+		color: $color3;
+		font-size: 220%;
+		font-family: bebas-neue, sans-serif;
+		line-height: 1;
+		font-weight: 500;
+
+		text-shadow: 0 0 1.5vw $color3;
+
+		@media (max-width: $breakpointMobile) {
+			margin-bottom: 1%;
+			padding: 4vw 0 2vw;
+			font-size: 210%;
+		}
+	}
 }
