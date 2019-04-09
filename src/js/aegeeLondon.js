@@ -135,11 +135,10 @@ function init() { // eslint-disable-line no-unused-vars
 	// Sets the size FB iframes depending on desktop or mobile
 	var width = isMobile() ? 320 : 500,
 		height = isMobile() ? 500 : 560,
-		width2 = isMobile() ? 320 : 500,
 		height2 = isMobile() ? 400 : 500;
 	
 	d.gc("activities__fb-iframe").src = "https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FAegeeLondon%2F&tabs=events&small_header=true&hide_cover=false&show_facepile=true&width=" + width + "&height=" + height;
-	d.gc("contact__fb-iframe").src = "https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FAegeeLondon%2F&tabs=messages&small_header=false&hide_cover=false&show_facepile=true&width=" + width2 + "&height=" + height2;
+	d.gc("contact__fb-iframe").src = "https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FAegeeLondon%2F&tabs=messages&small_header=false&hide_cover=false&show_facepile=true&width=" + width + "&height=" + height2;
 	
 	
 	
