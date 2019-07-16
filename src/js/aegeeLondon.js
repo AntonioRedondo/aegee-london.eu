@@ -144,7 +144,7 @@ function init() { // eslint-disable-line no-unused-vars
 	
 	// Loads the intro video if on desktop
 	if (!isMobile() && (d.getOS() === "Windows" || d.getOS() === "macOS" || d.getOS() === "Linux")) {
-		// d.gc("intro__video").src = "http://www.youtube.com/embed/7x8BCbo45qA?&mute=1&controls=0&enablejsapi=1&showinfo=0&rel=0&iv_load_policy=3&disablekb=1&origin=http://localhost:3000";
+		d.gc("intro__video").src = "https://www.youtube.com/embed/7x8BCbo45qA?&mute=1&controls=0&enablejsapi=1&showinfo=0&rel=0&iv_load_policy=3&disablekb=1&origin=https://aegee-london.eu";
 	}
 	
 	
@@ -219,8 +219,9 @@ function init() { // eslint-disable-line no-unused-vars
 
 
 // https://developers.google.com/youtube/player_parameters
-// http://stackoverflow.com/questions/8869372/how-do-i-automatically-play-a-youtube-video-iframe-api-muted
-// http://stackoverflow.com/questions/20501010/youtube-api-onplayerready-not-firing
+// https://stackoverflow.com/questions/7281765/youtube-iframe-embed-auto-play
+// https://stackoverflow.com/questions/8869372/how-do-i-automatically-play-a-youtube-video-iframe-api-muted
+// https://stackoverflow.com/questions/20501010/youtube-api-onplayerready-not-firing
 function onYouTubeIframeAPIReady() { // eslint-disable-line no-unused-vars
 	var player = new YT.Player("intro__video", {
 		events: {
