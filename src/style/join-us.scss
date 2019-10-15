@@ -23,4 +23,28 @@
 			margin: 5vw auto;
 		}
 	}
+
+	/* 	&__paypal {
+		width: 14vw;
+		height: 4.2vw;
+		margin: 2vw auto;
+
+		display: block;
+
+		background: inline(img/paypal.svg) no-repeat center #ffc339;
+		border-radius: 100vw;
+
+		transition: $time1;
+
+		&:hover {
+			transform: scale(1.03);
+			box-shadow: color-mod(white a(70%)) 0 0 2vw;
+		}
+		
+		@media (max-width: $breakpointMobile) {
+			width: 60vw;
+			height: 16vw;
+			margin: 8vw auto;
+		}
+	} */
 }
