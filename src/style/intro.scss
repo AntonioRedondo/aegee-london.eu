@@ -73,9 +73,9 @@
 		
 		object-fit: cover;
 		
-		@media (max-width: $breakpointMobile) {
-			object-position: right center;
-		}
+		// @media (max-width: $breakpointMobile) {
+		// 	object-position: right center;
+		// }
 	}
 	
 	&__logo-container {

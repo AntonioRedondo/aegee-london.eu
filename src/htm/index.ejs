@@ -79,7 +79,9 @@
 		
 		<link rel="icon" href="../favicon.ico" type="image/x-icon" />
 		<link rel="shortcut icon" href="../favicon.ico" type="image/x-icon" />
-		<link rel="stylesheet" href="style.css" />
+		<% for (var css in htmlWebpackPlugin.files.css) { %>
+			<link href="<%= htmlWebpackPlugin.files.css[css] %>" rel="stylesheet">
+		<% } %>
 		
 		
 		<!-- https://developers.google.com/analytics/devguides/collection/analyticsjs -->
@@ -89,10 +91,6 @@
 			ga("send", "pageview", location.hash);
 		</script>
 		<script async src="https://www.google-analytics.com/analytics.js"></script>
-		
-		<!-- buildDev:start -->
-		<script type="text/javascript" src="http://livejs.com/live.js"></script>
-		<!-- buildDev:end -->
 	</head>
 	
 	<body class="body">
@@ -100,19 +98,24 @@
 		<div class="darkener-main"></div>
 		
 		<main>
-			@@include('intro.htm')
-			@@include('who-we-are.htm')
-			@@include('activities.htm')
-			@@include('the-board.htm')
-			@@include('join-us.htm')
-			@@include('faq.htm')
-			@@include('contact.htm')
+			<%= htmlWebpackPlugin.options.intro %>
+			<%= htmlWebpackPlugin.options.whoWeAre %>
+			<%= htmlWebpackPlugin.options.activities %>
+			<%= htmlWebpackPlugin.options.theBoard %>
+			<%= htmlWebpackPlugin.options.joinUs %>
+			<%= htmlWebpackPlugin.options.faq %>
+			<%= htmlWebpackPlugin.options.contact %>
 		</main>
 		
-		@@include('top-bar.htm')
+		<%= htmlWebpackPlugin.options.topBar %>
 		
-		<script src="app.js"></script>
-		<script src="//www.youtube.com/iframe_api"></script>
+		<% for (var chunk in htmlWebpackPlugin.files.chunks) { %>
+		<script src="<%= htmlWebpackPlugin.files.chunks[chunk].entry %>"></script>
+		<% } %>
+		<% if (htmlWebpackPlugin.options.devServer) { %>
+		<script src="<%= htmlWebpackPlugin.options.devServer%>/webpack-dev-server.js"></script>
+		<% } %>
+		<!-- <script src="//www.youtube.com/iframe_api"></script> -->
 	</body>
 
 </html>

@@ -17,267 +17,266 @@
   *
   */
 
-(function(d) {
-	"use strict";
+const d = {};
+
+d.gi = function(id) {
+	return document.getElementById(id);
+};
+
+d.gc = function(className) {
+	return document.getElementsByClassName(className)[0];
+};
+
+d.gca = function(className) {
+	return [].slice.call(document.getElementsByClassName(className));
+};
+
+d.qs = function(query) {
+	return document.querySelector(query);
+};
+
+d.qsa = function(query) {
+	return [].slice.call(document.querySelectorAll(query));
+};
+
+d.ae = function(event, callback) {
+	return window.addEventListener(event, callback);
+};
+
+d.st = function(callback, time) {
+	return window.setTimeout(callback, time);
+};
+
+d.si = function(callback, time) {
+	return window.setInterval(callback, time);
+};
+
+
+
+
+
+/**
+	 * Returns a random integer within a range.
+	 * @param {number} min - The lower limit of the range. It defaults to -50.
+	 * @param {number} max - The higher limit of the range. It defaults to 50.
+	 * @returns {number} - The generated ramdon integer within the range.
+	 */
+d.getRandomInt = function(min, max) {
+	min = min || -50;
+	max = max || 50;
+	return Math.floor(Math.random() * (max - min + 1)) + min;
+};
+
+
+
+
+
+/**
+	 * Returns the sum of clientHeights of all the elements selected by the CSS query provided.
+	 * @param {string} selectors - CSS query.
+	 * @returns {number} - The sum of all clientHeights. 0 if no elements selected.
+	 */
+d.calcClientHeightsSum = function(selector) {
+	var total = 0;
+	var elements = [].slice.call(d.qsa(selector));
 	
-	d.gi = function(id) {
-		return document.getElementById(id);
+	elements.forEach(function(item) {
+		total += item.clientHeight;
+	});
+	
+	return total;
+};
+
+/**
+	 * Returns an Array with DOMRects of all the elements selected by the CSS query provided.
+	 * The border-box coordinates' origin is relative to the viewport.
+	 * @param {string} selectors - CSS query.
+	 * @returns {Array} - An array with DOMRects. undefined if no elements selected.
+	 */
+d.calcPositionsToViewport = function(selectors) {
+	var positions = [];
+	var elements = [].slice.call(d.qsa(selectors));
+
+	if (elements.length === 0)
+		return;
+
+	elements.forEach(function(item) {
+		positions.push(item.getBoundingClientRect());
+	});
+
+	return positions;
+};
+
+/**
+	 * Returns an Object with left, top, width and height properties of the child
+	 * element border-box position relative to a parent element specified by parentSelector.
+	 * The parent and the child don't need to be directly nested on the elements' hierarchy.
+	 * If a CSS selector string is provided and it selects more than one element
+	 * only the first element will be used.
+	 * @param {string|HTMLElement} parentSelector - CSS selector string or HTMLElement for a reference parent.
+	 * @param {string|HTMLElement} childSelector - CSS selector string or HTMLElement for the child.
+	 * @returns {Object} - An Object with left, top, width and height properties.
+*/
+d.calcRelativePosition = function(parent, child) {
+	if (typeof parent === "string")
+		parent = d.qs(parent);
+	if (typeof child === "string")
+		child = d.qs(child);
+
+	if ((!parent || !child)
+			&& (!(parent instanceof HTMLElement) || !(child instanceof HTMLElement))) {
+		console.error("The parent or child were undefined or they weren't HTMLElements");// eslint-disable-line no-console
+		return;
+	}
+
+	var parentRect = parent.getBoundingClientRect();
+	var childRect = child.getBoundingClientRect();
+
+	var offset = {
+		left: null,
+		top: null,
+		width: null,
+		height: null
 	};
+
+	offset.left = childRect.left - parentRect.left;
+	offset.top = childRect.top - parentRect.top;
+	offset.width = child.offsetWidth;
+	offset.height = child.offsetHeight;
+
+	return offset;
+};
+
+
+
+
+
+var imagesToLoad = [];
+var	callbacks = [];
 	
-	d.gc = function(className) {
-		return document.getElementsByClassName(className)[0];
-	};
+var runCallbacks = function() {
+	var areAllLoaded = imagesToLoad.every(function(image) {
+		return image.loaded;
+	});
 	
-	d.gca = function(className) {
-		return [].slice.call(document.getElementsByClassName(className));
-	};
-	
-	d.qs = function(query) {
-		return document.querySelector(query);
-	};
-	
-	d.qsa = function(query) {
-		return [].slice.call(document.querySelectorAll(query));
-	};
-	
-	d.ae = function(event, callback) {
-		return window.addEventListener(event, callback);
-	};
-	
-	d.st = function(callback, time) {
-		return window.setTimeout(callback, time);
-	};
-	
-	d.si = function(callback, time) {
-		return window.setInterval(callback, time);
-	};
-	
-	
-	
-	
-	
-	/**
-	  * Returns a random integer within a range.
-	  * @param {number} min - The lower limit of the range. It defaults to -50.
-	  * @param {number} max - The higher limit of the range. It defaults to 50.
-	  * @returns {number} - The generated ramdon integer within the range.
-	  */
-	d.getRandomInt = function(min, max) {
-		min = min || -50;
-		max = max || 50;
-		return Math.floor(Math.random() * (max - min + 1)) + min;
-	};
-	
-	
-	
-	
-	
-	/**
-	  * Returns the sum of clientHeights of all the elements selected by the CSS query provided.
-	  * @param {string} selectors - CSS query.
-	  * @returns {number} - The sum of all clientHeights. 0 if no elements selected.
-	  */
-	d.calcClientHeightsSum = function(selector) {
-		var total = 0;
-		var elements = [].slice.call(d.qsa(selector));
-		
-		elements.forEach(function(item) {
-			total += item.clientHeight;
+	if (areAllLoaded) {
+		callbacks.forEach(function(callback) {
+			callback();
 		});
-		
-		return total;
-	};
-	
-	/**
-	  * Returns an Array with DOMRects of all the elements selected by the CSS query provided.
-	  * The border-box coordinates' origin is relative to the viewport.
-	  * @param {string} selectors - CSS query.
-	  * @returns {Array} - An array with DOMRects. undefined if no elements selected.
-	  */
-	d.calcPositionsToViewport = function(selectors) {
-		var positions = [];
-		var elements = [].slice.call(d.qsa(selectors));
+	}
+};
 
-		if (elements.length === 0)
-			return;
-
-		elements.forEach(function(item) {
-			positions.push(item.getBoundingClientRect());
-		});
-
-		return positions;
-	};
-	
-	/**
-	  * Returns an Object with left, top, width and height properties of the child
-	  * element border-box position relative to a parent element specified by parentSelector.
-	  * The parent and the child don't need to be directly nested on the elements' hierarchy.
-	  * If a CSS selector string is provided and it selects more than one element
-	  * only the first element will be used.
-	  * @param {string|HTMLElement} parentSelector - CSS selector string or HTMLElement for a reference parent.
-	  * @param {string|HTMLElement} childSelector - CSS selector string or HTMLElement for the child.
-	  * @returns {Object} - An Object with left, top, width and height properties.
-	*/
-	d.calcRelativePosition = function(parent, child) {
-		if (typeof parent === "string")
-			parent = d.qs(parent);
-		if (typeof child === "string")
-			child = d.qs(child);
-
-		if ((!parent || !child)
-				&& (!(parent instanceof HTMLElement) || !(child instanceof HTMLElement))) {
-			console.error("The parent or child were undefined or they weren't HTMLElements");// eslint-disable-line no-console
-			return;
-		}
-
-		var parentRect = parent.getBoundingClientRect();
-		var childRect = child.getBoundingClientRect();
-
-		var offset = {
-			left: null,
-			top: null,
-			width: null,
-			height: null
-		};
-
-		offset.left = childRect.left - parentRect.left;
-		offset.top = childRect.top - parentRect.top;
-		offset.width = child.offsetWidth;
-		offset.height = child.offsetHeight;
-
-		return offset;
-	};
-	
-	
-	
-	
-	
-	var imagesToLoad = [];
-	var	callbacks = [];
-		
-	var runCallbacks = function() {
-		var areAllLoaded = imagesToLoad.every(function(image) {
-			return image.loaded;
-		});
-		
-		if (areAllLoaded) {
-			callbacks.forEach(function(callback) {
-				callback();
-			});
+d.notifyWhenLoaded = function(selector) {
+	// https://stackoverflow.com/questions/7043509/this-inside-object
+	// https://stackoverflow.com/questions/4616202/self-references-in-object-literal-declarations
+	var imageToLoad = {
+		selector: selector,
+		loaded: false,
+		setAsLoaded: function() {
+			imageToLoad.loaded = true;
+			runCallbacks();
 		}
 	};
 	
-	d.notifyWhenLoaded = function(selector) {
-		// https://stackoverflow.com/questions/7043509/this-inside-object
-		// https://stackoverflow.com/questions/4616202/self-references-in-object-literal-declarations
-		var imageToLoad = {
-			selector: selector,
-			loaded: false,
-			setAsLoaded: function() {
-				imageToLoad.loaded = true;
-				runCallbacks();
-			}
-		};
+	var image = d.qs(selector);
+	if (image) {
+		imagesToLoad.push(imageToLoad);
 		
-		var image = d.qs(selector);
-		if (image) {
-			imagesToLoad.push(imageToLoad);
+		// http://stackoverflow.com/questions/1977871/check-if-an-element-is-loaded-no-errors-in-javascript
+		if (image.complete && image.naturalHeight) {
+			imageToLoad.setAsLoaded();
+		} else image.addEventListener("load", imageToLoad.setAsLoaded);
+	}
+	
+	return image;
+};
+
+d.runWhenAllLoaded = function(callback) {
+	callbacks.push(callback);
+	runCallbacks();
+};
+
+d.resetElementsToLoad = function() {
+	imagesToLoad = [];
+	callbacks = [];
+};
+
+
+
+
+
+d.checkTransformsSupported = function() {
+	if (document.documentElement.style.transform !== undefined)
+		return "transform";
+	else if (document.documentElement.style.webkitTransform !== undefined)
+		return "webkitTransform";
+};
+
+// http://stackoverflow.com/questions/11219582/how-to-detect-my-browser-version-and-operating-system-using-javascript
+d.getOS = function() {
+	var os;
+	var ua = window.navigator.userAgent;
+	
+	if (ua.indexOf("Win") != -1)		os = "Windows";
+	if (ua.indexOf("Mac") != -1)		os = "macOS";
+	if (ua.indexOf("Linux") != -1)		os = "Linux";
+	if (ua.indexOf("Android") != -1)	os = "Android";
+	if (ua.indexOf("like Mac") != -1)	os = "iOS";
+	
+	return os;
+};
+
+
+
+
+/**
+* Gets a cookie by name.
+* @param {string} name - Name of the cookie.
+* @returns {string} - The value of the cookie. null is no cookie was found with the given name.
+*/
+d.getCookie = function(name) {
+	var nameWithEqual = name + "=";
+	var ca = document.cookie.split(";");
+	
+	for (var i=0; i < ca.length; i++) {
+		var c = ca[i];
+		
+		while (c.charAt(0) == " ")
+			c = c.substring(1,c.length);
 			
-			// http://stackoverflow.com/questions/1977871/check-if-an-element-is-loaded-no-errors-in-javascript
-			if (image.complete && image.naturalHeight) {
-				imageToLoad.setAsLoaded();
-			} else image.addEventListener("load", imageToLoad.setAsLoaded);
-		}
+		if (c.indexOf(nameWithEqual) === 0)
+			return c.substring(nameWithEqual.length, c.length);
+	}
+	return null;
+};
+
+/**
+* Sets a cookie by name.
+* @param {string} name - Name of the cookie.
+* @param {string} value - Value for the cookie.
+* @param {string} days - Expiration time in days.
+* @returns {undefined} - Always undefined
+*/
+d.setCookie = function(name, value, days) {
+	var expires;
+	
+	if (days) {
+		var date = new Date();
 		
-		return image;
-	};
+		date.setTime(date.getTime() + (days*24*60*60*1000));
+		expires = "; expires=" + date.toGMTString();
+	} else expires = "";
 	
-	d.runWhenAllLoaded = function(callback) {
-		callbacks.push(callback);
-		runCallbacks();
-	};
-	
-	d.resetElementsToLoad = function() {
-		imagesToLoad = [];
-		callbacks = [];
-	};
-	
-	
-	
-	
-	
-	d.checkTransformsSupported = function() {
-		if (document.documentElement.style.transform !== undefined)
-			return "transform";
-		else if (document.documentElement.style.webkitTransform !== undefined)
-			return "webkitTransform";
-	};
-	
-	// http://stackoverflow.com/questions/11219582/how-to-detect-my-browser-version-and-operating-system-using-javascript
-	d.getOS = function() {
-		var os;
-		var ua = window.navigator.userAgent;
-		
-		if (ua.indexOf("Win") != -1)		os = "Windows";
-		if (ua.indexOf("Mac") != -1)		os = "macOS";
-		if (ua.indexOf("Linux") != -1)		os = "Linux";
-		if (ua.indexOf("Android") != -1)	os = "Android";
-		if (ua.indexOf("like Mac") != -1)	os = "iOS";
-		
-		return os;
-	};
-	
-	
-	
-	
-	/**
-	* Gets a cookie by name.
-	* @param {string} name - Name of the cookie.
-	* @returns {string} - The value of the cookie. null is no cookie was found with the given name.
-	*/
-	d.getCookie = function(name) {
-		var nameWithEqual = name + "=";
-		var ca = document.cookie.split(";");
-		
-		for (var i=0; i < ca.length; i++) {
-			var c = ca[i];
-			
-			while (c.charAt(0) == " ")
-				c = c.substring(1,c.length);
-				
-			if (c.indexOf(nameWithEqual) === 0)
-				return c.substring(nameWithEqual.length, c.length);
-		}
-		return null;
-	};
-	
-	/**
-	* Sets a cookie by name.
-	* @param {string} name - Name of the cookie.
-	* @param {string} value - Value for the cookie.
-	* @param {string} days - Expiration time in days.
-	* @returns {undefined} - Always undefined
-	*/
-	d.setCookie = function(name, value, days) {
-		var expires;
-		
-		if (days) {
-			var date = new Date();
-			
-			date.setTime(date.getTime() + (days*24*60*60*1000));
-			expires = "; expires=" + date.toGMTString();
-		} else expires = "";
-		
-		document.cookie = name + "=" + value + expires + "; path=/";
-	};
-	
-	/**
-	* Removes a cookie by name.
-	* @param {string} name - Name of the cookie to remove.
-	* @returns {undefined} - Always undefined.
-	*/
-	d.removeCookie = function(name) {
-		this.setCookie(name, "", -1);
-	};
-	
-}(window.d = window.d || {}));
+	document.cookie = name + "=" + value + expires + "; path=/";
+};
+
+/**
+* Removes a cookie by name.
+* @param {string} name - Name of the cookie to remove.
+* @returns {undefined} - Always undefined.
+*/
+d.removeCookie = function(name) {
+	this.setCookie(name, "", -1);
+};
+
+module.exports = d;

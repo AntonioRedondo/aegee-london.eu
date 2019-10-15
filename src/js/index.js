@@ -1,3 +1,12 @@
+require("../style/index.scss")
+
+skrollr = require("skrollr")
+require("skrollr-menu")
+WebFont = require("webfontloader")
+
+const d = require("./DOMTools.js")
+const init = require("./aegeeLondon.js")
+
 d.notifyWhenLoaded(".intro__cover");
 
 WebFont.load({
