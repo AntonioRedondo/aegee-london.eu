@@ -251,4 +251,4 @@ function onYouTubeIframeAPIReady() { // eslint-disable-line no-unused-vars
 	});
 }
 
-module.exports = init
+module.exports = init;

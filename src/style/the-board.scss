@@ -1,3 +1,5 @@
+@import "_variables.scss";
+
 .the-board {
 	z-index: 7;
 	
@@ -47,7 +49,7 @@
 		
 		position: absolute;
 		
-		background: url('img/portrait1.jpg') center / cover;
+		background: url('/img/portrait1.jpg') center / cover;
 		
 		filter: saturate(0);
 		
@@ -59,15 +61,15 @@
 		}
 		
 		&--1 {
-			background-image: url('img/portrait1.jpg');
+			background-image: url('/img/portrait1.jpg');
 		}
 		
 		&--2 {
-			background-image: url('img/portrait2.jpg');
+			background-image: url('/img/portrait2.jpg');
 		}
 		
 		&--3 {
-			background-image: url('img/portrait3.jpg');
+			background-image: url('/img/portrait3.jpg');
 		}
 	}
 	

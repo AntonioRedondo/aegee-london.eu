@@ -1,5 +1,5 @@
 module.exports = {
-	cssDest: "_atoms.scss",
+	cssDest: "./src/style/_atoms.scss",
 	configs: {
 		breakPoints: {
 			bi: "@media (min-width: 2000px)",
@@ -8,4 +8,4 @@ module.exports = {
 			mo: "@media (max-width: 810px)"
 		}
 	}
-}
+};

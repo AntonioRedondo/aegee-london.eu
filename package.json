@@ -1,50 +1,49 @@
 {
-	"name": "AEGEE-London",
+	"name": "aegee-london",
 	"author": "Antonio Redondo",
 	"homepage": "https://aegee-london.eu",
 	"description": "AEGEE-London official website",
-	"version": "1.0.0",
 	"repository": "antonioredondo/AEGEE-London",
 	"license": "CC-BY-NC-ND-4.0",
 	"main": "",
 	"scripts": {
-		"lint": "gulp lint",
-		"build:wp": "webpack",
-		"build:watch": "gulp buildWatch",
-		"build:prod": "gulp buildProd",
-		"clean": "gulp clean"
+		"lint": "eslint --fix \"**/*.js\" --ignore-pattern \"docs\"",
+		"dev": "webpack-dev-server --open",
+		"build": "webpack"
 	},
 	"dependencies": {
 		"skrollr": "0.6.26",
 		"skrollr-menu": "1.0.3",
 		"webfontloader": "1.6.28"
 	},
-	"//": "Grouped by concern: basics, lint, build, production, server",
 	"devDependencies": {
-		"autoprefixer": "9.6.1",
+		"autoprefixer": "9.7.3",
 		"connect": "3.7.0",
-		"copy-webpack-plugin": "5.0.4",
-		"css-loader": "^3.1.0",
+		"copy-webpack-plugin": "5.1.1",
+		"css-loader": "3.4.0",
+		"eslint": "^6.8.0",
+		"eslint-loader": "3.0.3",
+		"html-loader": "^0.5.5",
 		"html-webpack-inline-source-plugin": "0.0.10",
 		"html-webpack-plugin": "3.2.0",
-		"husky": "3.0.2",
-		"mini-css-extract-plugin": "0.8.0",
+		"mini-css-extract-plugin": "0.9.0",
 		"opn": "6.0.0",
 		"postcss-assets": "5.0.0",
 		"postcss-import": "12.0.1",
 		"postcss-loader": "3.0.0",
 		"precss": "4.0.0",
+		"raw-loader": "^4.0.0",
 		"serve-static": "1.14.1",
-		"stylelint": "10.1.0",
-		"stylelint-config-standard": "18.3.0",
-		"webpack": "4.38.0",
-		"webpack-atomizer-loader": "1.0.0",
-		"webpack-cli": "3.3.6",
-		"webpack-concat-plugin": "^3.0.0"
+		"string-replace-loader": "^2.2.0",
+		"stylelint": "12.0.1",
+		"stylelint-config-standard": "19.0.0",
+		"webpack": "4.41.5",
+		"webpack-atomizer-loader": "1.0.2 ",
+		"webpack-cli": "3.3.10",
+		"webpack-dev-server": "^3.10.1"
 	},
-	"husky": {
-		"hooks": {
-			"pre-commit": "npm run lint"
-		}
-	}
+	"browserslist": [
+		"safari 9",
+		"ie 11"
+	]
 }

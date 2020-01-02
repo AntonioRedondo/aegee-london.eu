@@ -98,16 +98,24 @@
 		<div class="darkener-main"></div>
 		
 		<main>
-			<%= htmlWebpackPlugin.options.intro %>
+			@@include('intro.htm')
+			@@include('whoWeAre.htm')
+			@@include('activities.htm')
+			@@include('theBoard.htm')
+			@@include('joinUs.htm')
+			@@include('faq.htm')
+			@@include('contact.htm')
+			<!-- <%= htmlWebpackPlugin.options.intro %>
 			<%= htmlWebpackPlugin.options.whoWeAre %>
 			<%= htmlWebpackPlugin.options.activities %>
 			<%= htmlWebpackPlugin.options.theBoard %>
 			<%= htmlWebpackPlugin.options.joinUs %>
 			<%= htmlWebpackPlugin.options.faq %>
-			<%= htmlWebpackPlugin.options.contact %>
+			<%= htmlWebpackPlugin.options.contact %> -->
 		</main>
 		
-		<%= htmlWebpackPlugin.options.topBar %>
+		@@include('topBar.htm')
+		<!-- <%= htmlWebpackPlugin.options.topBar %> -->
 		
 		<% for (var chunk in htmlWebpackPlugin.files.chunks) { %>
 		<script src="<%= htmlWebpackPlugin.files.chunks[chunk].entry %>"></script>

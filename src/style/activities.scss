@@ -1,7 +1,9 @@
+@import "_variables.scss";
+
 .activities {
 	z-index: 8;
 	
-	background: black url('img/activities.jpg') top / 100% no-repeat;
+	background: black url('/img/activities.jpg') top / 100% no-repeat;
 	box-shadow: 0 0 10vw $gray2;
 	
 	&__fb-iframe {
