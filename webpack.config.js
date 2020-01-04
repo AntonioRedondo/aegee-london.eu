@@ -51,18 +51,6 @@ module.exports = {
 							fix: true
 						}
 					},
-					// {
-					// 	loader: "postcss-loader",
-					// 	options: {
-					// 		// ident: "postcss", //Not rally needed https://webpack.js.org/configuration/module/#useentry
-					// 		plugins: loader => [
-					// 			postcssImport(), // functionality already provided by css-loader but PostCSS plugin needed because if not a "Right now, PostCSS does nothing." error is thrown
-					// 			preCss({ features: { "color-mod-function": { unresolved: "warn" } } }),
-					// 			autoprefixer(),
-					// 			assets({ loadPaths: ["src"] })
-					// 		]
-					// 	}
-					// },
 				]
 			},
 			{

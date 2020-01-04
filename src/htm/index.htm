@@ -99,22 +99,16 @@
 		
 		<main>
 			@@include('intro.htm')
-			@@include('whoWeAre.htm')
+			@@include('who-we-are.htm')
 			@@include('activities.htm')
-			@@include('theBoard.htm')
-			@@include('joinUs.htm')
+			@@include('the-board.htm')
+			@@include('join-us.htm')
 			@@include('faq.htm')
 			@@include('contact.htm')
-			<!-- <%= htmlWebpackPlugin.options.intro %>
-			<%= htmlWebpackPlugin.options.whoWeAre %>
-			<%= htmlWebpackPlugin.options.activities %>
-			<%= htmlWebpackPlugin.options.theBoard %>
-			<%= htmlWebpackPlugin.options.joinUs %>
-			<%= htmlWebpackPlugin.options.faq %>
-			<%= htmlWebpackPlugin.options.contact %> -->
+			<!-- <%= htmlWebpackPlugin.options.intro -->
 		</main>
 		
-		@@include('topBar.htm')
+		@@include('top-bar.htm')
 		<!-- <%= htmlWebpackPlugin.options.topBar %> -->
 		
 		<% for (var chunk in htmlWebpackPlugin.files.chunks) { %>
