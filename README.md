@@ -13,7 +13,7 @@ If you're the IT responsible for your antenna, you like our website and you'd li
 
 # AEGEE-London leaflet
 
-I have also designed an A4 double-sided leaflet that introduces AEGEE-London as a local antenna and explains what the organisation offers at European level. The leaflet is ready to be downloaded and customised for the needs of any other AEGEE antenna. The design shallowly follows the guidelines set on the [AEGEE’s Visual Identity](https://www.zeus.aegee.org/portal/resources/pr-materials). However I decided to take some liberties and simplify the number of colours (only yellow and blue) and design elements on the final art. The leaflets closely aligns with the AEGEE-London website design.
+I have also designed an A4 double-sided leaflet that introduces AEGEE-London as a local antenna and explains what the organisation offers at European level. The leaflet is ready to be downloaded and customised for the needs of any other AEGEE antenna. The design shallowly follows the guidelines set on the [AEGEE’s Visual Identity](https://www.zeus.aegee.org/portal/resources/pr-materials). However I decided to take some liberties and simplify the number of colours (only yellow, white and blue) and design elements on the final art. The leaflets closely aligns with the AEGEE-London website design.
 
 Download the PSD file [here](https://raw.githubusercontent.com/AntonioRedondo/aegee-london.eu/master/AEGEE-London-leaflet.psd).
 
@@ -21,7 +21,7 @@ Download the PSD file [here](https://raw.githubusercontent.com/AntonioRedondo/ae
 
 ## Fonts
 
-The leaflet uses 3 different fonts. All available from Google Fonts. Bebas Neue is the well-known font used for titles in AEGEE. The font recommended from AEGEE for small texts is Open Sans. But I prefer to use Source Sans Pro since it's very similar but it has better low level adjustments. Finally Roboto Slab is used for some short paragraphs among the leaflet. It’s a serif font not mentioned in the Visual Identity. But the other two fonts are sans serif and in my opinion some sort of cold feeling it’s conveyed if no serif font is used.
+The leaflet uses 3 different fonts. All available from Google Fonts. Bebas Neue is the well-known font used for titles in AEGEE. The font recommended from AEGEE for small texts is Open Sans. But I prefer to use Source Sans Pro since it's very similar but it has better low level adjustments. Finally Roboto Slab is used for some lines among the leaflet. It’s a serif font not mentioned in the Visual Identity. But the other two fonts are sans serif and in my opinion some sort of cold feeling it’s conveyed if no serif font is used.
 
 - [Bebas Neue](https://fonts.google.com/specimen/Bebas+Neue)
 - [Source Sans Pro](https://fonts.google.com/specimen/Source+Sans+Pro)
@@ -29,10 +29,10 @@ The leaflet uses 3 different fonts. All available from Google Fonts. Bebas Neue 
 
 ## Precedents
 
-AEGEE-Europe also [offers a leaflet](https://www.zeus.aegee.org/portal/resources/pr-materials) (scroll down the page to see it) for the antennas to help to promote the organisation. However I think this leaflet contains too much text, too much unused white space, text looks cluttered and it contains no pictures (apart from the blue ones used as background). There was a big margin for improvement and that’s why I created the new design.
+AEGEE-Europe also [offers a leaflet](https://www.zeus.aegee.org/portal/resources/pr-materials) (scroll down the page to see it) to help to promote the organisation. However in my opinion this leaflet contains too much text, too much unused white space, text looks cluttered and it contains no pictures (apart from the blue ones used as background). There was a big margin for improvement and that’s why I created the new design.
 
 <img src="https://github.com/AntonioRedondo/aegee-london.eu/raw/master/readmeImages/leaflet-AEGEE-Europe.jpg" width="900px" />
 
 ## Why the leaflet is in Photoshop format and not Illustrator?
 
-I don’t have Illustrator experience neither I use this program at all. However that’s no a problem. The dimensions of the image are 3508x2480, which means for an A4 sheet it’s 300dp resolution. If you’re worried when exporting the leaflet to PDF won't be optimal and text won’t be selectable because it will be an image, I’ll say that’s the wrong approach. The leaflet is only meant to be distributed in physical printed format. If you want to promote your antenna in digital format you should create a website and share the link rathen than sharing a PDF.
+I don’t have Illustrator experience neither I use this program at all. However this doesn't suppose a problem. The dimensions of the image are 3508x2480, which means for an A4 sheet it’s 300dp resolution. If you’re worried that when exporting the leaflet to PDF text won’t be selectable because all it will be an image, I’ll say that’s the wrong approach. The leaflet is only meant to be distributed in printed format. If you want to promote your antenna in digital format you should create a website and share the link and not share a PDF.
