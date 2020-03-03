@@ -133,7 +133,7 @@
 		}
 		
 		@media (max-width: $breakpointMobile) {
-			width: 50vw;
+			width: 70vw;
 			margin: 7vh auto 0;
 			padding: 0;
 			
@@ -147,7 +147,7 @@
 		width: 5%;
 		
 		position: absolute;
-		bottom: 4%;
+		bottom: 10%;
 		left: 47.5%;
 		
 		filter: drop-shadow(0 0 1vw $color4);
