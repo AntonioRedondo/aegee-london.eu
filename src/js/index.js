@@ -1,5 +1,3 @@
-const htm = require.context("../htm", true, /.htm$/);
-htm.keys().forEach(htm);
 const css = require.context("../style", true, /.scss$/);
 css.keys().forEach(css);
 

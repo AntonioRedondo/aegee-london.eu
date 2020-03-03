@@ -10,20 +10,13 @@ const postcssImport = require("postcss-import");
 const assets = require("postcss-assets");
 const autoprefixer = require("autoprefixer");
 const preCss = require("precss");
+const cssNano = require("cssnano");
 
 // const { HotModuleReplacementPlugin, NoEmitOnErrorsPlugin/*, NamedModulesPlugin, SourceMapDevToolPlugin  */ } = require("webpack");
-// console.log(fs.readFileSync(__dirname + `/src/htm/intro.htm`).toString())
-// console.log(includeHtmlSections(['intro', 'whoWeAre', 'activities', 'theBoard', 'joinUs', 'faq', 'contact', 'footer', 'topBar']))
-// console.log(typeof fs.readFileSync(__dirname + `/src/htm/intro.htm`))
-// function includeHtmlSections(sections) {
-// 	const sectionsObject = {};
-// 	sections.forEach(section => sectionsObject[section] = fs.readFileSync(__dirname + `/src/htm/${section}.htm`));
-// 	return sectionsObject;
-// }
+
 function includeHtmlSections(sections) {
-	const replaces = [];
-	sections.forEach(section => replaces.push({ search: `@@include('${section}.htm')`, strict: false, replace: fs.readFileSync(__dirname + `/src/htm/${section}.htm`).toString() }));
-	return replaces;
+	// return sections.reduce((acc, section) => acc[section] = fs.readFileSync(__dirname + `/src/htm/${section}.htm`), {});
+	return sections.reduce((acc, section) => acc.concat({ search: `@@include('${section}.htm')`, strict: false, replace: fs.readFileSync(__dirname + `/src/htm/${section}.htm`).toString() }), []);
 }
 
 module.exports = {
@@ -75,7 +68,8 @@ module.exports = {
 								postcssImport(), // functionality already provided by css-loader but PostCSS plugin needed because if not a "Right now, PostCSS does nothing." error is thrown
 								preCss({ features: { "color-mod-function": { unresolved: "warn" } } }),
 								autoprefixer(),
-								assets({ loadPaths: ["src"] })
+								assets({ loadPaths: ["src"] }),
+								cssNano()
 							]
 						}
 					},
@@ -87,25 +81,20 @@ module.exports = {
 					{
 						loader: 'html-loader',
 						options: {
-							attrs: false
-						}
-					},
-					// {
-					// 	loader: 'raw-loader',
-					// 	options: {
-					// 		esModule: false,
-					// 	},
-					// },
-					{
-						loader: 'string-replace-loader',
-						options: {
-							multiple: includeHtmlSections(['intro', 'who-we-are', 'activities', 'the-board', 'join-us', 'faq', 'contact', 'footer', 'top-bar'])
+							attrs: false,
+							minimize: true
 						}
 					},
 					{
 						loader: 'webpack-atomizer-loader',
 						options: {
 							configPath: path.resolve("./atomCssConfig.js")
+						}
+					},
+					{
+						loader: 'string-replace-loader',
+						options: {
+							multiple: includeHtmlSections(['intro', 'who-we-are', 'activities', 'the-board', 'join-us', 'faq', 'contact', 'footer', 'top-bar'])
 						}
 					}
 				]

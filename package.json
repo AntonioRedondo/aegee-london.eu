@@ -9,7 +9,8 @@
 	"scripts": {
 		"lint": "eslint --fix \"**/*.js\" --ignore-pattern \"docs\"",
 		"dev": "webpack-dev-server --open",
-		"build": "webpack"
+		"build": "webpack",
+		"build:prod": "webpack --mode=production"
 	},
 	"dependencies": {
 		"skrollr": "0.6.26",
@@ -21,6 +22,7 @@
 		"connect": "3.7.0",
 		"copy-webpack-plugin": "5.1.1",
 		"css-loader": "3.4.0",
+		"cssnano": "^4.1.10",
 		"eslint": "^6.8.0",
 		"eslint-loader": "3.0.3",
 		"html-loader": "^0.5.5",
