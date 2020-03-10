@@ -5,6 +5,7 @@ const CopyWebpackPlugin = require("copy-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const HtmlWebpackInlineSourcePlugin = require("html-webpack-inline-source-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const HtmlWebpackInlineSVGPlugin = require('html-webpack-inline-svg-plugin');
 
 const postcssImport = require("postcss-import");
 const assets = require("postcss-assets");
@@ -116,6 +117,7 @@ module.exports = {
 		new HtmlWebpackInlineSourcePlugin(),
 		new MiniCssExtractPlugin(
 			// { filename: "[name]-[chunkhash:8].css"}
-		)
+		),
+		new HtmlWebpackInlineSVGPlugin()
 	]
 }
