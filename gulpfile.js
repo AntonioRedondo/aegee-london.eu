@@ -47,7 +47,7 @@ const htmlHintTask = () => {
 };
 
 const stylelintTask = () => {
-	return gulp.src([`${SRC}/style/*.scss`, `!${SRC}/style/_atoms.scss`]).pipe(styleLint({
+	return gulp.src([`${SRC}/style/*.scss`, `!${SRC}/style/z_atoms.scss`]).pipe(styleLint({
 		reporters: [{ formatter: "string", console: true }]
 	}));
 };
@@ -83,7 +83,7 @@ const buildHtmlTask = () => {
 const buildCssAtomsTask = () => {
 	return gulp.src([`${SRC}/**/*.htm`])
 		.pipe(atomizer({
-			outfile: "_atoms.scss",
+			outfile: "z_atoms.scss",
 			acssConfig: {
 				breakPoints: {
 					bi: "@media (min-width: 2000px)",
@@ -101,8 +101,8 @@ const buildCssTask = () => {
 		[
 			`${SRC}/style/_variables.scss`,
 			`${SRC}/style/common.scss`,
-			`${SRC}/style/!(_atoms)*.scss`,
-			`${SRC}/style/_atoms.scss`
+			`${SRC}/style/!(z_atoms)*.scss`,
+			`${SRC}/style/z_atoms.scss`
 		])
 		.pipe(sourcemaps.init())
 		.pipe(concat("style.css"))
@@ -156,7 +156,7 @@ exports.lint = gulp.parallel(esLintTask, htmlHintTask, stylelintTask);
 exports.buildWatch = gulp.series(buildTask, function watchTask() {
 	gulp.watch([`${SRC}/js/*.js`], gulp.parallel(esLintTask, buildJsTask));
 	gulp.watch([`${SRC}/**/*.htm`], gulp.parallel(htmlHintTask, buildHtmlTask));
-	gulp.watch([`${SRC}/style/*.scss`, `!${SRC}/style/_atoms.scss`, `${SRC}/**/*.htm`], gulp.parallel(stylelintTask, gulp.series(buildCssAtomsTask, buildCssTask)));
+	gulp.watch([`${SRC}/style/*.scss`, `!${SRC}/style/z_atoms.scss`, `${SRC}/**/*.htm`], gulp.parallel(stylelintTask, gulp.series(buildCssAtomsTask, buildCssTask)));
 	gulp.watch([`${SRC}/img/**`], gulp.parallel(copyAssetsTask));
 });
 exports.buildProd = gulp.series(buildTask, prodTask);

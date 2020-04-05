@@ -1,6 +1,6 @@
 @import "_variables.scss";
 
-, *::before, *::after {
+*, *::before, *::after {
 	box-sizing: border-box;
 	
 	&:focus {
