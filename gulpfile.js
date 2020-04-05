@@ -101,8 +101,7 @@ const buildCssTask = () => {
 		[
 			`${SRC}/style/_variables.scss`,
 			`${SRC}/style/common.scss`,
-			`${SRC}/style/!(z_atoms)*.scss`,
-			`${SRC}/style/z_atoms.scss`
+			`${SRC}/style/*.scss`,
 		])
 		.pipe(sourcemaps.init())
 		.pipe(concat("style.css"))
