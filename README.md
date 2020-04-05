@@ -21,7 +21,7 @@ Download the PSD file [here](https://raw.githubusercontent.com/AntonioRedondo/ae
 
 ## Fonts
 
-The leaflet uses 3 different fonts. All available from Google Fonts. Bebas Neue is the well-known font used for titles in AEGEE. The font recommended from AEGEE for small texts is Open Sans. But I prefer to use Source Sans Pro since it's very similar but it has better low level adjustments. Finally Roboto Slab is used for some lines among the leaflet. It’s a serif font not mentioned in the Visual Identity. But the other two fonts are sans serif and in my opinion some sort of cold feeling it’s conveyed if no serif font is used.
+The leaflet uses 3 different fonts. All available from Google Fonts. Bebas Neue is the well-known font used for titles in AEGEE. The font recommended from AEGEE for small texts is Open Sans. But I prefer to use Source Sans Pro since it's very similar but it has better low level adjustments. Finally Roboto Slab is used for some lines among the leaflet. It’s a serif font not mentioned in the Visual Identity. But the other two fonts are sans serif and to my mind some sort of cold feeling it’s conveyed if no serif font is used.
 
 - [Bebas Neue](https://fonts.google.com/specimen/Bebas+Neue)
 - [Source Sans Pro](https://fonts.google.com/specimen/Source+Sans+Pro)
@@ -35,4 +35,4 @@ AEGEE-Europe also [offers a leaflet](https://www.zeus.aegee.org/portal/resources
 
 ## Why the leaflet is in Photoshop format and not Illustrator?
 
-I don’t have Illustrator experience neither I use this program at all. However this doesn't suppose a problem. The dimensions of the image are 3508x2480, which means for an A4 sheet it’s 300dp resolution. If you’re worried that when exporting the leaflet to PDF text won’t be selectable because all it will be an image, I’ll say that’s the wrong approach. The leaflet is only meant to be distributed in printed format. If you want to promote your antenna in digital format you should create a website and share the link and not share a PDF.
+I don’t have Illustrator experience at all. However this doesn't suppose a problem. The dimensions of the image are 3508x2480, which means for an A4 sheet it’s 300dp density. If you’re worried that when exporting the leaflet to PDF text won’t be selectable because all it will be an image, I’ll say that’s the wrong approach. The leaflet is only meant to be distributed in printed format. If you want to promote your antenna in digital format you should create a website and share the link to it and not a PDF.
