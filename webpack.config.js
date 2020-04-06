@@ -118,6 +118,8 @@ module.exports = {
 		new MiniCssExtractPlugin(
 			// { filename: "[name]-[chunkhash:8].css"}
 		),
-		new HtmlWebpackInlineSVGPlugin()
+		new HtmlWebpackInlineSVGPlugin({
+			inlineAllImages: true
+		})
 	]
 }
