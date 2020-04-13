@@ -5,7 +5,7 @@ const CopyWebpackPlugin = require("copy-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const HtmlWebpackInlineSourcePlugin = require("html-webpack-inline-source-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const HtmlWebpackInlineSVGPlugin = require('html-webpack-inline-svg-plugin');
+const HtmlWebpackInlineSVGPlugin = require("html-webpack-inline-svg-plugin");
 
 const postcssImport = require("postcss-import");
 const assets = require("postcss-assets");
@@ -29,7 +29,7 @@ module.exports = {
 	},
 	devtool: "source-map",
 	devServer: {
-		contentBase: './docs',
+		contentBase: "./docs",
 		hot: true,
 	},
 	module: {
@@ -53,7 +53,7 @@ module.exports = {
 					{
 						loader: MiniCssExtractPlugin.loader,
 						options: {
-							hmr: process.env.NODE_ENV === 'development',
+							hmr: process.env.NODE_ENV === "development",
 						},
 					},
 					// { // It would save a few lines in index.scss. But not really worth the addition
@@ -65,7 +65,7 @@ module.exports = {
 						loader: "postcss-loader",
 						options: {
 							// ident: "postcss", //Not rally needed https://webpack.js.org/configuration/module/#useentry
-							plugins: loader => [
+							plugins: () => [
 								postcssImport(), // functionality already provided by css-loader but PostCSS plugin needed because if not a "Right now, PostCSS does nothing." error is thrown
 								preCss({ features: { "color-mod-function": { unresolved: "warn" } } }),
 								autoprefixer(),
@@ -80,22 +80,22 @@ module.exports = {
 				test: /\.htm$/,
 				use: [
 					{
-						loader: 'html-loader',
+						loader: "html-loader",
 						options: {
 							attributes: false,
 							minimize: true
 						}
 					},
 					{
-						loader: 'webpack-atomizer-loader',
+						loader: "webpack-atomizer-loader",
 						options: {
 							configPath: path.resolve("./atomCssConfig.js")
 						}
 					},
 					{
-						loader: 'string-replace-loader',
+						loader: "string-replace-loader",
 						options: {
-							multiple: includeHtmlSections(['intro', 'who-we-are', 'activities', 'the-board', 'join-us', 'faq', 'contact', 'footer', 'top-bar'])
+							multiple: includeHtmlSections(["intro", "who-we-are", "activities", "the-board", "join-us", "faq", "contact", "footer", "top-bar"])
 						}
 					}
 				]
@@ -123,4 +123,4 @@ module.exports = {
 			inlineAll: true
 		})
 	]
-}
+};

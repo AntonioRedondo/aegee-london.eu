@@ -47,9 +47,10 @@ const htmlHintTask = () => {
 };
 
 const stylelintTask = () => {
-	return gulp.src([`${SRC}/style/*.scss`, `!${SRC}/style/z_atoms.scss`]).pipe(styleLint({
-		reporters: [{ formatter: "string", console: true }]
-	}));
+	return gulp.src([`${SRC}/style/*.scss`, `!${SRC}/style/z_atoms.scss`])
+		.pipe(styleLint({
+			reporters: [{ formatter: "string", console: true }]
+		}));
 };
 
 
@@ -58,7 +59,7 @@ const stylelintTask = () => {
 
 // ---------- BUILD ---------- //
 
-const buildJsTask = async () => {
+const buildJsTask = () => {
 	return gulp.src(
 		[
 			"node_modules/webfontloader/webfontloader.js",
