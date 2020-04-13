@@ -7,7 +7,7 @@
 	"license": "CC-BY-NC-ND-4.0",
 	"main": "",
 	"scripts": {
-		"lint": "eslint --fix \"**/*.js\" --ignore-pattern \"docs\"",
+		"lint": "eslint --fix \"**/*.js\" --ignore-pattern \"docs\" && htmlhint src/**/*.htm && stylelint --fix \"**/*.scss\" --ip \"z_atoms.scss\"",
 		"dev": "webpack-dev-server --open",
 		"build": "webpack",
 		"build:prod": "webpack --mode=production"
@@ -28,6 +28,7 @@
 		"html-webpack-inline-source-plugin": "^0.0.10",
 		"html-webpack-inline-svg-plugin": "^1.3.0",
 		"html-webpack-plugin": "^3.2.0",
+		"htmlhint": "^0.11.0",
 		"husky": "^4.2.5",
 		"mini-css-extract-plugin": "^0.9.0",
 		"postcss-assets": "^5.0.0",

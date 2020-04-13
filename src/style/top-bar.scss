@@ -153,7 +153,8 @@
 			
 			/* stylelint-disable block-opening-brace-newline-after */
 			
-			@at-root { @keyframes tada {
+			@at-root {
+				@keyframes tada {
 					from {
 						transform: scale3d(1, 1, 1);
 					}
