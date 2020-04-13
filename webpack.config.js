@@ -16,7 +16,6 @@ const cssNano = require("cssnano");
 // const { HotModuleReplacementPlugin, NoEmitOnErrorsPlugin/*, NamedModulesPlugin, SourceMapDevToolPlugin  */ } = require("webpack");
 
 function includeHtmlSections(sections) {
-	// return sections.reduce((acc, section) => acc[section] = fs.readFileSync(__dirname + `/src/htm/${section}.htm`), {});
 	return sections.reduce((acc, section) => acc.concat({ search: `@@include('${section}.htm')`, strict: false, replace: fs.readFileSync(__dirname + `/src/htm/${section}.htm`).toString() }), []);
 }
 
@@ -24,11 +23,11 @@ module.exports = {
 	mode: process.env.NODE_ENV || "development",
 	entry: "./src/js/index.js",
 	output: {
-		path: __dirname + "/docs",
-		// filename: "[name]-[chunkhash:8].js"
+		path: __dirname + "/docs"
 	},
 	devtool: "source-map",
 	devServer: {
+		index: "index.htm",
 		contentBase: "./docs",
 		hot: true,
 	},
@@ -112,13 +111,10 @@ module.exports = {
 			template: "./src/htm/index.htm",
 			filename: "index.htm",
 			inlineSource: ".(js|css)$", // html-webpack-inline-source-plugin option
-			// ...includeHtmlSections(['intro', 'whoWeAre', 'activities', 'theBoard', 'joinUs', 'faq', 'contact', 'footer', 'topBar'])
 		}),
 		// new HtmlWebpackInlineSourcePlugin(HtmlWebpackPlugin),
 		new HtmlWebpackInlineSourcePlugin(),
-		new MiniCssExtractPlugin(
-			// { filename: "[name]-[chunkhash:8].css"}
-		),
+		new MiniCssExtractPlugin(),
 		new HtmlWebpackInlineSVGPlugin({
 			inlineAll: true
 		})
