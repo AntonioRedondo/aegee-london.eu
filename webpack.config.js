@@ -82,7 +82,7 @@ module.exports = {
 					{
 						loader: 'html-loader',
 						options: {
-							attrs: false,
+							attributes: false,
 							minimize: true
 						}
 					},
@@ -114,12 +114,13 @@ module.exports = {
 			inlineSource: ".(js|css)$", // html-webpack-inline-source-plugin option
 			// ...includeHtmlSections(['intro', 'whoWeAre', 'activities', 'theBoard', 'joinUs', 'faq', 'contact', 'footer', 'topBar'])
 		}),
+		// new HtmlWebpackInlineSourcePlugin(HtmlWebpackPlugin),
 		new HtmlWebpackInlineSourcePlugin(),
 		new MiniCssExtractPlugin(
 			// { filename: "[name]-[chunkhash:8].css"}
 		),
 		new HtmlWebpackInlineSVGPlugin({
-			inlineAllImages: true
+			inlineAll: true
 		})
 	]
 }
