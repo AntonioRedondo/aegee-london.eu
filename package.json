@@ -9,8 +9,7 @@
 	"scripts": {
 		"lint": "eslint --fix \"**/*.js\" --ignore-pattern \"docs\" && htmlhint src/**/*.htm && stylelint --fix \"**/*.scss\" --ip \"z_atoms.scss\"",
 		"dev": "webpack-dev-server --open",
-		"build": "webpack",
-		"build:prod": "webpack --mode=production"
+		"build": "webpack --mode=production"
 	},
 	"dependencies": {
 		"skrollr": "^0.6.26",
