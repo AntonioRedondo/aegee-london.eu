@@ -30,6 +30,10 @@ module.exports = {
 		index: "index.htm",
 		contentBase: "./docs",
 		hot: true,
+		stats: {
+			children: false,
+			maxModules: 0
+		},
 	},
 	module: {
 		rules: [
@@ -49,10 +53,12 @@ module.exports = {
 			{
 				test: /\.scss$/,
 				use: [
+					"style-loader",
 					{
 						loader: MiniCssExtractPlugin.loader,
 						options: {
-							hmr: process.env.NODE_ENV === "development",
+							// hmr: process.env.NODE_ENV !== "production",
+							// reloadAll: true,
 						},
 					},
 					// { // It would save a few lines in index.scss. But not really worth the addition
