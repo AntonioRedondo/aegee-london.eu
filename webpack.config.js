@@ -98,7 +98,7 @@ module.exports = {
 			inlineSource: ".(js|css)$", // html-webpack-inline-source-plugin option
 		}),
 		new MiniCssExtractPlugin(),
-		// new HtmlWebpackInlineSourcePlugin(HtmlWebpackPlugin),
+		// new HtmlWebpackInlineSourcePlugin(HtmlWebpackPlugin), // https://github.com/DustinJackson/html-webpack-inline-source-plugin/issues/63#issuecomment-612659249
 		new HtmlWebpackInlineSourcePlugin(),
 		new HtmlWebpackInlineSVGPlugin({
 			inlineAll: true
