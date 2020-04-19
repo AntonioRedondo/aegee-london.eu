@@ -13,8 +13,6 @@ const autoprefixer = require("autoprefixer");
 const preCss = require("precss");
 const cssNano = require("cssnano");
 
-// const { HotModuleReplacementPlugin, NoEmitOnErrorsPlugin/*, NamedModulesPlugin, SourceMapDevToolPlugin  */ } = require("webpack");
-
 function includeHtmlSections(sections) {
 	return sections.reduce((acc, section) => acc.concat({ search: `@@include('${section}.htm')`, strict: false, replace: fs.readFileSync(__dirname + `/src/htm/${section}.htm`).toString() }), []);
 }
@@ -53,14 +51,8 @@ module.exports = {
 			{
 				test: /\.scss$/,
 				use: [
-					"style-loader",
-					{
-						loader: MiniCssExtractPlugin.loader,
-						options: {
-							// hmr: process.env.NODE_ENV !== "production",
-							// reloadAll: true,
-						},
-					},
+					// "style-loader",
+					MiniCssExtractPlugin.loader,
 					// { // It would save a few lines in index.scss. But not really worth the addition
 					// 	loader: "import-glob-loader", // https://www.npmjs.com/package/import-glob-loader https://stackoverflow.com/questions/40356239/webpack-how-to-put-all-css-files-into-one-css-file
 					// 	enforce: "pre" // https://webpack.js.org/migrate/3/#modulepreloaders-and-modulepostloaders-were-removed
@@ -118,9 +110,9 @@ module.exports = {
 			filename: "index.htm",
 			inlineSource: ".(js|css)$", // html-webpack-inline-source-plugin option
 		}),
+		new MiniCssExtractPlugin(),
 		// new HtmlWebpackInlineSourcePlugin(HtmlWebpackPlugin),
 		new HtmlWebpackInlineSourcePlugin(),
-		new MiniCssExtractPlugin(),
 		new HtmlWebpackInlineSVGPlugin({
 			inlineAll: true
 		})
