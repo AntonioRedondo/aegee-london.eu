@@ -18,7 +18,7 @@ function includeHtmlSections(sections) {
 }
 
 module.exports = {
-	mode: process.env.NODE_ENV || "development",
+	// mode: process.env.NODE_ENV || "development",
 	entry: "./src/js/index.js",
 	output: {
 		path: __dirname + "/docs"
