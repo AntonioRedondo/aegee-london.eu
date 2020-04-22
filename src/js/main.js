@@ -1,10 +1,7 @@
-// import skrollr from "skrollr";
-// import skrollrMenu from "skrollr-menu";
-// skrollr = require("skrollr");
-// require("skrollr-menu");
+import skrollr from "./skrollr.js";
+import skrollrMenu from "skrollr-menu";
 
-// const d = require("./DOMTools.js");
-// import d from "./DOMTools"
+import d from "./DOMTools"
 
 function init() { // eslint-disable-line no-unused-vars
 	function isMobile() {
@@ -257,5 +254,4 @@ function onYouTubeIframeAPIReady() { // eslint-disable-line no-unused-vars
 	});
 }
 
-// export default init;
-// module.exports = init;
+export default init;

@@ -1,13 +1,10 @@
-// const css = require.context("../style", true, /.scss$/);
-// css.keys().forEach(css);
+const css = require.context("../style", true, /.scss$/);
+css.keys().forEach(css);
 
-// import WebFont from "webfontloader"
-// WebFont = require("webfontloader");
+import WebFont from "webfontloader"
 
-// import d from "./DOMTools.js";
-// import init from "./main.js";
-// const d = require("./DOMTools.js");
-// const init = require("./main.js");
+import d from "./DOMTools.js";
+import init from "./main.js";
 
 d.notifyWhenLoaded(".intro__cover");
 

@@ -279,5 +279,4 @@ d.removeCookie = function(name) {
 	this.setCookie(name, "", -1);
 };
 
-// export default d;
-// module.exports = d;
+export default d;
