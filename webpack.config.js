@@ -14,7 +14,8 @@ const preCss = require("precss");
 const cssNano = require("cssnano");
 
 function includeHtmlSections(sections) {
-	return sections.reduce((acc, section) => acc.concat({ search: `@@include('${section}.htm')`, strict: false, replace: fs.readFileSync(__dirname + `/src/htm/${section}.htm`).toString() }), []);
+	return sections.reduce((acc, section) => acc.concat({ search: `@@include('${section}.htm')`, strict: false, replace: fs.readFileSync(__dirname + `/src/htm/${section}.htm`).toString() }), [])
+		.concat({ search: /(<!-- buildDev:start -->)[\s\S]+(<!-- buildDev:end -->)/, strict: false, replace: "" });
 }
 
 module.exports = {
@@ -40,10 +41,6 @@ module.exports = {
 				use: [
 					// "style-loader",
 					MiniCssExtractPlugin.loader,
-					// { // It would save a few lines in index.scss. But not really worth the addition
-					// 	loader: "import-glob-loader", // https://www.npmjs.com/package/import-glob-loader https://stackoverflow.com/questions/40356239/webpack-how-to-put-all-css-files-into-one-css-file
-					// 	enforce: "pre" // https://webpack.js.org/migrate/3/#modulepreloaders-and-modulepostloaders-were-removed
-					// },
 					"css-loader",
 					{
 						loader: "postcss-loader",

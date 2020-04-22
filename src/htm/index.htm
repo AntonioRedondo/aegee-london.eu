@@ -79,6 +79,7 @@
 		
 		<link rel="icon" href="../favicon.ico" type="image/x-icon" />
 		<link rel="shortcut icon" href="../favicon.ico" type="image/x-icon" />
+		<link rel="stylesheet" href="index.css" />
 		
 		<!-- https://developers.google.com/analytics/devguides/collection/analyticsjs -->
 		<script>
@@ -87,6 +88,10 @@
 			ga("send", "pageview", location.hash);
 		</script>
 		<script async src="https://www.google-analytics.com/analytics.js"></script>
+		
+		<!-- buildDev:start -->
+		<script type="text/javascript" src="http://livejs.com/live.js"></script>
+		<!-- buildDev:end -->
 	</head>
 	
 	<body class="body">
@@ -105,7 +110,8 @@
 		
 		@@include('top-bar.htm')
 		
-		<!-- <script src="//www.youtube.com/iframe_api"></script> -->
+		<script src="app.js"></script>
+		<script src="//www.youtube.com/iframe_api"></script>
 	</body>
 
 </html>
