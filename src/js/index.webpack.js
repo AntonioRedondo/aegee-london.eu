@@ -1,3 +1,11 @@
+const WebFont = require("webfontloader");
+
+const d = require("./DOMTools.webpack.js");
+const init = require("./main.webpack.js");
+
+const css = require.context("../style", true, /.scss$/);
+css.keys().forEach(css);
+
 d.notifyWhenLoaded(".intro__cover");
 
 WebFont.load({

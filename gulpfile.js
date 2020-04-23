@@ -51,7 +51,12 @@ const buildCssAtomsTask = () =>
 		.pipe(gulp.dest(`${SRC}/style`));
 
 const buildCssTask = () =>
-	gulp.src([`${SRC}/style/index.css`])
+	gulp.src([
+		`${SRC}/style/_variables.scss`,
+		`${SRC}/style/common.scss`,
+		`${SRC}/style/!(_atoms)*.scss`,
+		`${SRC}/style/z_atoms.scss`
+	])
 		.pipe(sourcemaps.init())
 		.pipe(postCss([
 			postcssImport(), // functionality already provided by css-loader but PostCSS plugin needed because if not a "Right now, PostCSS does nothing." error is thrown
@@ -59,6 +64,7 @@ const buildCssTask = () =>
 			autoprefixer(), // https://github.com/ai/browserslist
 			assets({ loadPaths: [SRC] })
 		]))
+		.pipe(concat("index.css"))
 		.pipe(sourcemaps.write())
 		.pipe(gulp.dest(DEST));
 

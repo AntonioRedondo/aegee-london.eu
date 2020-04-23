@@ -17,7 +17,7 @@
   *
   */
 
-var d = {};
+const d = {};
 
 d.gi = function(id) {
 	return document.getElementById(id);
@@ -278,3 +278,5 @@ d.setCookie = function(name, value, days) {
 d.removeCookie = function(name) {
 	this.setCookie(name, "", -1);
 };
+
+module.exports = d;

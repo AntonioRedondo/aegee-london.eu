@@ -1,3 +1,9 @@
+const skrollr = require("skrollr");
+window.skrollr = skrollr;
+require("skrollr-menu");
+
+const d = require("./DOMTools.webpack.js");
+
 function init() { // eslint-disable-line no-unused-vars
 	function isMobile() {
 		return window.innerWidth < 810;
@@ -248,3 +254,5 @@ function onYouTubeIframeAPIReady() { // eslint-disable-line no-unused-vars
 		}
 	});
 }
+
+module.exports = init;
