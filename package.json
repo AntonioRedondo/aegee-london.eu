@@ -10,7 +10,7 @@
 		"clean": "rimraf docs",
 		"lint": "eslint --fix \"**/*.js\" --ignore-pattern \"docs\" && htmlhint src/**/*.htm && stylelint --fix \"**/*.scss\" --ip \"z_atoms.scss\"",
 		"gulp": "gulp",
-		"gulp:dev": "gulp dev",
+		"gulp:dev": "concurrently \"npm start\" \"gulp dev\"",
 		"webpack": "webpack",
 		"webpack:dev": "webpack-dev-server",
 		"webpack:stats": "webpack --profile --json > docs/stats.json && webpack-bundle-analyzer docs/stats.json"
@@ -22,6 +22,7 @@
 	},
 	"devDependencies": {
 		"autoprefixer": "^9.7.6",
+		"concurrently": "^5.1.0",
 		"connect": "^3.7.0",
 		"copy-webpack-plugin": "^5.1.1",
 		"css-loader": "^3.5.2",
