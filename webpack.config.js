@@ -21,7 +21,7 @@ function includeHtmlSections(sections) {
 }
 
 module.exports = {
-	// mode: process.env.NODE_ENV || "development",
+	mode: "production",
 	entry: "./src/js/index.webpack.js",
 	output: {
 		path: __dirname + "/docs"
@@ -97,8 +97,7 @@ module.exports = {
 			inlineSource: ".(js|css)$", // html-webpack-inline-source-plugin option
 		}),
 		new MiniCssExtractPlugin(),
-		// new HtmlWebpackInlineSourcePlugin(HtmlWebpackPlugin), // https://github.com/DustinJackson/html-webpack-inline-source-plugin/issues/63#issuecomment-612659249
-		new HtmlWebpackInlineSourcePlugin(),
+		new HtmlWebpackInlineSourcePlugin(HtmlWebpackPlugin),
 		new HtmlWebpackInlineSVGPlugin({
 			inlineAll: true
 		})
