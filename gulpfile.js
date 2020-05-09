@@ -59,7 +59,6 @@ const buildCssTask = () =>
 		.pipe(sourcemaps.init())
 		.pipe(concat("style.css"))
 		.pipe(postCss([
-			// postcssImport(), // functionality already provided by css-loader but PostCSS plugin needed because if not a "Right now, PostCSS does nothing." error is thrown
 			preCss({ features: { "color-mod-function": { unresolved: "warn" } } }),
 			autoprefixer(), // https://github.com/ai/browserslist
 			assets({ loadPaths: [SRC] })
