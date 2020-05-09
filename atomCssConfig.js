@@ -1,6 +1,6 @@
 module.exports = {
 	// Gulp plugin
-	cssDest: "./src/style/z_atoms.scss",
+	cssDest: "src/style/z_atoms.scss",
 	acssConfig: {
 		breakPoints: {
 			bi: "@media (min-width: 2000px)",
@@ -9,7 +9,7 @@ module.exports = {
 			mo: "@media (max-width: 810px)"
 		}
 	},
-	// webpacck loader
+	// webpack loader
 	outfile: "z_atoms.scss",
 	configs: {
 		breakPoints: {
