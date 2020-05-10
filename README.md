@@ -13,7 +13,7 @@ If you're the IT responsible for your antenna, you like our website and you'd li
 
 ## Highly optimised website
 
-The website is optimised to load ultrafast respecting all the perfomance, accessibility and rest of web practices. It gets the below [Lighthouse](https://github.com/GoogleChrome/lighthouse) score. You can check it yourself! Just open the Dev Tools on Chrome, click the Audits tab and generate a new report.
+The website is optimised to load ultrafast. It follows the best performance, accessibility and rest of web practices. It gets the below [Lighthouse](https://github.com/GoogleChrome/lighthouse) score. You can check it yourself! Just open the Dev Tools on Chrome, click the Audits tab and generate a new report.
 
 <img src="https://github.com/AntonioRedondo/aegee-london.eu/raw/master/readmeImages/Lighthouse.png" width="900px" />
 
