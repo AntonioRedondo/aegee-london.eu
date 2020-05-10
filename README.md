@@ -11,6 +11,12 @@ If you're the IT responsible for your antenna, you like our website and you'd li
 <img src="https://github.com/AntonioRedondo/aegee-london.eu/raw/master/readmeImages/3.jpg" width="900px" />
 <img src="https://github.com/AntonioRedondo/aegee-london.eu/raw/master/readmeImages/m.jpg" width="900px" />
 
+## Highly optimised website
+
+The website is optimised to load ultrafast respecting all the perfomance, accessibility and rest of web practices. It gets the below [Lighthouse](https://github.com/GoogleChrome/lighthouse) score. You can check it yourself! Just open the Dev Tools on Chrome, click the Audits tab and generate a new report.
+
+<img src="https://github.com/AntonioRedondo/aegee-london.eu/raw/master/readmeImages/Lighthouse.png" width="900px" />
+
 # AEGEE-London leaflet
 
 I have also designed an A4 double-sided leaflet that introduces AEGEE-London as a local antenna and explains what the organisation offers at European level. The leaflet is ready to be downloaded and customised for the needs of any other AEGEE antenna. The design shallowly follows the guidelines set on the [AEGEE’s Visual Identity](https://www.zeus.aegee.org/portal/resources/pr-materials). However I decided to take some liberties and simplify the number of colours (only yellow, white and blue) and design elements on the final art. The leaflets closely aligns with the AEGEE-London website design.
