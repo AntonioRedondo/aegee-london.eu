@@ -89,11 +89,15 @@
 
 		&:hover {
 			transform: scale(1.05);
+			
+			@media (max-width: $breakpointMobile) {
+				transform: none;
+			}
 		}
 		
 		@media (max-width: $breakpointMobile) {
-			width: 100vw;
-			margin: 0;
+			width: 86vw;
+			margin: 3vw auto;
 		}
 	}
 }
