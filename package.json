@@ -10,7 +10,7 @@
 		"clean": "rimraf docs",
 		"lint": "concurrently \"eslint --fix \"**/*.js\" --ignore-pattern \"docs\"\" \"htmlhint src/**/*.htm\" \"stylelint --fix \"**/*.scss\" --ip \"z_atoms.scss\"",
 		"build": "gulp",
-		"dev": "concurrently \"npm start\" \"gulp\""
+		"dev": "concurrently \"npm start\" \"gulp dev\""
 	},
 	"dependencies": {
 		"skrollr": "^0.6.26",
