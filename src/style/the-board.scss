@@ -217,7 +217,7 @@
 		overflow-x: scroll;
 		
 		@media (max-width: $breakpointMobile) {
-			height: 50vw;
+			height: 48vw;
 			margin: 0;
 			padding: 0 5%;
 		}
@@ -232,7 +232,7 @@
 		
 		@media (max-width: $breakpointMobile) {
 			width: 400%;
-			margin: 10vw auto 2vw;
+			margin: 8vw auto 2vw;
 		}
 	}
 	
