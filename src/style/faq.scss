@@ -5,6 +5,10 @@
 		padding: 0.2vw 0;
 		display: block;
 		color: white;
+		
+		@media (max-width: $breakpointMobile) {
+			padding: 1.8vw 0;
+		}
 	}
 	
 	&__question {
