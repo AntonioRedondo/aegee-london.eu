@@ -213,19 +213,28 @@
 		opacity: 0;
 	} */
 	
-	&__table {
-		width: 90%;
-		height: 8.5vw;
-		margin: 3% auto 2%;
-		
-		display: block;
-		
-		@media (min-width: $breakpointBig) {
-			height: 180px;
-		}
+	&__table-container {
+		height: 11.2vw;
+		margin: 3% 16% 2%;
+		overflow-x: scroll;
 		
 		@media (max-width: $breakpointMobile) {
-			margin: 10vw auto 2vw;
+			height: 48vw;
+			margin: 0;
+			padding: 0 5%;
+		}
+		
+		@media (min-width: $breakpointBig) {
+			height: 210px;
+		}
+	}
+
+	&__table {
+		width: 140%;
+		
+		@media (max-width: $breakpointMobile) {
+			width: 400%;
+			margin: 8vw auto 2vw;
 		}
 	}
 	

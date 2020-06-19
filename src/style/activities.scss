@@ -81,4 +81,25 @@
 			}
 		}
 	}
+
+	&__website {
+		width: 30vw;
+		margin: 0 1.5vw;
+		display: block;
+		
+		transition: $time1 $ease-out;
+
+		&:hover {
+			transform: scale(1.05);
+			
+			@media (max-width: $breakpointMobile) {
+				transform: none;
+			}
+		}
+		
+		@media (max-width: $breakpointMobile) {
+			width: 86vw;
+			margin: 3vw auto;
+		}
+	}
 }
