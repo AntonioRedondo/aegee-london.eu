@@ -86,11 +86,13 @@ module.exports = {
 		]
 	},
 	plugins: [
-		new CopyWebpackPlugin([
-			{ from: "./src/favicon.ico", to: "favicon.ico" },
-			{ from: "./src/CNAME", to: "./" },
-			{ from: "./src/img/*", to: "./img/", flatten: true }
-		]),
+		new CopyWebpackPlugin({
+			patterns: [
+				{ from: "./src/favicon.ico", to: "favicon.ico" },
+				{ from: "./src/CNAME", to: "./" },
+				{ from: "./src/img/*", to: "./img/", flatten: true }
+			]
+		}),
 		new HtmlWebpackPlugin({
 			template: "./src/htm/index.htm",
 			filename: "index.htm",
