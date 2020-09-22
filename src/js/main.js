@@ -116,7 +116,7 @@ function init() { // eslint-disable-line no-unused-vars
 				case "could-you-arrange-any-lodging-for-me":
 				case "would-you-like-to-meet":
 				case "which-social-networks-do-you-use":
-				case "is-aegee-london-an-ngo":
+				case "whats-the-legal-status-of-aegee-london":
 				case "do-you-have-physical-offices":
 				case "are-you-present-at-some-london-university":
 				case "where-does-the-antenna-get-funds-from":
