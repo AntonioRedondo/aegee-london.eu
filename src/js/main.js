@@ -35,12 +35,6 @@ function init() { // eslint-disable-line no-unused-vars
 	
 	
 	
-	d.st(function() { showTopBarEntries(); }, 2500);
-	setBodyHeight();
-	moveLine(0, true);
-	
-	
-	
 	// Sets up Skroller
 	var gap = getGap();
 	
@@ -132,6 +126,18 @@ function init() { // eslint-disable-line no-unused-vars
 	
 	
 	
+	// Set ups the navigation top bar for mobile screens
+	d.qsa(".top-bar__tab, .top-bar__three-bars, .top-bar__three-bars-close-surface").forEach(function(item) {
+		item.addEventListener("click", function() {
+			if (isMobile()) {
+				d.gc("top-bar").classList.toggle("top-bar--open");
+				d.gc("top-bar__three-bars-close-surface").classList.toggle("top-bar__three-bars-close-surface--in");
+			}
+		});
+	});
+	
+	
+	
 	// Sets the size FB iframes depending on desktop or mobile
 	var width = isMobile() ? 320 : 500,
 		height = isMobile() ? 500 : 560,
@@ -142,6 +148,14 @@ function init() { // eslint-disable-line no-unused-vars
 	
 	
 	
+	// Adapts the UI to remove intro animations if the URL points to a section
+	var hash = window.location.hash;
+	if ((hash && hash !== "#intro") || isMobile()) {
+		showTopBarEntries();
+	}
+	
+	
+	
 	// Loads the intro video if on desktop
 	if (!isMobile() && (d.getOS() === "Windows" || d.getOS() === "macOS" || d.getOS() === "Linux")) {
 		d.gc("intro__video").src = "https://www.youtube.com/embed/7x8BCbo45qA?&mute=1&controls=0&enablejsapi=1&showinfo=0&rel=0&iv_load_policy=3&disablekb=1&origin=https://aegee-london.eu";
@@ -149,7 +163,18 @@ function init() { // eslint-disable-line no-unused-vars
 	
 	
 	
-	// Adds logic for 'scroll' and 'resize' events
+	// https://developers.google.com/analytics/devguides/collection/analyticsjs/sending-hits
+	d.qs("a.top-bar__tab[href='#intro']").addEventListener("click", function() { ga("send", "event", "Top bar link", "click", "intro"); });
+	d.qs("a.top-bar__tab[href='#who-we-are']").addEventListener("click", function() { ga("send", "event", "Top bar link", "click", "who-we-are"); });
+	d.qs("a.top-bar__tab[href='#activities']").addEventListener("click", function() { ga("send", "event", "Top bar link", "click", "activities"); });
+	d.qs("a.top-bar__tab[href='#the-board']").addEventListener("click", function() { ga("send", "event", "Top bar link", "click", "the-board"); });
+	d.qs("a.top-bar__tab[href='#join-us']").addEventListener("click", function() { ga("send", "event", "Top bar link", "click", "join-us"); });
+	d.qs("a.top-bar__tab[href='#faq']").addEventListener("click", function() { ga("send", "event", "Top bar link", "click", "faq"); });
+	d.qs("a.top-bar__tab[href='#contact']").addEventListener("click", function() { ga("send", "event", "Top bar link", "click", "contact"); });
+	
+	
+	
+	// Adds general event listeners
 	var scrolled = false,
 		distance = offsetFunctions.d0/3.5,
 		header = d.gc("top-bar");
@@ -176,43 +201,15 @@ function init() { // eslint-disable-line no-unused-vars
 	
 	d.ae("load", function() {
 		setBodyHeight();
+		moveLine(0, true);
+		// d.gc("body").classList.add("body--in");
 	});
 	
 	
 	
-	// Adapts the UI to remove intro animations if the URL points to a section
-	var hash = window.location.hash;
-	if ((hash && hash !== "#intro") || isMobile()) {
-		d.gc("top-bar").classList.add("top-bar--in");
-		d.st(function() { d.gc("top-bar").classList.remove("top-bar--in-no-delay"); }, 1000);
-		showTopBarEntries();
-	}
-	
-	
-	
-	// Set ups the navigation top bar for mobile screens
-	d.qsa(".top-bar__tab, .top-bar__three-bars, .top-bar__three-bars-close-surface").forEach(function(item) {
-		item.addEventListener("click", function() {
-			if (isMobile()) {
-				d.gc("top-bar").classList.toggle("top-bar--open");
-				d.gc("top-bar__three-bars-close-surface").classList.toggle("top-bar__three-bars-close-surface--in");
-			}
-		});
-	});
-	
-	
-	
-	// https://developers.google.com/analytics/devguides/collection/analyticsjs/sending-hits
-	d.qs("a.top-bar__tab[href='#intro']").addEventListener("click", function() { ga("send", "event", "Top bar link", "click", "intro"); });
-	d.qs("a.top-bar__tab[href='#who-we-are']").addEventListener("click", function() { ga("send", "event", "Top bar link", "click", "who-we-are"); });
-	d.qs("a.top-bar__tab[href='#activities']").addEventListener("click", function() { ga("send", "event", "Top bar link", "click", "activities"); });
-	d.qs("a.top-bar__tab[href='#the-board']").addEventListener("click", function() { ga("send", "event", "Top bar link", "click", "the-board"); });
-	d.qs("a.top-bar__tab[href='#join-us']").addEventListener("click", function() { ga("send", "event", "Top bar link", "click", "join-us"); });
-	d.qs("a.top-bar__tab[href='#faq']").addEventListener("click", function() { ga("send", "event", "Top bar link", "click", "faq"); });
-	d.qs("a.top-bar__tab[href='#contact']").addEventListener("click", function() { ga("send", "event", "Top bar link", "click", "contact"); });
-	
-	
-	
+	d.st(function() { showTopBarEntries(); }, 1500);
+	setBodyHeight();
+	moveLine(0, true);
 	d.gc("body").classList.add("body--in");
 }
 
