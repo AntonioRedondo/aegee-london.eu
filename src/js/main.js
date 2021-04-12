@@ -45,18 +45,18 @@ function init() { // eslint-disable-line no-unused-vars
 	var gap = getGap();
 	
 	var offsetFunctions = {
-		get d0() { return d.gi("intro").clientHeight; },
-		get d0g() { return this.d0 + gap; },
-		get d1() { return d.gi("who-we-are").clientHeight + this.d0g; },
-		get d1g() { return  this.d1 + gap; },
-		get d2() { return d.gi("activities").clientHeight + this.d1g; },
-		get d2g() { return this.d2 + gap; },
-		get d3() { return d.gi("the-board").clientHeight + this.d2g; },
-		get d3g() { return this.d3 + gap; },
-		get d4() { return d.gi("join-us").clientHeight + this.d3g; },
-		get d4g() { return this.d4 + gap; },
-		get d5() { return d.gi("faq").clientHeight + this.d4g; },
-		get d5g() { return this.d5 + gap; }
+		get d0()	{ return d.gi("intro").clientHeight; },
+		get d0g()	{ return this.d0 + gap; },
+		get d1()	{ return this.d0g + d.gi("who-we-are").clientHeight },
+		get d1g()	{ return this.d1 + gap; },
+		get d2()	{ return this.d1g + d.gi("activities").clientHeight; },
+		get d2g()	{ return this.d2 + gap; },
+		get d3()	{ return d.gi("the-board").clientHeight + this.d2g; },
+		get d3g()	{ return this.d3 + gap; },
+		get d4()	{ return d.gi("join-us").clientHeight + this.d3g; },
+		get d4g()	{ return this.d4 + gap; },
+		get d5()	{ return d.gi("faq").clientHeight + this.d4g; },
+		get d5g()	{ return this.d5 + gap; }
 	};
 	
 	var skrollrInstance = skrollr.init({
@@ -113,7 +113,7 @@ function init() { // eslint-disable-line no-unused-vars
 				case "can-i-join-aegee-london-even-if-i-dont-live-in-london":
 				case "what-have-to-do-summer-universities-with-real-universities":
 				case "when-do-you-organise-the-next-event":
-				case "could-you-arrange-any-lodging-for-me":
+				case "could-you-host-me":
 				case "would-you-like-to-meet":
 				case "which-social-networks-do-you-use":
 				case "whats-the-legal-status-of-aegee-london":
