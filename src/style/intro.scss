@@ -99,7 +99,6 @@
 		
 		display: block;
 		
-		// filter: drop-shadow(0 0 3vw white);
 		filter: drop-shadow(0 0 1vw color-mod(black a(50%)));
 		
 		transition: all 3s ease-out;
@@ -108,7 +107,6 @@
 		transform: scale3d(0.8, 0.8, 1);
 		
 		@media (max-width: $breakpointMobile) {
-			// filter: drop-shadow(0 0 15vw white);
 			filter: drop-shadow(0 0 10vw color-mod(black a(50%)));
 		}
 	}
@@ -136,7 +134,6 @@
 			padding: 0;
 			
 			font-size: 3vh;
-			// text-shadow: 0 0 5vw white;
 			text-shadow: 0 0 5vw color-mod(black a(100%));
 		}
 	}

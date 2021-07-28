@@ -41,7 +41,7 @@ function init() { // eslint-disable-line no-unused-vars
 	var offsetFunctions = {
 		get d0()	{ return d.gi("intro").clientHeight; },
 		get d0g()	{ return this.d0 + gap; },
-		get d1()	{ return this.d0g + d.gi("who-we-are").clientHeight },
+		get d1()	{ return this.d0g + d.gi("who-we-are").clientHeight; },
 		get d1g()	{ return this.d1 + gap; },
 		get d2()	{ return this.d1g + d.gi("activities").clientHeight; },
 		get d2g()	{ return this.d2 + gap; },
