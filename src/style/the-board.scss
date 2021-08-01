@@ -18,7 +18,6 @@
 	
 	&__photo-title {
 		width: 22%;
-		height: 100%;
 		padding: 6% 4% 0 0;
 		
 		position: absolute;
@@ -28,194 +27,87 @@
 			width: 100%;
 			height: auto;
 			padding: 4% 0 5% 0;
-
+			
 			position: static;
 		}
 	}
-
+	
 	&__photo-mobile {
 		width: 100%;
-		height: 450px;
+		height: 300px;
 		
-		background: url("/img/boardMobile.jpg") 40% center / cover;
+		background: url("img/boardMobile.jpg") center 100% / cover;
 		
 		@media (min-width: $breakpointMobile) {
 			display: none;
 		}
 	}
 	
-	/* &__portrait-containter {
-		width: 25%;
-		height: 100%;
+	&__social {
+		height: 0;
+		padding-right: 10vw;
 		
-		overflow: hidden;
-		position: relative;
+		display: flex;
+		justify-content: center;
+		transform: translateY(-13vw);
 		
-		background-color: black;
+		text-shadow: color-mod(black a(0.8)) 0 0 0.5vw;
 		
 		@media (max-width: $breakpointMobile) {
-			width: 100%;
-			height: 65vh;
-			min-height: 400px;
-		}
-		
-		&:hover .the-board__portrait {
-			filter: saturate(1);
-			transform: translate3d(0, 5%, 0) scale3d(1.2, 1.2, 1);
+			height: auto;
+			padding: 6vw 7vw 2vw;
 			
-			@media (max-width: $breakpointMobile) {
-				transform: translate3d(0, 5%, 0) scale3d(1.8, 1.8, 1);
-			}
-		}
-		
-		&:hover .the-board__darkener {
-			opacity: 1;
-		}
-		
-		&:hover .the-board__name {
-			color: white;
-			text-shadow: 0 0 1vw color-mod(white a(90%));
-			transform: scale(1.3);
-		}
-		
-		&:hover .the-board__description {
-			opacity: 1;
-			transform: translate3d(0, 0, 0);
+			display: block;
+			transform: none;
 		}
 	}
 	
-	&__portrait {
-		width: 100%;
-		height: 100%;
-		
-		position: absolute;
-		
-		background: url('/img/portrait1.jpg') center / cover;
-		
-		filter: saturate(0);
-		
-		transition: $time2 ease-out all;
+	&__social-entry {
+		width: 18%;
 		
 		@media (max-width: $breakpointMobile) {
-			background-position: center 20%;
-			transform: scale3d(1.5, 1.5, 1);
-		}
-		
-		&--1 {
-			background-image: url('/img/portrait1.jpg');
-		}
-		
-		&--2 {
-			background-image: url('/img/portrait2.jpg');
-		}
-		
-		&--3 {
-			background-image: url('/img/portrait3.jpg');
+			width: auto;
+			text-align: center;
 		}
 	}
 	
-	&__text {
-		width: 100%;
-		padding: 8% 10%;
+	&__social-title {
+		margin-top: 0;
+		margin-bottom: 1.5%;
 		
-		position: absolute;
-		top: 45%;
-		
-		pointer-events: none;
-		
-		font-size: 1.2vw;
-		font-weight: 300;
-		text-shadow: 0.1vw 0.1vw 0.2vw color-mod(black a(50%));
-		text-align: center;
-		
-		@media (max-width: $breakpointMobile) {
-			width: 90%;
-			margin: 0 5%;
-			padding: 8% 5%;
-			top: 35%;
-			opacity: 1;
-			font-size: 4vw;
-		}
-		
-		@media (min-width: $breakpointBig) {
-			font-size: 1.5em;
-		}
-	}
-	
-	&__description {
-		opacity: 0;
-		transform: translate3d(0, 1vw, 0);
-
-		transition: $time1 ease-out all;
-	}
-	
-	&__name {
-		width: 100%;
-		margin: 0;
-		
-		pointer-events: none;
-		
-		color: $color4;
-		text-shadow: 0 0 1vw color-mod($color4 a(90%));
-		font-size: 6vw;
-		text-align: center;
-		text-transform: uppercase;
+		color: $color3;
 		font-family: bebas-neue, sans-serif;
+		font-size: 200%;
 		font-weight: 500;
-		line-height: 90%;
-		
-		transition: $time1 ease-out all;
-		transform-origin: center bottom;
 		
 		@media (max-width: $breakpointMobile) {
-			bottom: 46%;
-			color: $color4;
-			font-size: 20vw;
-		}
-		
-		@media (min-width: $breakpointBig) {
-			font-size: 4.4em;
+			margin-top: 8vw;
+			font-size: 230%;
 		}
 	}
 	
-	&__position {
-		width: 50%;
-		margin: 0 auto 0.65vw;
-		padding-bottom: 0.5vw;
+	&__social-icon {
+		width: 15%;
+		height: 15%;
+		margin: 2% 3% 0 0;
 		
-		border-bottom: $color4 dashed 0.15vw;
+		border-radius: 100%;
+		box-shadow: 0 0 1vw color-mod(black a(0.8));
 		
-		font-size: 1em;
-		text-transform: uppercase;
+		transition: box-shadow $time2;
+		
+		&:hover {
+			box-shadow: 0 0 1vw $color6;
+		}
 		
 		@media (max-width: $breakpointMobile) {
-			width: 70%;
-			margin: 0 auto 2vw;
-			padding-bottom: 2vw;
-			border-bottom: $color4 dashed 0.6vw;
-			font-size: 5vw;
+			margin: 2% 1.5% 0;
 		}
 	}
-	
-	&__darkener {
-		width: 100%;
-		height: 50%;
-		min-height: 500px;
-		
-		position: absolute;
-		bottom: 0;
-		
-		background: linear-gradient(0deg, color-mod(black a(90%)), transparent);
-		pointer-events: none;
-		
-		transition: $time1 ease-out all;
-		
-		opacity: 0;
-	} */
 	
 	&__table-container {
 		height: 11.2vw;
-		margin: 3% 16% 2%;
+		margin: 3% 16% 0;
 		overflow-x: scroll;
 		
 		@media (max-width: $breakpointMobile) {
@@ -235,6 +127,30 @@
 		@media (max-width: $breakpointMobile) {
 			width: 400%;
 			margin: 8vw auto 2vw;
+		}
+	}
+
+	&__years {
+		width: 100%;
+		margin: 1vw 0 0;
+		padding: 0 10%;
+		display: flex;
+		justify-content: center;
+		
+		@media (max-width: $breakpointMobile) {
+			width: 100%;
+			margin: 6vw 0 0;
+			flex-wrap: wrap;
+		}
+	}
+
+	&__years-item {
+		padding: 2vw 0;
+		flex: 1;
+		text-align: center;
+		
+		@media (max-width: $breakpointMobile) {
+			flex-basis: 33%;
 		}
 	}
 	
