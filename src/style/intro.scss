@@ -43,7 +43,7 @@
 		
 		border: 0;
 		
-		@media (min-aspect-ratio: 16/9) {
+		@media (min-aspect-ratio: 16 / 9) {
 			width: 100%;
 			height: 200%;
 			top: -50%;
@@ -115,7 +115,7 @@
 		margin: 4vh auto 0;
 		padding: 0 20vw;
 		
-		font-family: Roboto Slab, serif;
+		font-family: "Roboto Slab", serif;
 		font-size: 2.4vh;
 		text-align: center;
 		text-shadow: 0 0 0.8vw color-mod(black a(100%));

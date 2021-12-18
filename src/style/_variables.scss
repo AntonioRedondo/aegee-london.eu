@@ -3,7 +3,7 @@ $whiteD: #ddd;
 $whiteE: #eee;
 $gray2: #222;
 $gray3: #333;
-$black060: rgba(0, 0, 0, 0.6);
+$black060: rgb(0 0 0 / 60%);
 
 $color1: #1468c5;
 $color2: #163e7a;
@@ -12,7 +12,6 @@ $color4: #ff5543;
 $color5: #4ca0ff;
 $color6: #4dd0e1;
 $color7: #f6f7f9;
-
 
 $breakpointBig: 2000px;
 $breakpointMedium: 1470px;
@@ -23,10 +22,8 @@ $breakpointMobile: 810px;
 $ease-in: cubic-bezier(0.75, 0, 1, 1);
 $ease-out: cubic-bezier(0, 0, 0.25, 1);
 
-
 $time1: 0.15s;
 $time2: 0.3s;
-
 
 $topBarHeight: 55px;
 $marginTop: 50px;
