@@ -21,6 +21,22 @@
 		}
 	}
 	
+	&__fb-video-iframe {
+		width: 100%;
+		aspect-ratio: 1.75;
+		margin: 7% 0 3%;
+		
+		display: block;
+		
+		border: none;
+		
+		@media (max-width: $breakpointMobile) {
+			width: calc(100% + 14vw);
+			aspect-ratio: 1.75;
+			margin: 8% -7vw 4%;
+		}
+	}
+	
 	&__img-foottext {
 		width: 22%;
 		margin: 0;
@@ -75,7 +91,7 @@
 				position: relative;
 				z-index: 1;
 				box-shadow: 0 0 5vw $black060;
-				transform: scale(1.05);
+				transform: scale(1.03);
 			}
 		}
 	}

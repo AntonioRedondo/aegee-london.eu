@@ -29,6 +29,7 @@ a {
 	color: $color6;
 	font-weight: 900;
 	text-decoration: none;
+	transition: text-shadow $time1;
 	
 	&:hover {
 		text-shadow: 0 0 0.5vw $color6;
