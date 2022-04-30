@@ -99,7 +99,8 @@ function init() { // eslint-disable-line no-unused-vars
 				case "become-member-board":
 				case "former-boards":
 				case "antennas-birth":
-				case "previous-foundations":										moveLine(3); return offsetFunctions.d2g + linkPositionBoard.top + extraSpace;
+				case "previous-foundations":
+				case "european-level":												moveLine(3); return offsetFunctions.d2g + linkPositionBoard.top + extraSpace;
 				case "join-us":														moveLine(4); return offsetFunctions.d3g;
 				case "faq":															moveLine(5); return offsetFunctions.d4g;
 				case "how-old-can-i-be":

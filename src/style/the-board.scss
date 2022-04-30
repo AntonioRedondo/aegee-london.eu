@@ -43,7 +43,7 @@
 	
 	&__social {
 		height: 0;
-		padding-right: 10vw;
+		padding-right: 4vw;
 		
 		display: flex;
 		justify-content: center;
@@ -55,7 +55,8 @@
 			height: auto;
 			padding: 6vw 7vw 2vw;
 			
-			display: block;
+			display: flex;
+			flex-flow: column-reverse;
 			transform: none;
 		}
 	}
