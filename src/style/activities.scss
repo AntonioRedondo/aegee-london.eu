@@ -115,5 +115,10 @@
 			width: 86vw;
 			margin: 3vw auto;
 		}
+		
+		@media (min-width: $breakpointBig) {
+			width: 600px;
+			margin: 0 30px;
+		}
 	}
 }
