@@ -3,8 +3,6 @@
 	
 	&__question-index {
 		padding: 0.2vw 0;
-		display: inline-block;
-		color: white;
 		
 		@media (max-width: $breakpointMobile) {
 			padding: 1.8vw 0;
@@ -15,7 +13,7 @@
 	&__question {
 		margin: 5% 0 1%;
 		
-		font-family: bebas-neue, sans-serif;
+		font-family: "Bebas Neue", sans-serif;
 		line-height: 1;
 		
 		@media (max-width: $breakpointMobile) {

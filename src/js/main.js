@@ -202,8 +202,6 @@ function init() { // eslint-disable-line no-unused-vars
 	
 	d.ae("load", function() {
 		setBodyHeight();
-		moveLine(0, true);
-		// d.gc("body").classList.add("body--in");
 	});
 	
 	

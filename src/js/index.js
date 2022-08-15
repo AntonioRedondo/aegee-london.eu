@@ -2,11 +2,7 @@ d.notifyWhenLoaded(".intro__cover");
 
 WebFont.load({
 	google: {
-		families: ["Roboto Slab:300", "Source Sans Pro:300,900"]
-	},
-	typekit: {
-		id: "bebas-neue",
-		api: "//use.edgefonts.net"
+		families: ["Roboto Slab:300", "Source Sans Pro:300,900", "Bebas Neue:400"]
 	},
 	active: function() {
 		d.runWhenAllLoaded(init);
