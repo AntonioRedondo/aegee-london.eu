@@ -15,8 +15,7 @@
 	},
 	"dependencies": {
 		"skrollr": "^0.6.26",
-		"skrollr-menu": "^1.0.3",
-		"webfontloader": "^1.6.28"
+		"skrollr-menu": "^1.0.3"
 	},
 	"devDependencies": {
 		"concurrently": "^7.1.0",

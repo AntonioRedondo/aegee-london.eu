@@ -107,7 +107,7 @@ button {
 	color: $color4;
 	font-family: "Bebas Neue", sans-serif;
 	font-size: 200%;
-	font-weight: 500;
+	font-weight: bold;
 	
 	@media (max-width: $breakpointMobile) {
 		margin-bottom: 6%;
@@ -168,7 +168,7 @@ button {
 		box-shadow: 0.8vw 0.8vw 0 $color5;
 		
 		font-family: "Bebas Neue", sans-serif;
-		font-weight: 500;
+		font-weight: bold;
 		font-size: 5.6vw;
 		text-transform: uppercase;
 		line-height: 0.9;
