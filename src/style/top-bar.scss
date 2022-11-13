@@ -152,7 +152,7 @@
 			/* stylelint-disable block-opening-brace-newline-after */
 			
 			@at-root { @keyframes tada {
-					from {
+					0% {
 						transform: scale3d(1, 1, 1);
 					}
 					10%, 20% {
@@ -164,7 +164,7 @@
 					40%, 60%, 80% {
 						transform: scale3d(1.5, 1.5, 1.5) rotate3d(0, 0, 1, -3deg);
 					}
-					to {
+					100% {
 						transform: scale3d(1, 1, 1);
 					}
 				}
