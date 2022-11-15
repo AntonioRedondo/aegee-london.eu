@@ -15,7 +15,7 @@ const atomCssConfig = require("./atomCssConfig.js");
 const assets = require("postcss-assets");
 
 // Production
-const htmlMin = require("gulp-htmlmin");
+const htmlMin = require("gulp-html-minifier-terser");
 
 
 const SRC = "src";
@@ -26,11 +26,9 @@ const DEST = "docs";
 
 const buildJsTask = () =>
 	gulp.src([
-		"node_modules/webfontloader/webfontloader.js",
 		"node_modules/skrollr/dist/skrollr.min.js",
 		"node_modules/skrollr-menu/dist/skrollr.menu.min.js",
 		`${SRC}/js/DOMTools.js`,
-		`${SRC}/js/main.js`,
 		`${SRC}/js/index.js`
 	])
 		.pipe(sourcemaps.init())
