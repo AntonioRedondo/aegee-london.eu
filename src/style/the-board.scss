@@ -43,30 +43,31 @@
 	
 	&__social {
 		height: 0;
-		padding-right: 4vw;
-		
 		display: flex;
-		justify-content: center;
-		transform: translateY(-13vw);
+		flex-flow: column;
+		transform: translate(-8.5vw, calc(-72vh - 50%));
+		align-items: center;
 		
 		text-shadow: color-mod(black a(0.8)) 0 0 0.5vw;
 		
+		@media (min-width: $breakpointMobile) {
+			font-size: 1.5vw;
+		}
+		
 		@media (max-width: $breakpointMobile) {
 			height: auto;
-			padding: 6vw 7vw 2vw;
-			
-			display: flex;
-			flex-flow: column-reverse;
+			padding: 6vw 0 2vw;
 			transform: none;
 		}
 	}
 	
 	&__social-entry {
-		width: 18%;
+		width: 30%;
+		text-align: center;
+		padding-bottom: 2vw;
 		
 		@media (max-width: $breakpointMobile) {
-			width: auto;
-			text-align: center;
+			width: 100%;
 		}
 	}
 	
@@ -86,8 +87,7 @@
 	}
 	
 	&__social-icon {
-		width: 15%;
-		height: 15%;
+		width: 3.4vw;
 		margin: 2% 3% 0 0;
 		
 		border-radius: 100%;
@@ -100,6 +100,7 @@
 		}
 		
 		@media (max-width: $breakpointMobile) {
+			width: 15vw;
 			margin: 2% 1.5% 0;
 		}
 	}
@@ -121,11 +122,10 @@
 	}
 
 	&__table {
-		width: 140%;
+		width: 170%;
 		
 		@media (max-width: $breakpointMobile) {
-			width: 400%;
-			margin: 8vw auto 2vw;
+			width: 500%;
 		}
 	}
 
