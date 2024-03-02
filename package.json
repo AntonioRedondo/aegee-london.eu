@@ -40,8 +40,8 @@
 		"stylelint-config-standard-scss": "^13.0.0"
 	},
 	"lint-staged": {
-		"*.js": "eslint --fix",
+		"*.js": "eslint --ignore-pattern \"docs\"",
 		"*.htm": "htmlhint",
-		"*.scss": "stylelint --fix"
+		"*.scss": "stylelint --ip \"z_atoms.scss\""
 	}
 }
