@@ -96,6 +96,16 @@
 		}
 	}
 
+	&__websites {
+		width: 80vw;
+		margin: 0 auto;
+
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		gap: 2vw;
+	}
+
 	&__website {
 		width: 30vw;
 		margin: 0 1.5vw;
