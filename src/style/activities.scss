@@ -73,7 +73,7 @@
 	}
 	
 	&__img {
-		height: 16.2vw;
+		height: 16.5vw;
 		
 		transition: $time1 $ease-out;
 		
@@ -95,24 +95,28 @@
 			}
 		}
 	}
-
+	
 	&__websites {
 		width: 80vw;
 		margin: 0 auto;
-
+		
 		display: flex;
 		flex-wrap: wrap;
 		justify-content: center;
 		gap: 2vw;
+		
+		text-align: center;
 	}
-
+	
 	&__website {
 		width: 30vw;
-		margin: 0 1.5vw;
+		margin: 0 1.5vw 0.5vw;
 		display: block;
 		
 		transition: $time1 $ease-out;
-
+		
+		border-radius: 8px;
+		
 		&:hover {
 			transform: scale(1.05);
 			
@@ -123,7 +127,7 @@
 		
 		@media (max-width: $breakpointMobile) {
 			width: 86vw;
-			margin: 3vw auto;
+			margin: 3vw auto 1vw;
 		}
 		
 		@media (min-width: $breakpointBig) {
