@@ -7,7 +7,7 @@
 	"license": "CC-BY-NC-ND-4.0",
 	"main": "",
 	"scripts": {
-		"lint": "concurrently \"eslint --fix \"**/*.js\" --ignore-pattern \"docs\"\" \"htmlhint src/**/*.html\" \"stylelint --fix \"**/*.scss\" --ip \"z_atoms.scss\"\"",
+		"lint": "concurrently \"eslint --fix \"**/*.js\" --ignore-pattern \"docs\"\" \"htmlhint \"**/*.html\" --ignore=\"docs/**\"\" \"stylelint --fix \"**/*.scss\" --ip \"z_atoms.scss\"\"",
 		"start": "http-server docs -s",
 		"dev": "concurrently \"npm start\" \"gulp dev\"",
 		"build": "gulp",
@@ -41,7 +41,7 @@
 	},
 	"lint-staged": {
 		"*.js": "eslint --ignore-pattern \"docs\"",
-		"*.htm": "htmlhint",
+		"*.htm": "htmlhint \"**/*.html\" --ignore=\"docs/**\"",
 		"*.scss": "stylelint --ip \"z_atoms.scss\""
 	}
 }

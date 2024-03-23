@@ -41,9 +41,9 @@ function init() {
 	const offsetFunctions = {
 		get d0()	{ return d.gi("intro").clientHeight; },
 		get d0g()	{ return this.d0 + gap; },
-		get d1()	{ return this.d0g + d.gi("who-we-are").clientHeight; },
+		get d1()	{ return d.gi("who-we-are").clientHeight + this.d0g; },
 		get d1g()	{ return this.d1 + gap; },
-		get d2()	{ return this.d1g + d.gi("activities").clientHeight; },
+		get d2()	{ return d.gi("activities").clientHeight + this.d1g; },
 		get d2g()	{ return this.d2 + gap; },
 		get d3()	{ return d.gi("the-board").clientHeight + this.d2g; },
 		get d3g()	{ return this.d3 + gap; },
@@ -206,9 +206,9 @@ function init() {
 	
 	
 	
-	d.st(function() { showTopBarEntries(); }, 1500);
 	setBodyHeight();
 	moveLine(0, true);
+	d.st(function() { showTopBarEntries(); }, 1500);
 	d.gc("body").classList.add("body--in");
 }
 
