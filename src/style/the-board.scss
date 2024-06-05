@@ -154,18 +154,18 @@
 	}
 	
 	&__fb-iframe {
-		width: 600px;
-		height: 400px;
+		width: 550px;
+		height: 500px;
 		margin: 4% auto 3%;
 		
 		display: block;
 		
 		background: white;
 		border: none;
+		border-radius: 5px;
 		
 		@media (max-width: $breakpointMobile) {
 			width: 100%;
-			height: calc(100vw * 0.65);
 			margin: 8vw auto;
 		}
 	}

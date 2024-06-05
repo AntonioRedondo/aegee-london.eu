@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	// Gulp plugin
 	cssDest: "src/style/z_atoms.scss",
 	acssConfig: {

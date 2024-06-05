@@ -1,21 +1,21 @@
-// Basics
-const gulp = require("gulp");
-const newer = require("gulp-newer");
-const sourcemaps = require("gulp-sourcemaps");
+// Dev
+import gulp from "gulp";
+import newer from "gulp-newer";
+import sourcemaps from "gulp-sourcemaps";
 
 // Build
-const concat = require("gulp-concat");
-const include = require("gulp-file-include");
-const replace = require("gulp-replace");
-const inline = require("gulp-inline");
-const postCss = require("gulp-postcss");
-const preCss = require("precss");
-const atomizer = require("gulp-atomizer");
-const atomCssConfig = require("./atomCssConfig.js");
-const assets = require("postcss-assets");
+import concat from "gulp-concat";
+import include from "gulp-file-include";
+import replace from "gulp-replace";
+import inline from "gulp-inline";
+import postCss from "gulp-postcss";
+import preCss from "precss";
+import atomizer from "gulp-atomizer";
+import atomCssConfig from "./atomCssConfig.js";
+import assets from "postcss-assets";
 
 // Production
-const htmlMin = require("gulp-html-minifier-terser");
+import htmlMin from "gulp-html-minifier-terser";
 
 
 const SRC = "src";
@@ -50,8 +50,7 @@ const buildCssTask = () =>
 	gulp.src([
 		`${SRC}/style/_variables.scss`,
 		`${SRC}/style/common.scss`,
-		`${SRC}/style/!(_atoms)*.scss`,
-		`${SRC}/style/z_atoms.scss`
+		`${SRC}/style/*.scss`
 	])
 		.pipe(sourcemaps.init())
 		.pipe(concat("style.css"))
@@ -94,11 +93,11 @@ const prodTask = () =>
 
 const buildTask = gulp.parallel(buildJsTask, buildHtmlTask, gulp.series(buildCssAtomsTask, buildCssTask), copyAssetsTask);
 
-exports.dev = gulp.series(buildTask, function watchTask() {
+export const dev = gulp.series(buildTask, function watchTask() {
 	gulp.watch([`${SRC}/js/*.js`], buildJsTask);
 	gulp.watch([`${SRC}/**/*.html`], buildHtmlTask);
 	gulp.watch([`${SRC}/style/*.scss`, `!${SRC}/style/z_atoms.scss`, `${SRC}/**/*.html`], gulp.series(buildCssAtomsTask, buildCssTask));
 	gulp.watch([`${SRC}/img/**`], gulp.parallel(copyAssetsTask));
 });
-exports.build = gulp.series(buildTask, prodTask);
-exports.default = exports.build;
+export const build = gulp.series(buildTask, prodTask);
+export default build;

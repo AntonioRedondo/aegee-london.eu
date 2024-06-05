@@ -22,7 +22,7 @@
 		"concurrently": "^8.2.2",
 		"eslint": "^9.4.0",
 		"globals": "^15.3.0",
-		"gulp": "^4.0.2",
+		"gulp": "^5.0.0",
 		"gulp-atomizer": "^3.0.7",
 		"gulp-concat": "^2.6.1",
 		"gulp-file-include": "^2.3.0",
