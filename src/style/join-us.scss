@@ -2,14 +2,14 @@
 	z-index: 6;
 	
 	&__paypal-form {
-		height: 7vw;
+		height: 5.2vw;
 		
 		@media (min-width: $breakpointBig) {
 			height: 140px;
 		}
 		
 		@media (max-width: $breakpointMobile) {
-			min-height: 110px;
+			min-height: 90px;
 		}
 	}
 
@@ -21,6 +21,16 @@
 		@media (max-width: $breakpointMobile) {
 			width: 60vw;
 			margin: 5vw auto;
+		}
+	}
+
+	&__paypal-message {
+		font-size: 0.8vw;
+		line-height: 1vw;
+		
+		@media (max-width: $breakpointMobile) {
+			font-size: 3.2vw;
+			line-height: 4vw;
 		}
 	}
 
