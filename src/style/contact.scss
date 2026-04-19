@@ -2,7 +2,7 @@
 	
 	&__fb-iframe {
 		width: 500px;
-		height: 500px;
+		height: 550px;
 		margin: 0 auto 2%;
 		
 		display: block;
@@ -11,7 +11,7 @@
 		
 		@media (max-width: $breakpointMobile) {
 			width: 320px;
-			height: 400px;
+			height: 365px;
 			margin: 8vw auto 15vw;
 		}
 	}
