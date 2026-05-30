@@ -202,14 +202,19 @@ function init() {
 	
 	d.ae("load", function() {
 		setBodyHeight();
+		skrollrInstance.refresh();
 	});
 	
 	
 	
-	setBodyHeight();
-	moveLine(0, true);
-	d.st(function() { showTopBarEntries(); }, 1500);
-	d.gc("body").classList.add("body--in");
+	// Suggested by AI: ensure measurements and skrollr refresh happen after a paint frame
+	requestAnimationFrame(function() {
+		setBodyHeight();
+		skrollrInstance.refresh();
+		moveLine(0, true);
+		d.st(function() { showTopBarEntries(); }, 1500);
+		d.gc("body").classList.add("body--in");
+	});
 }
 
 
